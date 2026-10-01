@@ -1,5 +1,5 @@
 # Builds the site and publishes it to GitHub Pages on every push to main.
-# While the site is a preview (preview.shabnamlee.com) it is hidden from search engines.
+# While the site is a preview (https://meidina477.github.io) it is hidden from search engines.
 # At launch: set the repository variable PREVIEW to "false" (Settings → Secrets and variables →
 # Actions → Variables) and change the custom domain to shabnamlee.com. See README.md.
 name: Deploy to GitHub Pages

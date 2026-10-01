@@ -32,14 +32,13 @@ npm run build      # builds the finished site into dist/
 Every push to the `main` branch builds the site and publishes it automatically (`.github/workflows/deploy.yml`).
 You can watch progress under the repository's **Actions** tab.
 
-### Preview: preview.shabnamlee.com
+### Preview: https://meidina477.github.io
+
+The repository is named `meidina477.github.io`, so GitHub publishes it at that address with no DNS or Hostinger setup.
 
 1. In the GitHub repository: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-2. Same page, **Custom domain**: `preview.shabnamlee.com` → Save. Tick **Enforce HTTPS** once it becomes available.
-3. In Hostinger hPanel → **DNS / Nameservers** for shabnamlee.com, add a record:
-   **Type** `CNAME`, **Name** `preview`, **Points to** `<your-github-username>.github.io`, TTL default.
-   (This doesn't touch the live shabnamlee.com.)
-4. While in preview mode every page carries `noindex`, so Google won't list it, and Google Analytics doesn't run.
+2. Wait for the **Actions** tab to show a green tick (about 2 minutes), then open https://meidina477.github.io.
+3. While in preview mode every page carries `noindex`, so Google won't list it, and Google Analytics doesn't run.
 
 ### The consultation form (FormSubmit): one-time activation
 

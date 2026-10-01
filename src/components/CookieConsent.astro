@@ -1,0 +1,132 @@
+---
+import { SITE } from '../data/site';
+---
+<div class="cookie" id="cookie-banner" role="dialog" aria-live="polite" aria-labelledby="cookie-title" hidden>
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      <p id="cookie-title" class="cookie-title">Your privacy</p>
+      <p>
+        We use Google Analytics cookies to understand how people use this site, so we can improve it.
+        They are only set if you accept. Nothing you share in therapy is ever tracked.{" "}
+        <a href="/privacy-policy/#cookies">Read more</a>
+      </p>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-outline" data-consent="denied">Decline</button>
+      <button type="button" class="btn btn-primary" data-consent="granted">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ tagId: SITE.googleTagId }}>
+  (function () {
+    var KEY = 'sl-consent';
+    var banner = document.getElementById('cookie-banner');
+    var loaded = false;
+
+    function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+    function save(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+    });
+
+    // Google's script is only downloaded after the visitor accepts.
+    // Only count visits on the real domain, so previews and local testing never add fake visits.
+    var LIVE = ['shabnamlee.com', 'www.shabnamlee.com'].indexOf(location.hostname) !== -1;
+
+    function loadAnalytics() {
+      if (loaded || !LIVE) return;
+      loaded = true;
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + tagId;
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', tagId, { anonymize_ip: true });
+    }
+
+    function clearAnalyticsCookies() {
+      document.cookie.split(';').forEach(function (c) {
+        var name = c.split('=')[0].trim();
+        if (/^_ga|^_gid|^_gat/.test(name)) {
+          var host = location.hostname.replace(/^www\./, '');
+          ['', '; domain=' + host, '; domain=.' + host].forEach(function (d) {
+            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + d;
+          });
+        }
+      });
+    }
+
+    function choose(value) {
+      var prev = read();
+      save(value);
+      banner.hidden = true;
+      if (value === 'granted') loadAnalytics();
+      else {
+        gtag('consent', 'update', { analytics_storage: 'denied' });
+        clearAnalyticsCookies();
+        if (prev === 'granted') location.reload();
+      }
+    }
+
+    var current = read();
+    if (current === 'granted') loadAnalytics();
+    else if (!current) banner.hidden = false;
+
+    banner.querySelectorAll('[data-consent]').forEach(function (b) {
+      b.addEventListener('click', function () { choose(b.getAttribute('data-consent')); });
+    });
+    document.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('[data-cookie-settings]')) {
+        banner.hidden = false;
+        banner.querySelector('[data-consent="granted"]').focus();
+      }
+    });
+  })();
+</script>
+
+<style>
+  .cookie {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .cookie[hidden] { display: none; }
+  .cookie-inner {
+    pointer-events: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 28px;
+    max-width: 880px;
+    padding: 20px 24px;
+    background: var(--white);
+    color: var(--text);
+    border-radius: var(--radius);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.18);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .cookie-text { flex: 1 1 380px; }
+  .cookie-title { font-family: var(--serif); font-size: 1.25rem; color: var(--ink); margin-bottom: 4px; }
+  .cookie a { color: var(--green); }
+  .cookie-actions { display: flex; gap: 10px; flex: 0 0 auto; }
+  .cookie .btn { padding: 0.7em 1.3em; }
+  .cookie .btn-outline { color: var(--ink); border-color: var(--line); }
+  @media (max-width: 520px) {
+    .cookie-actions { width: 100%; }
+    .cookie-actions .btn { flex: 1; }
+  }
+</style>

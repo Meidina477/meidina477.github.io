@@ -1,0 +1,276 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../data/site';
+import PhotoHero from '../components/PhotoHero.astro';
+import heroPhoto from '../assets/photos/hero-booking.png';
+
+// Country calling codes for the WhatsApp field. Indonesia first (default), then by code.
+// Only the code is shown; the country name appears as a tooltip.
+const dialCodes = [
+  ['Indonesia', '+62'],
+  ['Australia', '+61'], ['United States / Canada', '+1'], ['China', '+86'], ['France', '+33'], ['Germany', '+49'],
+  ['Hong Kong', '+852'], ['India', '+91'], ['Italy', '+39'], ['Japan', '+81'], ['Malaysia', '+60'],
+  ['Netherlands', '+31'], ['New Zealand', '+64'], ['Philippines', '+63'], ['Qatar', '+974'],
+  ['Saudi Arabia', '+966'], ['Singapore', '+65'], ['South Korea', '+82'], ['Spain', '+34'],
+  ['Switzerland', '+41'], ['Taiwan', '+886'], ['Thailand', '+66'], ['United Arab Emirates', '+971'],
+  ['United Kingdom', '+44'], ['Vietnam', '+84'],
+];
+
+const sources = ['Google', 'AI search (Claude, ChatGPT, etc.)', 'Instagram', 'IFS Institute', 'Referral', 'Other'];
+---
+<Base {...SEO['book-free-consultation']} overPhoto>
+  <PhotoHero
+    layout="bottom"
+    title="Let’s see if we’re <em>the right fit.</em>"
+    text="This is a free 15-minute conversation. No commitment, no pressure. Just enough time to get a sense of what you’re carrying and whether working together feels right."
+    image={heroPhoto}
+    imageAlt="A calm therapy room with a sofa, cushions and a small side table"
+    cta={false}
+    shade={0.4}
+  />
+
+  <section class="section bg-cream">
+    <div class="wrap-mid grid-2 expect">
+      <div>
+        <h2>What to expect</h2>
+        <ol class="plain">
+          <li>A 15-minute online call at a time that suits you.</li>
+          <li>Space to share what’s been going on, in your own words.</li>
+          <li>An honest conversation about whether my approach is the right fit.</li>
+          <li>No obligation to book. If I’m not the right fit, I’ll do my best to point you in the right direction.</li>
+        </ol>
+      </div>
+      <figure class="client card">
+        <h2 class="client-title">In the client’s words</h2>
+        <blockquote>“Shabs is an incredibly insightful therapist. Within just 20 minutes of therapy, she helped me uncover a core issue from my childhood that I believe was a major root cause of my insecurities and anxieties. This newfound understanding lifted a huge weight off my shoulders and gave me a much more hopeful perspective.”</blockquote>
+        <figcaption>Andrea Gunawan, entrepreneur, Jakarta</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="wrap-mid book-grid">
+      <div class="form-intro">
+        <h2>Submit your enquiry</h2>
+        <p class="muted">For a free 15-minute consultation. Fields marked * are required.</p>
+      </div>
+
+      <div id="form">
+        <div class="form-error" role="alert" hidden>
+          Sorry, something went wrong sending your enquiry. Please try again, or message us on <a href="https://wa.me/6287772310257">WhatsApp</a>.
+        </div>
+
+        <form action={`https://formsubmit.co/${SITE.email}`} method="post" class="enquiry" data-endpoint={`https://formsubmit.co/ajax/${SITE.email}`} novalidate>
+          <input type="hidden" name="_subject" value="New consultation enquiry from shabnamlee.com" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value={`${SITE.url}/thank-you/`} />
+          <div class="row">
+            <label>First name *<input type="text" name="first_name" autocomplete="given-name" required maxlength="80" /></label>
+            <label>Last name<input type="text" name="last_name" autocomplete="family-name" maxlength="80" /></label>
+          </div>
+          <label>Email *<input type="email" name="email" autocomplete="email" required maxlength="160" /></label>
+          <div class="field">
+            <label for="wa-number">WhatsApp *</label>
+            <div class="phone">
+              <select name="whatsapp_code" aria-label="Country code" autocomplete="tel-country-code">
+                {[dialCodes[0], ...dialCodes.slice(1).sort((a, b) => parseInt(a[1].slice(1)) - parseInt(b[1].slice(1)))].map(([country, code], i) => <option value={code} title={country} selected={i === 0}>{code}</option>)}
+                <option value="" title="Other: type the country code in the number">Other</option>
+              </select>
+              <input id="wa-number" type="tel" name="whatsapp" autocomplete="tel-national" inputmode="tel" required maxlength="30" placeholder="812 3456 7890" />
+            </div>
+          </div>
+
+          <label>How did you hear about me? *
+            <select name="source" required>
+              <option value="">Choose one</option>
+              {sources.map((s) => <option>{s}</option>)}
+            </select>
+          </label>
+
+          <fieldset>
+            <legend>This therapy is for… *</legend>
+            <label class="choice"><input type="radio" name="for" value="Myself" required /> Myself</label>
+            <label class="choice"><input type="radio" name="for" value="Myself and my partner" /> Myself and my partner</label>
+            <label class="choice"><input type="radio" name="for" value="Not sure yet" /> Not sure yet</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Have you worked with a therapist before? *</legend>
+            <label class="choice"><input type="radio" name="before" value="Yes" required /> Yes</label>
+            <label class="choice"><input type="radio" name="before" value="No, this would be my first time" /> No, this would be my first time</label>
+          </fieldset>
+
+          <label>What brings you here? *
+            <span class="hint">A few sentences is enough. There are no right or wrong answers.</span>
+            <textarea name="message" rows="6" required maxlength="5000" placeholder="Share as much or as little as feels comfortable right now…"></textarea>
+          </label>
+
+          <div class="note">
+            <h3>A note on investment</h3>
+            <p>Working with Shabnam is an out-of-pocket investment. You may be able to seek reimbursement through your insurance provider depending on your plan. Individual sessions begin at IDR 4,000,000 and couples at IDR 14,500,000. Please take a moment to confirm this feels financially accessible for you right now.</p>
+            <label class="choice">
+              <input type="checkbox" name="investment" value="yes" required />
+              <span>I have read and understand the minimum requirement of IDR 4,000,000, and understand the financial investment involved. *</span>
+            </label>
+          </div>
+
+          <label class="choice consent">
+            <input type="checkbox" name="consent" value="yes" required />
+            <span>I agree to share the information provided in this form with Shabnam Lee, as described in the <a href="/privacy-policy/" target="_blank">privacy policy</a>. *</span>
+          </label>
+
+          <!-- Spam traps: hidden from people, filled in by bots. -->
+          <div class="trap" aria-hidden="true">
+            <label>Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label>
+          </div>
+
+          <button type="submit" class="btn submit">Submit your enquiry</button>
+          <p class="muted small">
+            My pricing varies based on your location for parity purposes. If you’re based outside Indonesia,
+            <a href="https://bit.ly/internationalpricing" target="_blank" rel="noopener">view the international pricing here</a>.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <Faq
+    tone="paper"
+    title="Common <em>questions</em>"
+    items={[
+      { q: 'What are your working hours?', a: 'We’re available Tuesday to Friday, 8:30 AM to 4:00 PM. Reach out anytime within these hours and we’re happy to help.' },
+      { q: 'Do you offer different pricing for clients outside Indonesia?', a: 'Yes. Our pricing varies slightly for clients residing outside Indonesia compared to those based locally. Feel free to get in touch and we’ll share the details that apply to you. <a href="https://bit.ly/internationalpricing" target="_blank" rel="noopener">View our pricing</a>.' },
+      { q: 'What language are sessions conducted in?', a: 'English only. Shabnam does not conduct sessions in Bahasa Indonesia.' },
+      { q: 'Do you work with clients with ADHD or ASD?', a: 'Yes. Shabnam works with clients who have ADHD and ASD, providing a supportive and understanding space tailored to each person’s individual needs.' },
+      { q: 'Are there areas Shabnam doesn’t work with?', a: 'Shabnam currently doesn’t offer family therapy or EMDR. If you’re looking for support in these areas, we’re glad to help point you toward the right resources.' },
+      { q: 'Can I book a session right away?', a: 'No. A 15-minute Zoom chemistry check is required first to see if we’re a good fit before booking a session. If you’re interested, please fill in the form to get started.' },
+    ]}
+  />
+</Base>
+
+<script>
+  // Enquiries are sent by email through FormSubmit (same service as thetherapyintensive.com).
+  // With JavaScript the form posts in the background and then shows the thank-you page;
+  // without it, the normal form post still works.
+  const form = document.querySelector<HTMLFormElement>('.enquiry')!;
+  const errorBox = document.querySelector<HTMLElement>('.form-error')!;
+  const btn = form.querySelector<HTMLButtonElement>('.submit')!;
+  const openedAt = Date.now();
+
+  if (new URLSearchParams(location.search).has('error')) errorBox.hidden = false;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.classList.add('validated');
+      form.querySelector<HTMLElement>(':invalid')?.focus();
+      return;
+    }
+    const f = new FormData(form);
+    // Spam traps: a hidden field bots fill in, and a minimum time on the page. Bots see "success".
+    if (String(f.get('_honey') || '') !== '' || Date.now() - openedAt < 3000) {
+      location.href = '/thank-you/';
+      return;
+    }
+    const payload = {
+      Name: `${f.get('first_name')} ${f.get('last_name') || ''}`.trim(),
+      Email: f.get('email'),
+      WhatsApp: `${f.get('whatsapp_code') || ''} ${f.get('whatsapp')}`.trim(),
+      'Heard about us via': f.get('source'),
+      'Therapy is for': f.get('for'),
+      'Had therapy before': f.get('before'),
+      'What brings them here': f.get('message'),
+      'Understands minimum investment (IDR 4,000,000)': 'Yes',
+      'Consent to share information': 'Yes',
+      _replyto: f.get('email'),
+      _subject: f.get('_subject'),
+      _template: 'table',
+      _captcha: 'false',
+    };
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    errorBox.hidden = true;
+    try {
+      const res = await fetch(form.dataset.endpoint!, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) === 'false') throw new Error(data.message || 'Send failed');
+      location.href = '/thank-you/';
+    } catch {
+      errorBox.hidden = false;
+      errorBox.scrollIntoView({ block: 'center' });
+      btn.disabled = false;
+      btn.textContent = 'Submit your enquiry';
+    }
+  });
+</script>
+
+<style>
+  .wrap-mid { width: min(100% - 2 * var(--gutter), 1080px); margin-inline: auto; }
+  .expect { align-items: start; }
+  .expect h2 { font-size: clamp(2rem, 3.4vw, 2.6rem); margin-bottom: 0.7em; }
+  .plain { list-style: none; counter-reset: step; padding: 0; margin: 0; font-size: 1.02rem; line-height: 1.5; color: var(--ink); }
+  .plain li { counter-increment: step; display: grid; grid-template-columns: 34px 1fr; gap: 16px; align-items: start; padding: 18px 0; border-top: 1px solid var(--line); }
+  .plain li:last-child { border-bottom: 1px solid var(--line); }
+  .plain li::before {
+    content: counter(step);
+    display: grid; place-items: center;
+    width: 30px; height: 30px; margin-top: -2px;
+    border: 1px solid var(--tan); border-radius: 50%;
+    font-size: 0.8rem; color: var(--tan-dark);
+  }
+  .client { margin: 0; padding: clamp(32px, 5vw, 60px); text-align: center; border-radius: 18px; }
+  .client-title { font-size: clamp(1.5rem, 2.4vw, 1.9rem); color: var(--green); margin-bottom: 1.2rem; }
+  .client blockquote { margin: 0; font-style: italic; line-height: 1.55; color: var(--text); }
+  .client figcaption { margin-top: 1rem; font-size: 0.9rem; color: var(--muted); }
+
+  .book-grid { display: grid; gap: clamp(32px, 6vw, 80px); grid-template-columns: 1fr; align-items: start; }
+  @media (min-width: 980px) { .book-grid { grid-template-columns: 0.8fr 1fr; } .form-intro { position: sticky; top: 120px; } }
+  .form-intro h2 { font-size: clamp(2rem, 3.4vw, 2.6rem); }
+  .enquiry { display: grid; gap: 22px; }
+  .row { display: grid; gap: 18px; grid-template-columns: 1fr; }
+  @media (min-width: 560px) { .row { grid-template-columns: 1fr 1fr; } }
+  .enquiry label { display: grid; gap: 8px; font-size: 1rem; color: var(--text); }
+  .enquiry input:not([type='radio']):not([type='checkbox']), .enquiry select, .enquiry textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--ink);
+    background: #edeeeb;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+  }
+  .enquiry textarea { resize: vertical; }
+  .enquiry :is(input, select, textarea):focus { outline: 2px solid var(--green); outline-offset: 1px; background: var(--white); }
+  .enquiry.validated :is(input, select, textarea):invalid { border-color: #b3261e !important; }
+  .hint { font-size: 0.85rem; color: var(--muted); }
+  .field { display: grid; gap: 8px; }
+  .field > label { font-size: 1rem; color: var(--text); }
+  .phone { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 8px; }
+  .phone select { padding-inline: 12px 8px; }
+  .phone select { padding-inline: 10px; text-overflow: ellipsis; }
+  fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 8px; }
+  legend { font-size: 1rem; color: var(--text); margin-bottom: 8px; padding: 0; }
+  .enquiry .choice { display: flex; align-items: flex-start; gap: 10px; font-size: 0.97rem; color: var(--text); cursor: pointer; }
+  .choice input { margin-top: 0.3em; accent-color: var(--green); width: 17px; height: 17px; flex: 0 0 auto; }
+  .consent a { color: var(--green); }
+  .note { display: grid; gap: 14px; padding: clamp(20px, 3vw, 30px); border-radius: var(--radius-sm); background: var(--cream); font-size: 0.9rem; color: var(--muted); }
+  .note p { margin: 0; }
+  .enquiry .note .choice { font-size: 0.9rem; color: var(--muted); }
+  .note h3 { font-family: var(--sans); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .submit { width: 100%; padding: 1em 1.8em; font-size: 0.95rem; background: var(--tan); color: var(--white); }
+  .submit:hover { background: var(--tan-dark); }
+  .submit:disabled { opacity: 0.6; cursor: wait; }
+  .small { font-size: 0.87rem; }
+  .small a { color: var(--green); }
+  .form-error { margin-top: 16px; padding: 14px 16px; border-radius: var(--radius-sm); background: #fbeaea; color: #7a1c16; font-size: 0.93rem; }
+  .form-error[hidden] { display: none; }
+</style>

@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PageHero from '../components/PageHero.astro';
+import CardGrid from '../components/CardGrid.astro';
+import Programmes from '../components/Programmes.astro';
+import Versus from '../components/Versus.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import hero from '../assets/photos/hero-mothers.png';
+import { INDIVIDUAL_PROGRAMMES, INTENSIVE_VS_WEEKLY, NOT_SURE_NOTE } from '../data/programmes';
+---
+<Base {...SEO['high-achieving-mothers']}>
+  <PageHero
+    eyebrow="In-person in Jakarta and Bali. Online worldwide."
+    title="Therapy for high achieving mothers"
+    text="This is therapy for mothers who are capable, driven, and quietly overwhelmed. Not because something is wrong with you. Because you are holding too much, in a world that was not designed to make this easy."
+    image={hero}
+    imageAlt="A mother walking hand in hand with her young child along the beach"
+  />
+
+  <CardGrid
+    tone="blush"
+    center
+    eyebrow="Who this is for"
+    title="Therapy for high achieving mothers."
+    intro="Holding everything together and wondering why that no longer feels like enough. Here is what they usually describe."
+    items={[
+      { title: 'Mum guilt', text: 'The feeling that your children are getting whatever is left of you. That you are somehow failing them even when you are right there.' },
+      { title: 'Performance anxiety', text: 'The fear that you are slipping at work. That the version of you before children was sharper, faster, more present. That people are starting to notice.' },
+      { title: 'Losing yourself', text: 'Not knowing who you are outside of your roles anymore. The quiet erasure that happens when everyone else’s needs come first.' },
+      { title: 'Burnout you cannot name', text: 'Exhausted in a way that feels hard to say out loud when, by every measure, you have a good life.' },
+      { title: 'Rage, resentment, or numbness', text: 'Emotions that feel too big or suddenly too absent. Reactions that leave you feeling worse than before.' },
+      { title: 'The relationship quietly suffering', text: 'Co-managing life together. The connection between you and your partner slowly slipping away down the list.' },
+    ]}
+  />
+
+  <CardGrid
+    tone="green"
+    columns={2}
+    center
+    eyebrow="Work with me"
+    title="Where would you like to start?"
+    intro="Deep, focused work with someone who understands high achievement, motherhood and the weight of carrying both."
+    items={[
+      { title: 'Internal Family Systems (IFS)', text: 'Works with the parts of you in conflict. The one that cannot stop performing. The one that carries the guilt. Understanding where they came from and what they actually need.', href: '/ifs/', linkLabel: 'Learn about IFS' },
+      { title: 'Brainspotting', text: 'Reaches what is held in the body. The chronic activation, the hair-trigger reactions, the exhaustion that sleep does not fix.', href: '/brainspotting/', linkLabel: 'Learn about Brainspotting' },
+      { title: 'Perinatal Mental Health', text: 'Specialist training across pregnancy, postpartum and early parenthood. If you are in or near that season, this work is informed by it.', href: '/perinatal-health/', linkLabel: 'Learn about Perinatal Mental Health' },
+      { title: 'ACT', text: 'For the mind that never really switches off. ACT does not try to stop your thoughts. It changes your relationship with them so they lose their grip and what you actually want becomes clearer.', href: '/act-therapy/', linkLabel: 'Learn about ACT' },
+    ]}
+  >
+    <figure class="own-words" slot="before">
+      <blockquote class="serif"><em>“I am a mother and a partner. I know what it feels like to love your work and your children and still wonder, quietly, where she went.”</em></blockquote>
+      <figcaption>Shabnam Lee, Licensed Counsellor</figcaption>
+    </figure>
+  </CardGrid>
+
+  <Programmes
+    accent="mauve"
+    programmes={INDIVIDUAL_PROGRAMMES}
+    note={NOT_SURE_NOTE}
+  />
+
+  <Versus
+    tone="blush"
+    eyebrow="Which is right for you"
+    title="Individual intensive therapy vs weekly therapy"
+    intro="Most therapists offer weekly sessions only. The intensive format exists because some people need to move faster, go deeper, or cannot fit weekly therapy to their lives right now. Neither is better. They suit different people at different moments."
+    {...INTENSIVE_VS_WEEKLY}
+  />
+
+  <Faq
+    tone="paper"
+    items={[
+      { q: 'Can I come to therapy if my life looks fine from the outside but I am struggling?', a: 'Yes. That tension is exactly what this work holds space for. You are not struggling because something is wrong with you. You are struggling because you are carrying a lot, in a structure that was not designed to make it easy, while holding yourself to a standard that leaves very little room for any of it. That is not weakness. That is the situation.' },
+      { q: 'Will therapy ask me to slow down or step back from my career?', a: 'No. The work is not about doing less. It is about understanding the internal drivers that are making what you are doing so costly. The perfectionist part. The part that equates worth with output. The one that cannot rest without guilt. When those parts are understood, you get to make clearer choices, not have choices made for you.' },
+      { q: 'Is therapy for high-functioning mothers who are holding it all together?', a: 'It is actually one of the most common presentations. High-achieving mothers are often the last to ask for support precisely because they are so good at holding it together. The fact that no one around you knows does not mean the cost is not real. It usually means you have been carrying it alone for longer than necessary.' },
+      { q: 'What is perinatal mental health therapy and do I need it?', a: 'It means the work is informed by the specific psychological terrain of pregnancy, postpartum, and early parenthood, including matrescence, the profound identity shift every woman moves through when she becomes a mother. That context shapes how we understand what you are carrying. It also means that if you are currently pregnant or recently postpartum, the work is calibrated to where you actually are.' },
+      { q: 'Can individual therapy for mothers also address relationship problems?', a: 'Yes. The relationship is often part of the picture, whether it is a quiet disconnection that has crept in, the weight of co-managing everything, or the parts of your own history that are showing up in how you parent. We can address that within individual therapy or through <a href="/couple-therapy/">couples work</a> if both partners are open to it.' },
+      { q: 'What therapy format works best for mothers with limited time in Jakarta?', a: 'The therapy intensive was specifically designed for people who cannot build weekly appointments into an already-stretched schedule. Six hours of focused work across two days, with aftercare included, often moves things that months of weekly sessions might not reach. If weekly therapy is more accessible, that option is available too.' },
+    ]}
+  />
+
+  <CtaBand title="You come home to everyone else. <em>It is time to come home to yourself.</em>" />
+</Base>
+
+<style>
+  .own-words { max-width: 1000px; margin: 0 auto 20px; padding: clamp(24px, 3.5vw, 36px); border-radius: var(--radius); background: #e1e4df; text-align: center; }
+  .own-words blockquote { margin: 0; font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.35; color: var(--ink); }
+  .own-words figcaption { margin-top: 0.9rem; font-size: 0.9rem; color: var(--text); }
+</style>

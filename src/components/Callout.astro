@@ -1,0 +1,15 @@
+---
+// A short centred band: eyebrow, heading, text and one link. Used for "Want to go deeper?" style prompts.
+interface Props { eyebrow?: string; title: string; text?: string; link?: { label: string; href: string }; tone?: 'green' | 'tan' | 'sage' | 'mist' | 'blush' | 'paper' | 'cream' }
+const { eyebrow, title, text, link, tone = 'sage' } = Astro.props;
+const dark = ['green', 'tan', 'sage'].includes(tone);
+---
+<section class={`section-sm bg-${tone}`}>
+  <div class="wrap-narrow center">
+    {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    <h2 set:html={title} />
+    {text && <p class="lead" set:html={text} />}
+    <slot />
+    {link && <div class="actions"><a href={link.href} class={dark ? 'btn btn-light' : 'btn btn-primary'}>{link.label}</a></div>}
+  </div>
+</section>

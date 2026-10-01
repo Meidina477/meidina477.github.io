@@ -1,0 +1,191 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PhotoHero from '../components/PhotoHero.astro';
+import heroPhoto from '../assets/photos/hero-ifs.png';
+import CardGrid from '../components/CardGrid.astro';
+import IssueList from '../components/IssueList.astro';
+import Research from '../components/Research.astro';
+import Reading from '../components/Reading.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import YouTube from '../components/YouTube.astro';
+import { pick } from '../data/testimonials';
+import feature from '../assets/photos/ifs-bench.png';
+import noBadParts from '../assets/img/no-bad-parts.webp';
+import youAreTheOne from '../assets/img/shopping-2.webp';
+
+const sessionSteps = [
+  { title: 'Creating space', text: 'We begin by creating space and settling. IFS works with the nervous system, not against it. Nothing is forced or rushed.' },
+  { title: 'Noticing what is present', text: 'You are invited to notice what is present inside. A feeling, a tension, a thought. We approach it with curiosity rather than trying to fix it or push it away.' },
+  { title: 'Getting to know the part', text: 'We get to know the part that is there. Where it lives in your body. What it is carrying. What it needs. This is where the real shifts happen.' },
+  { title: 'Self steps into the lead', text: 'Over time, parts that have been burdened for years begin to trust. They soften. They transform. And your Self steps into the lead.' },
+];
+
+const eightCs = ['Curiosity', 'Compassion', 'Confidence', 'Connectedness', 'Courage', 'Calm', 'Clarity', 'Creativity'];
+---
+<Base {...SEO['ifs']} overPhoto>
+  <PhotoHero
+    title="IFS Therapy"
+    image={heroPhoto}
+    imageAlt="A person sitting on a mossy cliff edge beside a tall waterfall"
+    position="center"
+    text="Most therapy helps you understand your patterns. But there is a part of you that works hard and never feels like enough. A part that shuts down when things get too close. A part that wants to change and one that will not let you. And no amount of insight seems to touch them."
+  >
+    <p>Internal Family Systems (IFS) helps you meet the parts running those patterns, understand what they are protecting, and what they might be ready to put down. That is where the real work begins.</p>
+  </PhotoHero>
+
+  <section class="section bg-white intro-sec">
+    <div class="wrap">
+      <Image src={feature} alt="A woman sitting alone on a bench, looking out over the hills at sunset" class="feature" widths={[640, 960, 1100]} sizes="(min-width: 1180px) 1100px, 92vw" />
+      <div class="intro-cols">
+        <h2 class="intro-title">You tried to feel better. You have read the books, done the work, maybe even tried therapy. <em>And you are still waiting for that shift.</em></h2>
+        <div>
+          <p>That is not because you are beyond help. It is because most therapy works with the surface. IFS goes underneath it.</p>
+          <p>Developed by Dr Richard Schwartz, IFS recognises that we are all multiple. We have different parts, each with its own feelings, beliefs and role. None of them are bad. All of them developed for a reason. And once you understand them, they stop running your life.</p>
+          <p>IFS quickly becomes more than a therapy. Clients describe it as a blueprint for living. A way of relating to themselves with compassion that extends into every area of their life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CardGrid
+    tone="white"
+    items={[
+      { eyebrow: 'Managers', title: 'The ones who keep it together', text: 'Proactive parts that work hard to prevent pain before it happens. The perfectionist. The achiever. The people-pleaser. Often the most visible parts in high achievers.' },
+      { eyebrow: 'Firefighters', title: 'The ones who react', text: 'Parts that jump in fast when pain breaks through. Rage. Numbing. Overworking. Scrolling. Reactive and usually misunderstood as problems rather than protectors.' },
+      { eyebrow: 'Exiles', title: 'The ones who carry the pain', text: 'Younger, vulnerable parts holding old wounds, shame and fear. Managers and firefighters exist entirely to protect these parts from being felt.' },
+    ]}
+  >
+    <div class="self">
+      <div>
+        <h3>And beneath all of them: <em>the Self.</em></h3>
+        <p>IFS holds that every person has an undamaged core Self. Not a part. Who you actually are. When you access Self energy, you can lead your inner system with compassion and wisdom. This is what the work moves towards. Richard Schwartz calls the qualities of Self the eight Cs.</p>
+      </div>
+      <ul class="cs">{eightCs.map((c) => <li>{c}</li>)}</ul>
+    </div>
+  </CardGrid>
+
+  <IssueList
+    eyebrow="Who this is for"
+    title="Therapy for executives, founders and high performers"
+    intro="Most people arrive with several things tangled together. These are the areas we work on most often, and what IFS sees underneath them."
+    items={[
+      ['Burnout and exhaustion', 'Driven by parts that cannot stop'],
+      ['Anxiety and overthinking', 'Manager parts on high alert'],
+      ['Perfectionism', 'A protector carrying an old wound'],
+      ['Trauma and PTSD', 'Exile parts holding past pain'],
+      ['Depression', 'A system that has shut down'],
+      ['Relationship patterns', 'Parts that learned to protect early'],
+      ['Inner critic', 'A manager trying to keep you safe'],
+      ['Identity and self-worth', 'Exiles that never felt enough'],
+      ['Couples and intimacy', 'Parts running the relationship'],
+    ]}
+  />
+
+  <Research
+    title="IFS is a recognised, <em>evidence-based practice.</em>"
+    intro="IFS is not a trend. It is a rigorously studied, evidence-based modality with a growing body of peer-reviewed research behind it."
+    items={[
+      { text: 'In 2015 IFS was designated an evidence-based practice by the National Registry for Evidence-based Programs and Practices, rated effective for improving general functioning and wellbeing, and promising for depression, anxiety and physical health conditions.', source: 'SAMHSA National Registry · Foundation for Self Leadership' },
+      { text: 'A pilot study of 17 adults with PTSD found significant reductions in PTSD and depressive symptoms following IFS treatment. At one-month follow-up, 92% no longer met criteria for PTSD.', source: 'Hodgdon et al., Journal of Aggression, Maltreatment and Trauma, 2021' },
+      { text: 'A randomised controlled trial found IFS effective for depressive symptoms in female college students, with results comparable to existing evidence-based treatments including CBT.', source: 'Haddock et al., Journal of Marital and Family Therapy, 2016' },
+      { text: 'A 2025 scoping review of 27 peer-reviewed studies identified IFS as a promising treatment particularly for chronic pain, depression and PTSD, with a strong evidence base continuing to grow.', source: 'Buys, Clinical Psychologist, 2025' },
+      { text: 'IFS-based group therapy has been shown to significantly improve self-compassion and self-esteem, with measurable psychological shifts observed in participants after completion.', source: 'Published in JAYPS, 2024' },
+    ]}
+  />
+
+  <section class="section bg-oat session">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">What a session feels like</span>
+        <h2>IFS is experiential. <em>The best way to understand it is to try it.</em></h2>
+        <p>IFS is not about analysing yourself from the outside. It is about going inside and making contact with your parts directly. Most clients describe it as unlike anything they have experienced in therapy before.</p>
+      </div>
+      <ol class="session-steps">
+        {sessionSteps.map((st, i) => (
+          <li><span class="n">{String(i + 1).padStart(2, '0')}</span><p><span class="visually-hidden">{st.title}. </span>{st.text}</p></li>
+        ))}
+      </ol>
+      <div class="meditation">
+        <YouTube id="O9rGbB70rxU" title="Free guided IFS meditation with Shabnam Lee" />
+        <div>
+          <span class="eyebrow">Try it • Free guided IFS meditation</span>
+          <h3>Get a felt sense of what IFS is like <em>before your first session.</em></h3>
+          <p>A short guided meditation by Shabs to help you begin to notice your parts, with curiosity and without judgement. The best way to understand IFS is to experience it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CardGrid
+    tone="white"
+    columns={2}
+    center
+    title="Where IFS sits within the work"
+    intro="IFS is the foundation of how I work with individuals, couples and mothers. It is often combined with Brainspotting for deeper nervous system work, and with RLT when relational patterns are part of the picture."
+    items={[
+      { eyebrow: 'For individuals', title: 'Individual IFS therapy', text: 'Weekly and intensive formats', href: '/individual-therapy/' },
+      { eyebrow: 'For couples', title: 'Couples IFS and RLT', text: 'Understand each partner’s parts', href: '/couple-therapy/' },
+      { eyebrow: 'Combined method', title: 'IFS and Brainspotting', text: 'Mind and body together', href: '/brainspotting/' },
+      { eyebrow: 'Deep dive', title: 'IFS intensives in Jakarta and Bali', text: '6-hour and 8.5-hour intensives, or a Bali retreat', href: '/ifs-therapy-intensive/' },
+    ]}
+  />
+
+  <Reading
+    title="If you are curious about IFS"
+    intro="Two books worth reading. Three podcasts worth listening to."
+    books={[
+      { title: 'No Bad Parts', author: 'Richard Schwartz', cover: noBadParts, href: 'https://www.amazon.com/s?k=no+bad+parts+richard+schwartz' },
+      { title: 'You Are the One You’ve Been Waiting For', author: 'Richard Schwartz', cover: youAreTheOne, href: 'https://www.amazon.com/dp/1683643623' },
+    ]}
+    podcasts={[
+      { show: 'Feel Better Live More', episode: 'This Therapy Changed My Life And It Could Do The Same For You', guests: 'Dr Rangan Chatterjee with Richard Schwartz, founder of IFS' },
+      { show: 'We Can Do Hard Things', episode: 'Inside an Internal Family Systems (IFS) Therapy Session', guests: 'Glennon Doyle with Richard Schwartz, founder of IFS' },
+      { show: 'Huberman Lab', episode: 'How to Achieve Inner Peace & Healing', guests: 'Andrew Huberman with Richard Schwartz, founder of IFS' },
+    ]}
+  />
+
+  <Testimonials tone="oat" more items={pick('mikael-jasin', 'client-focused-on-overcoming-work-burnout-anxiety', 'client-focused-on-overcoming-relationship-trauma', 'client-focused-on-resolving-personal-issues', 'client-focused-on-self-improvement', 'client-focused-on-building-healthy-habits', 'client-focused-on-building-resilience', 'client-focused-on-developing-self-understanding', 'client-focused-on-work-life-challenges', 'client-focused-on-overcoming-anxiety')} />
+
+  <Faq
+    tone="white"
+    items={[
+      { q: 'What are parts in IFS therapy?', a: 'IFS understands the mind as made up of different parts, each with its own feelings, beliefs, and role. The perfectionist. The inner critic. The part that shuts down when things get too close. The one that scrolls for hours when the anxiety gets too loud. None of them are problems. They all developed for a reason, usually to protect you from something painful. The work is about getting to know them rather than fighting them.' },
+      { q: 'What is the Self in IFS and how is it different from a part?', a: 'The Self is not a part. It is who you actually are at the core, before the protection systems formed. IFS describes it through qualities like calm, curiosity, compassion, and clarity. Most people have glimpses of it already, the moment in an argument when they suddenly see the bigger picture, or the version of themselves that shows up for a friend in crisis. The work is about helping your parts trust that Self enough to step back and let it lead.' },
+      { q: 'Does IFS therapy work for analytical, high-achieving people?', a: 'Often especially well. IFS does not ask you to abandon your analytical mind. It asks you to also use what is underneath it. Many high achievers arrive having over-relied on thinking their way through problems and find that IFS reaches what thinking alone has not been able to shift. The curiosity that makes you analytical actually becomes a real asset in this work.' },
+      { q: 'Can IFS therapy be used for relationship and couples issues?', a: 'Yes. IFS is used with couples as well as individuals. In couples work, it helps each partner understand the parts of themselves that take over in conflict: the part that attacks, the part that shuts down, the one that learned early that love was conditional. When both partners see their own system, and each other’s, the relationship changes profoundly.' },
+      { q: 'Is IFS therapy evidence-based?', a: 'Yes. In 2015 IFS was designated an evidence-based practice by the US National Registry for Evidence-based Programs and Practices. There is a growing body of peer-reviewed research showing its effectiveness for PTSD, depression, anxiety, and general wellbeing. It is not a trend. It is a rigorously studied modality that has been in clinical use for over 30 years.' },
+      { q: 'How quickly does IFS therapy produce results?', a: 'It varies, and it is honest to say so. Some clients notice a shift in the first session. Others find it builds more gradually as parts begin to trust the process. The intensive format often accelerates this significantly. What most people describe is that once a part feels genuinely heard rather than managed, something changes in how much power it has over them.' },
+    ]}
+  />
+
+  <CtaBand tone="white" layout="inline" eyebrow="" title="Ready to meet your parts? <br /><em>Start with a conversation.</em>" />
+</Base>
+
+<style>
+  .feature { width: 100%; aspect-ratio: 1100 / 520; object-fit: cover; border-radius: 18px; }
+  .intro-cols { display: grid; gap: 24px 48px; margin-top: 40px; }
+  @media (min-width: 860px) { .intro-cols { grid-template-columns: 0.75fr 1fr; } }
+  .intro-title { font-size: clamp(1.5rem, 2.4vw, 1.85rem); line-height: 1.25; }
+  .intro-sec { padding-bottom: 0; }
+
+  .self { display: grid; gap: 32px 56px; margin-top: 64px; }
+  @media (min-width: 860px) { .self { grid-template-columns: 1fr 1fr; align-items: end; } }
+  .self h3 { font-size: clamp(1.5rem, 2.4vw, 1.8rem); color: var(--ink); }
+  .cs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 24px; list-style: none; padding: 0; margin: 0; }
+  @media (min-width: 560px) { .cs { grid-template-columns: repeat(4, 1fr); } }
+  .cs li { font-family: var(--serif); font-size: clamp(1.25rem, 2vw, 1.55rem); color: var(--ink); }
+
+  .session-steps { display: grid; gap: 24px; grid-template-columns: 1fr; list-style: none; padding: 0 0 48px; margin: 0 0 48px; border-bottom: 1px solid var(--line); }
+  @media (min-width: 640px) { .session-steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .session-steps { grid-template-columns: repeat(4, 1fr); } }
+  .session-steps li { display: flex; gap: 12px; }
+  .session-steps .n { font-family: var(--serif); font-size: 1.6rem; line-height: 1; color: var(--ink); }
+  .session-steps p { font-size: 0.9rem; }
+  .meditation { display: grid; gap: 28px 48px; align-items: center; }
+  @media (min-width: 760px) { .meditation { grid-template-columns: 0.8fr 1.2fr; } }
+  .meditation h3 { font-size: clamp(1.5rem, 2.4vw, 1.9rem); }
+</style>

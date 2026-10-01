@@ -1,0 +1,78 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { SITE } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+<footer class="site-footer bg-green-dark">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <Logo light height={28} />
+        <p>Therapy for high achieving individuals, couples, and mothers.<br />Jakarta, Bali, and online.</p>
+        <a href={SITE.book} class="btn btn-light">Book Free Consultation</a>
+        <ul class="social" aria-label="Contact and social links">
+          <li><a href={SITE.instagram} target="_blank" rel="noopener" aria-label="Instagram"><Icon name="instagram" size={22} /></a></li>
+          <li><a href={`mailto:${SITE.email}`} aria-label={`Email ${SITE.email}`}><Icon name="mail" size={22} /></a></li>
+          <li><a href={SITE.whatsapp} target="_blank" rel="noopener" aria-label="WhatsApp"><Icon name="whatsapp" size={22} /></a></li>
+        </ul>
+      </div>
+
+      <div class="visit">
+        <span class="eyebrow">In-person, Jakarta</span>
+        <p>{SITE.address}</p>
+        <div class="map">
+          <iframe
+            src={SITE.mapEmbed}
+            title="Map to the Jakarta practice at Green Simprug Coworking Space"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="credits">
+        <p>© {year} Shabnam Lee. {SITE.company}</p>
+        <p>Designed by Meji Studio · <button type="button" data-cookie-settings>Cookie settings</button></p>
+      </div>
+      <ul class="legal">
+        <li><a href="/privacy-policy/">Policy</a></li>
+        <li><a href="/terms/">Terms</a></li>
+        <li><a href="/disclaimer/">Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { padding-block: clamp(56px, 7vw, 88px) 32px; font-size: 0.95rem; }
+  .top { display: grid; gap: 48px; grid-template-columns: 1fr; }
+  @media (min-width: 860px) { .top { grid-template-columns: 1fr 380px; justify-content: space-between; } }
+  .brand p { margin: 20px 0 24px; max-width: 52ch; font-size: 1.05rem; color: var(--white); }
+  .social { display: flex; gap: 14px; list-style: none; padding: 0; margin: 40px 0 0; }
+  .social a { display: grid; place-items: center; width: 34px; height: 34px; margin-left: -6px; color: var(--white); border-radius: 6px; transition: opacity 0.2s; }
+  .social a:hover { opacity: 0.7; }
+  .visit .eyebrow { color: var(--white); letter-spacing: 0.02em; font-size: 0.85rem; margin-bottom: 0.6rem; }
+  .visit p { font-size: 1.1rem; line-height: 1.4; color: var(--white); max-width: 30ch; }
+  .map {
+    margin-top: 20px;
+    aspect-ratio: 380 / 222;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.07);
+  }
+  .map iframe { width: 100%; height: 100%; border: 0; }
+  .bottom {
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 16px 24px;
+    margin-top: 40px; padding-top: 24px;
+    border-top: 1px solid var(--line-light);
+    font-size: 0.88rem; color: rgba(255, 255, 255, 0.85);
+  }
+  .credits p { margin: 0 0 0.35em; }
+  .credits button { color: inherit; background: none; border: 0; padding: 0; cursor: pointer; font-size: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  .legal { display: flex; flex-wrap: wrap; gap: 8px 40px; list-style: none; margin: 0; padding: 0; }
+  .legal a { color: var(--white); text-decoration: none; }
+  .legal a:hover, .credits button:hover { text-decoration: underline; text-underline-offset: 3px; color: var(--white); }
+</style>

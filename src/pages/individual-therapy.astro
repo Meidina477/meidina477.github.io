@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PageHero from '../components/PageHero.astro';
+import CardGrid from '../components/CardGrid.astro';
+import Programmes from '../components/Programmes.astro';
+import Versus from '../components/Versus.astro';
+import VideoFeature from '../components/VideoFeature.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import hero from '../assets/photos/hero-individual.png';
+import { INDIVIDUAL_PROGRAMMES, INTENSIVE_VS_WEEKLY, NOT_SURE_NOTE } from '../data/programmes';
+---
+<Base {...SEO['individual-therapy']}>
+  <PageHero
+    eyebrow="In-person in Jakarta and Bali. Online worldwide."
+    title="Individual therapy"
+    text="This isn’t symptom management. It’s work that goes to the root. Using IFS, Brainspotting and RLT, we build a real understanding of what is driving the patterns that keep showing up, and we shift them for good."
+    image={hero}
+    imageAlt="A person standing alone in a deep canyon, looking up toward the light"
+  />
+
+  <CardGrid
+    tone="green-dark"
+    center
+    eyebrow="Who this is for"
+    title="Therapy for executives, founders and high performers"
+    intro="Most people arrive with several things tangled together. These are the areas we work on most often."
+    items={[
+      { title: 'Burnout and exhaustion', text: 'Not just tired. The kind of empty that rest alone does not fix.' },
+      { title: 'Anxiety and overthinking', text: 'A mind that does not stop, even when the work is done.' },
+      { title: 'Perfectionism', text: 'The inner critic that never lets anything be good enough, no matter what you achieve.' },
+      { title: 'Feeling stuck or lost', text: 'Successful by every measure and still feeling like something is missing.' },
+      { title: 'Trauma and old patterns', text: 'Things from the past that keep showing up, quietly shaping the present.' },
+      { title: 'Identity and transitions', text: 'Career changes, life pivots, not knowing who you are outside your role.' },
+    ]}
+  />
+
+  <CardGrid
+    tone="grey"
+    columns={2}
+    center
+    eyebrow="How we work"
+    title="Where would you like to start?"
+    items={[
+      { title: 'Internal Family Systems (IFS)', text: 'For understanding the parts of you that are in conflict. The one that pushes. The one that shuts down. When we understand what they are protecting, they do not need to work so hard anymore.', href: '/ifs/', linkLabel: 'Learn about IFS' },
+      { title: 'Brainspotting', text: 'For what lives in the body and does not shift through talking. The exhaustion, the reactivity, the anxiety that fires even when you know better. Brainspotting works at the level where it is actually held.', href: '/brainspotting/', linkLabel: 'Learn about Brainspotting' },
+      { title: 'Relational Life Therapy (RLT)', text: 'For the relational patterns that keep showing up. Most did not start in this relationship. RLT is direct, gets to the root, and gives both people a real chance to change how they show up.', href: '/rlt/', linkLabel: 'Learn about RLT' },
+      { title: 'ACT', text: 'For the mind that never really switches off. ACT does not try to stop your thoughts. It changes your relationship with them so they lose their grip and what you actually want becomes clearer.', href: '/act-therapy/', linkLabel: 'Learn about ACT' },
+    ]}
+  />
+
+  <Programmes
+    title="Individual therapy <em>journey</em>"
+    programmes={INDIVIDUAL_PROGRAMMES}
+    note={NOT_SURE_NOTE}
+  />
+
+  <Versus
+    eyebrow="Which is right for you"
+    title="Individual intensive therapy vs weekly therapy"
+    intro="Most therapists offer weekly sessions only. The intensive format exists because some people need to move faster, go deeper, or cannot fit weekly therapy to their lives right now. Neither is better. They suit different people at different moments."
+    {...INTENSIVE_VS_WEEKLY}
+  />
+
+  <VideoFeature tone="grey" />
+
+  <Faq
+    tone="tan"
+    items={[
+      { q: 'Who is individual therapy in Jakarta designed for?', a: 'This work is built for executives, founders, and high performers who are successful by every external measure and quietly running on empty. If you feel stuck, burnt out, or disconnected and want to understand why at the root level rather than just manage symptoms, you are likely in the right place.' },
+      { q: 'I have tried therapy before and it did not work. Why would this be different?', a: 'Most therapy is designed to help you cope. This is designed to help you change. Using IFS, Brainspotting, and RLT together, we work at the level where patterns are actually held, not just the surface story. If previous therapy felt too slow, too surface-level, or not relevant to the life you are actually living, that gap is worth exploring.' },
+      { q: 'What is the difference between a therapy intensive and weekly sessions?', a: 'The intensive is a concentrated programme of 6 hours across two days, or 8.5 hours across three. It is designed for people who want to move quickly, go deep, or cannot fit regular weekly appointments into their lives. Weekly therapy unfolds over 4 to 6 weeks with four 75-minute sessions. Neither format is better. They suit different people at different moments. If you would rather not commit to a package yet, you can start with a single 1.5-hour session (IDR 4,000,000) instead.' },
+      { q: 'What happens before the first therapy session?', a: 'Every pathway begins with a client workbook you complete in your own time, followed by a dedicated data gathering session. That session is not a formality. It is how the therapy gets built around you specifically, your history, your patterns, and what you actually want to change.' },
+      { q: 'Do I need to know anything about IFS or Brainspotting before starting?', a: 'Not at all. Most people arrive with no prior knowledge of either modality. Everything is guided. You will feel oriented from the very first session. If you are curious and want to read or listen to something beforehand, there are resources on the <a href="/ifs/">IFS</a> and <a href="/brainspotting/">Brainspotting</a> pages, but nothing is required.' },
+      { q: 'Is individual therapy available online from Jakarta or internationally?', a: 'Yes. All individual sessions are available online worldwide as well as in-person in Jakarta. The intensive format works well online. Brainspotting is also effective in an online setting.' },
+      { q: 'How do I know if this therapy is the right fit before committing?', a: 'There is a free 15-minute consultation before anything else. You tell me what is going on. I will be honest with you about whether this is the right fit, what the work would look like, and what it costs. No preparation needed, and no pressure in either direction.' },
+    ]}
+  />
+
+  <CtaBand layout="inline" />
+</Base>

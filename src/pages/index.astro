@@ -1,0 +1,311 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import CertLogos from '../components/CertLogos.astro';
+import Testimonials from '../components/Testimonials.astro';
+import YouTube from '../components/YouTube.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE } from '../data/site';
+import { pick } from '../data/testimonials';
+
+import headshot from '../assets/img/shabnam-headshot.jpg';
+import hands from '../assets/photos/home-hands.png';
+import portrait from '../assets/photos/shabnam-standing.png';
+import commonGrounds from '../assets/img/common-grounds-1.png';
+import bosch from '../assets/img/bosch-logo.svg-1.png';
+
+const signs = [
+  'Your mind does not stop. Not at dinner, not with your kids, not at 2 am. You can barely remember the last time you felt genuinely at rest.',
+  'You hit the goal. You moved the goalpost. Satisfaction keeps slipping through your fingers, and you are not quite sure you are allowed to say that out loud.',
+  'You give everything at work and come home with nothing left. The guilt makes it worse, and somehow the cycle just keeps going.',
+  'You and your partner are functional. You co-managed life well. But somewhere along the way you stopped really reaching each other, and you are not sure when that happened.',
+  'You are a devoted mother who has quietly lost sight of herself in the process, and you are not sure who to tell.',
+];
+
+const services = [
+  {
+    label: 'Individuals',
+    title: 'For High Achievers',
+    text: 'Executives, founders, and high-performing professionals who are holding it together on the outside and quietly running on empty on the inside.',
+    href: '/individual-therapy/',
+    tone: 'green',
+  },
+  {
+    label: 'Relationships',
+    title: 'For Couples',
+    text: 'So driven at work, so committed to everything else. Somewhere along the way, you have lost each other.',
+    href: '/couple-therapy/',
+    tone: 'tan',
+  },
+  {
+    label: 'Mothers',
+    title: 'For High Achieving Mothers',
+    text: 'Navigating motherhood, identity, and ambition all at once. Doing it well by measure. Trying your best to hold it all together but feeling like you are disappearing in the process.',
+    href: '/high-achieving-mothers/',
+    tone: 'blush',
+  },
+  {
+    label: 'Deep Dive Format',
+    title: 'Therapy Retreats',
+    text: 'For those who want an immersive space to do the deep work. Available in Bali, at your pace.',
+    href: '/retreats/',
+    tone: 'sage',
+  },
+];
+
+const reasons = [
+  {
+    title: 'Integrative, evidence-based',
+    text: 'IFS, RLT, Brainspotting, ACT, Gottman and perinatal mental health. Brought together for deeper, lasting change rather than symptom management.',
+    href: '/how-i-work/',
+  },
+  {
+    title: 'Real-world',
+    text: 'Over two decades of mental health training combined with personal corporate and family life experience. I know the world you are working in because I lived it.',
+  },
+  {
+    title: 'Focus on roots and patterns, not just symptoms',
+    text: 'Works at the root of emotional and relational patterns to create new ways of being that lead to concrete life differences. Not insight. Actual change.',
+  },
+  {
+    title: 'Built for real life, not just the therapy room',
+    text: 'Longer sessions and intensives for deeper, focused work. A practical, structured approach that supports change beyond the session and holds when you leave.',
+  },
+];
+---
+<Base {...SEO['home']}>
+  <!-- Hero -->
+  <section class="hero glow">
+    <div class="wrap grid-2">
+      <div>
+        <h1>
+          Therapy for High Achieving
+          <span class="rotator" aria-hidden="true">
+            <em>Individuals</em><em>Couples</em><em>Mothers</em>
+          </span>
+          <span class="visually-hidden">Individuals, Couples and Mothers</span>
+        </h1>
+        <p class="lead">For executives, founders, couples and mothers who are successful by every external measure and quietly running on empty.</p>
+        <div class="actions">
+          <a href={SITE.book} class="btn btn-primary">Book Free Consultation</a>
+          <a href="/about/" class="link-underline">Meet Shabnam</a>
+        </div>
+      </div>
+      <figure class="profile">
+        <Image src={headshot} alt="Shabnam Lee, licensed counsellor" widths={[360, 540, 720]} sizes="(min-width: 760px) 380px, 90vw" loading="eager" fetchpriority="high" />
+        <figcaption>
+          <strong>Shabnam Lee</strong>
+          <span>Licensed Counsellor<br />IFS + RLT Therapy Intensive Specialist</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <CertLogos />
+
+  <!-- This works for you if -->
+  <section class="section bg-green">
+    <div class="wrap">
+      <div class="grid-2 start">
+        <div>
+          <span class="eyebrow">This works for you if</span>
+          <h2>Whether you are holding it together or starting to fall apart, you are tired of feeling this way…</h2>
+          <p class="serif subline"><em>…and you have been tired for a while now</em></p>
+          <Image src={hands} alt="" class="rounded signs-img" widths={[400, 600]} sizes="(min-width: 760px) 400px, 90vw" />
+        </div>
+        <ul class="divided signs">
+          {signs.map((s) => <li>{s}</li>)}
+        </ul>
+      </div>
+
+      <div class="grid-2 closing">
+        <h3 class="closing-title">This work is built for people like you. Not despite your success. <em>Because of what it quietly costs.</em></h3>
+        <div>
+          <p>If any of that felt familiar, you are in the right place. This is warm, effective and confidential therapy for high achievers who are ready to do something more than cope.</p>
+          <div class="actions"><a href={SITE.book} class="btn btn-light">Book Free Consultation</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work with me -->
+  <section class="section bg-cream">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Work with me</span>
+        <h2>Where would you like to start?</h2>
+      </div>
+      <div class="services">
+        {services.map((s) => (
+          <a href={s.href} class={`service bg-${s.tone}`}>
+            <span class="service-label">{s.label}</span>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+            <span class="link-underline">Explore</span>
+          </a>
+        ))}
+      </div>
+      <div class="center fit">
+        <p>Not sure where you fit?</p>
+        <a href={SITE.book} class="btn btn-dark">Book Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Organisations -->
+  <section class="section bg-mist">
+    <div class="wrap-narrow center">
+      <span class="eyebrow">For organisations</span>
+      <h2 class="orgs-title">Your people are high achieving too.<br /><em>They need this work as well.</em></h2>
+      <ul class="clients" aria-label="Organisations Shabnam has worked with">
+        <li><Image src={commonGrounds} alt="Common Grounds" height={56} /></li>
+        <li><Image src={bosch} alt="Bosch" height={56} /></li>
+      </ul>
+      <p class="lead">Bespoke workshops and programmes for organisations investing in the mental health and wellbeing of their teams. Covering burnout, performance pressure, leadership, and workplace culture.</p>
+      <div class="actions">
+        <a href="/corporate-wellness/" class="btn btn-dark">Corporate Wellness</a>
+        <a href={SITE.book} class="link-underline">Book Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why this therapy -->
+  <section class="section bg-green">
+    <div class="wrap grid-2 start">
+      <div class="sticky">
+        <h2>This therapy isn’t for everyone, <em>it’s for you</em></h2>
+        <p class="lead">A space to be honest, go deep, and actually change.</p>
+      </div>
+      <div class="reasons">
+        {reasons.map((r, i) => (
+          <article class="card">
+            <span class="num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{r.title}</h3>
+            <p>{r.text}</p>
+            {r.href && <a href={r.href} class="link-underline">Explore</a>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section class="section bg-white">
+    <div class="wrap grid-2">
+      <div>
+        <h2>Before you reach out, <em>hear it from me directly.</em></h2>
+        <p class="lead">Who I work with, how I work, and why this matters to me.</p>
+      </div>
+      <YouTube id={SITE.youtubeId} title="Shabnam Lee on who she works with and how" />
+    </div>
+  </section>
+
+  <Testimonials items={pick('mikael-jasin', 'andrea-gunawan', 'lygia', 'ken-khalid', 'joe-halim')} more />
+
+  <!-- About -->
+  <section class="section glow">
+    <div class="wrap grid-2">
+      <Image src={portrait} alt="Shabnam Lee standing and smiling" class="rounded about-img" widths={[416, 624]} sizes="(min-width: 760px) 416px, 90vw" />
+      <div>
+        <span class="eyebrow">About</span>
+        <h2>Shabnam Lee</h2>
+        <p>I’m a licensed counsellor specialising in IFS and RLT, based in Jakarta. Before this work, I spent years in management consulting, holding a career, a marriage, and a family together while quietly wondering why something still felt missing. That experience is part of why I do what I do now. I know this work because it changed me. I stay in it because of what I see it do for others.</p>
+        <div class="actions"><a href="/about/" class="btn btn-primary">Read My Full Story</a></div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  /* Hero */
+  .hero { padding-block: clamp(48px, 9vw, 130px) clamp(40px, 5vw, 64px); }
+  .hero h1 { color: var(--green-dark); font-size: clamp(2.4rem, 4.4vw, 3.5rem); }
+  .rotator { display: block; position: relative; height: 1.2em; overflow: hidden; margin-top: 0.12em; }
+  .rotator em {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    animation: rotate-words 9s infinite;
+  }
+  .rotator em:nth-child(2) { animation-delay: 3s; }
+  .rotator em:nth-child(3) { animation-delay: 6s; }
+  @keyframes rotate-words {
+    0% { opacity: 0; transform: translateY(40%); }
+    4%, 30% { opacity: 1; transform: none; }
+    34%, 100% { opacity: 0; transform: translateY(-40%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rotator { height: auto; }
+    .rotator em { position: static; opacity: 1; animation: none; }
+    .rotator em + em::before { content: ', '; }
+  }
+  .hero .lead { max-width: 48ch; margin-top: 1.2rem; font-size: 1.08rem; color: var(--ink); }
+
+  .profile { position: relative; margin: 0 auto; max-width: 400px; width: 100%; border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); }
+  .profile img { width: 100%; aspect-ratio: 416 / 516; object-fit: cover; object-position: top; }
+  .profile figcaption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 90px 26px 24px;
+    background: linear-gradient(to top, rgba(28, 32, 28, 0.88), rgba(28, 32, 28, 0));
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+  .profile strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.7rem; color: var(--white); margin-bottom: 6px; }
+
+  /* Signs */
+  .subline { font-size: clamp(1.3rem, 2.2vw, 1.7rem); color: var(--white); margin-top: -0.2em; }
+  .signs-img { margin-top: 32px; max-width: 400px; width: 100%; }
+  .signs { list-style: none; padding: 0; margin: 0; font-size: 1.05rem; }
+  .closing { margin-top: clamp(56px, 8vw, 96px); }
+  .closing-title { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+
+  /* Services */
+  .services { display: grid; gap: 24px; grid-template-columns: 1fr; max-width: 980px; margin-inline: auto; }
+  @media (min-width: 760px) { .services { grid-template-columns: 1fr 1fr; } }
+  .service {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 316px;
+    justify-content: center;
+    padding: clamp(28px, 4vw, 48px);
+    border-radius: var(--radius);
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .service:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(40, 40, 30, 0.14); }
+  .service-label { font-size: 0.85rem; margin-bottom: 0.4rem; opacity: 0.9; }
+  .service h3 { font-size: clamp(1.8rem, 2.8vw, 2.2rem); color: inherit; }
+  .service.bg-green h3, .service.bg-tan h3, .service.bg-sage h3 { color: var(--white); }
+  .service.bg-blush h3 { color: #6b5a4c; }
+  .service p { max-width: 40ch; }
+  .service .link-underline { padding-top: 0.4rem; font-size: 0.9rem; }
+  .service.bg-sage { color: rgba(255, 255, 255, 0.85); }
+  .service.bg-blush { color: var(--text); }
+  .fit { margin-top: 48px; }
+  .fit p { margin-bottom: 14px; }
+
+  /* Organisations */
+  .orgs-title { font-size: clamp(2rem, 4.2vw, 3.3rem); margin-inline: -80px; }
+  @media (max-width: 900px) { .orgs-title { margin-inline: 0; } .orgs-title br { display: none; } }
+  .clients { display: flex; justify-content: center; align-items: center; gap: 40px; list-style: none; padding: 0; margin: 32px 0; }
+  .clients img { width: auto; max-height: 56px; mix-blend-mode: multiply; }
+
+  /* Reasons */
+  .reasons { display: grid; gap: 20px; }
+  .reasons .card { color: var(--text); }
+  .reasons h3 { font-size: clamp(1.6rem, 2.4vw, 2rem); color: var(--ink); }
+  .reasons .card { padding: clamp(28px, 4vw, 50px); }
+  .num { display: block; font-size: 0.8rem; color: var(--text); margin-bottom: 0.5rem; }
+  .reasons .link-underline { color: var(--tan); font-size: 0.9rem; }
+  @media (min-width: 760px) { .sticky { position: sticky; top: 130px; } }
+
+  .about-img { width: 100%; max-width: 416px; justify-self: center; }
+</style>

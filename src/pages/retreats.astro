@@ -1,0 +1,171 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import { SITE } from '../data/site';
+import PhotoHero from '../components/PhotoHero.astro';
+import CardGrid from '../components/CardGrid.astro';
+import Versus from '../components/Versus.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import hero from '../assets/photos/hero-retreats.png';
+
+const pricing = [
+  { item: 'Therapy hours', detail: '9 hours or more across 1 to 2 weeks. Customised to your situation.', value: 'Pricing upon consultation' },
+  { item: 'Pre-intensive and post-intensive', detail: 'Personalised workbook assessment, data gathering session and aftercare session.', value: 'Included' },
+  { item: 'Shabnam’s travel and accommodation', detail: 'Shabs travels to Bali for the retreat. Her flights and accommodation are agreed separately in the consultation.', value: 'Separate' },
+  { item: 'Your accommodation and flights', detail: 'Not included. Arranged independently by you.', value: 'Separate' },
+];
+---
+<Base {...SEO['retreats']} overPhoto>
+  <PhotoHero
+    layout="center"
+    title="Therapy Retreats"
+    subtitle="The work, held in a space <em>that matches its depth.</em>"
+    text="<span class='place'>Retreats in Bali and Jakarta</span>An intensive therapy retreat in Bali for individuals and couples who are ready to go deep. Away from the demands of daily life, with the time and space to do what weekly sessions rarely allow."
+    image={hero}
+    imageAlt="A woman sitting in front of an infinity pool overlooking the ocean in Bali"
+    cta={{ label: 'Get in Touch', href: SITE.book }}
+    shade={0.3}
+  />
+
+  <CardGrid
+    tone="white"
+    center
+    eyebrow="This retreat is for you if"
+    title="Who comes to Bali."
+    intro="High achieving individuals, couples and mothers who arrive for different reasons. What they share is readiness."
+    items={[
+      { title: 'You are at a crossroads', text: 'A transition, a decision, a moment that feels too significant for an hour a week to hold.' },
+      { title: 'You want to go deep, fast', text: 'You have done enough surface work. You want something that actually moves something.' },
+      { title: 'You cannot wait for weekly', text: 'Time is limited. A concentrated block of days works better for how you live and travel.' },
+      { title: 'You want to do it as a couple', text: 'A dedicated space away from home to work on your relationship, together and individually.' },
+      { title: 'You need the environment', text: 'Bali is not incidental. The setting matters. Being away from your ordinary context is part of what makes this work.' },
+      { title: 'You are ready to invest', text: 'Not just financially. In showing up fully. The retreat asks that of you and gives back in proportion.' },
+    ]}
+  />
+
+  <Versus
+    eyebrow="Why the intensive format"
+    title="Weekly therapy builds slowly. <em>Intensives compress that journey.</em>"
+    intro="There is nothing wrong with weekly therapy. But for some people, at some points in their lives, compressed intensive work creates breakthroughs that would otherwise take months to reach."
+    left={{ eyebrow: 'Weekly therapy', title: 'Steady, gradual progress', points: ['One hour at a time. Insight builds slowly. The day-to-day continues around it, which means the work competes with everything else in your life for attention and integration.'] }}
+    right={{ eyebrow: 'Intensive retreat', title: 'Compressed, sustained depth', points: ['Multiple hours across multiple days. The nervous system has time to open, process and integrate without being pulled back into ordinary life. The work goes further, faster.'] }}
+  />
+
+  <CardGrid
+    tone="grey"
+    columns={4}
+    center
+    eyebrow="What the format looks like"
+    title="Immersive, continuous work. <em>Designed around you.</em>"
+    intro="No seven-day gaps. No starting over. Sustained, focused work in a place with no distractions and breakthroughs that would take months in weekly sessions."
+    items={[
+      { eyebrow: 'Before', title: 'Personalised workbook', text: 'Completed in the week before arrival so every session counts.' },
+      { eyebrow: 'Day 1', title: 'Data gathering', text: 'Your history, patterns and goals. Individual sessions for each partner if couples.' },
+      { eyebrow: 'Days 2+', title: 'The deep work', text: 'IFS, RLT and Brainspotting. Paced to you. 9 hours or more across 1 to 2 weeks.' },
+      { eyebrow: 'After', title: 'Aftercare session', text: 'Online consolidation session 1 to 2 weeks after the retreat ends.' },
+    ]}
+  >
+    <div class="custom card">
+      <div>
+        <h3>Every retreat is built around your situation.</h3>
+        <p>Hours, pacing and focus are customised before you book. No two retreats look the same.</p>
+      </div>
+      <a href={SITE.book} class="custom-link">Book Free Consultation <span aria-hidden="true">→</span></a>
+    </div>
+  </CardGrid>
+
+  <CardGrid
+    tone="green"
+    center
+    eyebrow="The methods"
+    title="IFS, RLT and Brainspotting in Bali"
+    intro="Three methods chosen because they work at a depth that standard talk therapy cannot reach. Used together, they address the patterns driving your behaviour, the parts of you running them, and what is held in the body beneath the surface."
+    items={[
+      { title: 'Internal Family Systems (IFS)', text: 'Works with the parts of you in conflict. The one that cannot stop performing. The one that shuts down. The perfectionist. IFS helps you understand where those parts came from and what they actually need, so they stop running your life.', href: '/ifs/', linkLabel: 'Learn about IFS' },
+      { title: 'Relational Life Therapy (RLT)', text: 'Direct, honest work on how you relate to yourself and others. For couples it addresses the patterns keeping you stuck. For individuals it works on the relational dynamics that show up in every area of life.', href: '/rlt/', linkLabel: 'Learn about RLT' },
+      { title: 'Brainspotting', text: 'Accesses what is held in the body and nervous system, the things that talk therapy alone cannot reach. In the retreat setting, with no daily pressures pulling you away, Brainspotting can go further than it ever could in a weekly session.', href: '/brainspotting/', linkLabel: 'Learn about Brainspotting' },
+    ]}
+  />
+
+  <!-- Pricing -->
+  <section class="section bg-blush">
+    <div class="wrap">
+      <div class="section-head price-head">
+        <span class="eyebrow">Pricing and how to book</span>
+        <h2>Fully customisable. <em>Priced on consultation.</em></h2>
+        <p class="lead">Every retreat is built around your situation. Hours, format, focus, and total investment are all confirmed in your free consultation before you commit to anything.</p>
+      </div>
+
+      <div class="card price-card">
+        <h3>Therapy Intensive Immersion Retreat</h3>
+        <p class="muted">Bali only · Individuals, couples and mothers · Fully customisable</p>
+        <dl class="price-list">
+          {pricing.map((p) => (
+            <div>
+              <dt>{p.item}<span>{p.detail}</span></dt>
+              <dd>{p.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <p class="price-note">All costs confirmed in your free consultation. Therapy hours, format, travel and total investment are agreed before you commit to anything.</p>
+      </div>
+
+      <div class="card booking">
+        <h3>The booking process</h3>
+        <ol>
+          <li><strong>Book a free 15-minute consultation</strong><span>Tell Shabs what is going on. She will confirm whether the retreat format is right for your situation.</span></li>
+          <li><strong>Design your retreat together</strong><span>Hours, pacing, focus, travel costs and total investment are confirmed. Nothing is booked until you are ready.</span></li>
+          <li><strong>Complete your workbook and travel to Bali</strong><span>Your personalised workbook arrives in the week before. You arrive. The work begins.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <Faq
+    items={[
+      { q: 'What is a therapy retreat in Bali and how is it different from a regular holiday?', a: 'The setting is not incidental but it is not the point either. The retreat is a dedicated block of intensive therapy, a minimum of nine hours across your stay, fully customised to your goals. Being away from your ordinary environment is part of what creates the conditions for deeper work. But the work itself is what you are there for. It is not a holiday with a session attached.' },
+      { q: 'Who is the Bali therapy retreat designed for?', a: 'Individuals who want to go deep, fast. Couples who want a dedicated space away from daily life to work on their relationship. People between chapters: a career transition, a decision, a moment that feels too significant for an hour a week to hold. What they tend to share is readiness. They have done enough surface work and want something that actually moves something.' },
+      { q: 'How many hours of therapy are included in the Bali retreat?', a: 'A minimum of nine hours of therapy across your stay, but the exact format, duration and pacing are customised before you book. No two retreats look the same. Couples retreats include both joint sessions and individual sessions for each partner. Everything is confirmed in your consultation before any commitment is made.' },
+      { q: 'What therapy methods are used in the Bali retreat?', a: 'IFS, RLT, and Brainspotting are the three methods used in the retreat setting. They are chosen because they work at a depth that standard talk therapy cannot reach. IFS works with your internal parts. RLT addresses relational patterns. Brainspotting accesses what is held in the body. In the retreat context, with no daily demands pulling you away, all three can go further than they would in a weekly setting.' },
+      { q: 'Is the Bali retreat available for couples as well as individuals?', a: 'Yes. The retreat is available for individuals, couples, and small groups. Couples retreats include time working together and individual sessions for each partner. The structure is customised entirely around your situation and goals.' },
+      { q: 'How much does the Bali therapy retreat cost?', a: 'Pricing is confirmed in your free consultation because the investment depends on the number of hours, the length of your stay, and the format that is right for your situation. Nothing is fixed or off the shelf. The consultation is where we design it together.' },
+    ]}
+  />
+
+  <CtaBand tone="green" title="Bali is waiting. <em>So is the work.</em>" />
+</Base>
+
+<style>
+  .custom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px 40px; max-width: 1000px; margin: 20px auto 0; }
+  .custom h3 { font-size: clamp(1.35rem, 2vw, 1.6rem); margin-bottom: 0.4em; }
+  .custom p { max-width: 52ch; font-size: 0.93rem; }
+  .custom-link { font-size: 0.88rem; color: var(--tan-dark); text-underline-offset: 4px; }
+  .price-head, .price-card, .booking { max-width: 920px; margin-inline: auto; }
+  .price-head .lead { font-size: 1.02rem; }
+
+  .price-card, .booking { max-width: 920px; margin-inline: auto; }
+  .booking { margin-top: 24px; }
+  .price-list { margin: 1.5rem 0 0; }
+  .price-list > div {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .price-list dt { font-size: 1.05rem; color: var(--ink); }
+  .price-list dt span { display: block; margin-top: 4px; font-size: 0.93rem; color: var(--muted); max-width: 52ch; }
+  .price-list dd { margin: 0; color: var(--tan-dark); text-align: right; }
+  .price-note { margin-top: 1.2rem; font-size: 0.93rem; }
+  .booking ol { list-style: none; counter-reset: step; display: grid; gap: 24px; padding: 0; margin: 1.5rem 0 0; }
+  @media (min-width: 760px) { .booking ol { grid-template-columns: repeat(3, 1fr); } }
+  .booking li { counter-increment: step; }
+  .booking li::before { content: counter(step, decimal-leading-zero); display: block; font-family: var(--serif); color: var(--tan); font-size: 1.2rem; margin-bottom: 6px; }
+  .booking strong { display: block; font-weight: 400; color: var(--ink); font-size: 1.05rem; margin-bottom: 6px; }
+  .booking span { color: var(--muted); font-size: 0.93rem; }
+  @media (max-width: 560px) {
+    .price-list > div { grid-template-columns: 1fr; gap: 6px; }
+    .price-list dd { text-align: left; }
+  }
+</style>

@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SEO } from '../../data/seo';
+import PageHero from '../../components/PageHero.astro';
+import PostCard from '../../components/PostCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { getPosts } from '../../data/blog';
+
+const posts = await getPosts();
+const categories = [...new Set(posts.flatMap((p) => p.data.categories))].sort();
+---
+<Base {...SEO['blog']}>
+  <PageHero
+    eyebrow="Blog"
+    title="Writing on the work <em>that goes deep.</em>"
+    text="Ideas from IFS, Relational Life Therapy, Brainspotting and ACT, on burnout, relationships, trauma and motherhood."
+    cta={false}
+    tone="paper"
+    center
+  />
+
+  <section class="section-sm bg-paper list">
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filter posts by topic">
+        <button type="button" class="chip" aria-pressed="true" data-cat="">View all</button>
+        {categories.map((c) => <button type="button" class="chip" aria-pressed="false" data-cat={c}>{c}</button>)}
+      </div>
+      <div class="grid-3 posts">
+        {posts.map((p) => <PostCard post={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<script>
+  const chips = [...document.querySelectorAll<HTMLButtonElement>('.chip')];
+  const cards = [...document.querySelectorAll<HTMLElement>('.post-card')];
+  const apply = (cat: string) => {
+    chips.forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.cat === cat)));
+    cards.forEach((card) => { card.hidden = !!cat && !card.dataset.cats!.split('|').includes(cat); });
+  };
+  chips.forEach((c) => c.addEventListener('click', () => {
+    apply(c.dataset.cat!);
+    const url = new URL(location.href);
+    c.dataset.cat ? url.searchParams.set('topic', c.dataset.cat) : url.searchParams.delete('topic');
+    history.replaceState(null, '', url);
+  }));
+  const initial = new URLSearchParams(location.search).get('topic');
+  if (initial && chips.some((c) => c.dataset.cat === initial)) apply(initial);
+</script>
+
+<style>
+  .list { padding-top: 0; }
+  .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; margin-bottom: 44px; }
+  .chip { padding: 6px 14px; border: 1px solid transparent; border-radius: 4px; background: none; color: var(--text); cursor: pointer; font-size: 0.85rem; }
+  .chip:hover { color: var(--ink); }
+  .chip[aria-pressed='true'] { border-color: var(--line); background: var(--white); color: var(--ink); }
+  .posts { gap: 48px 28px; }
+  .posts :global(.post-card[hidden]) { display: none; }
+</style>

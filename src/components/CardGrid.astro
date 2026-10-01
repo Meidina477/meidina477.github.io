@@ -1,0 +1,64 @@
+---
+// A section heading followed by a grid of cards. Cards with an href get a link.
+interface Item { title: string; text?: string; href?: string; linkLabel?: string; eyebrow?: string }
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+  items: Item[];
+  columns?: 2 | 3 | 4;
+  tone?: 'cream' | 'paper' | 'white' | 'blush' | 'mist' | 'green' | 'green-dark' | 'grey' | 'sand' | 'tan' | 'stone' | 'oat';
+  center?: boolean;
+  numbered?: boolean;
+  /** No card background: plain columns (e.g. the numbered phases on RLT). */
+  plain?: boolean;
+}
+const { eyebrow, title, intro, items, columns = 3, tone = 'paper', center = false, numbered = false, plain = false } = Astro.props;
+---
+<section class={`section bg-${tone}`}>
+  <div class="wrap">
+    {(eyebrow || title || intro) && (
+      <div class:list={['section-head', { center }]}>
+        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+        {title && <h2 set:html={title} />}
+        {intro && <p class="lead" set:html={intro} />}
+      </div>
+    )}
+    <slot name="before" />
+    <div class={`grid-${columns} cards`}>
+      {items.map((it, i) => (
+        <article class:list={['card', { tint: tone === 'white', soft: tone === 'green' || tone === 'green-dark', step: numbered && !plain, plain }]}>
+          {numbered && <span class="num">{String(i + 1).padStart(2, '0')}</span>}
+          {it.eyebrow && !numbered && <span class="eyebrow">{it.eyebrow}</span>}
+          <h3 set:html={it.title} />
+          {it.text && <p set:html={it.text} />}
+          {it.eyebrow && numbered && <span class="tag">{it.eyebrow}</span>}
+          {it.href && <a href={it.href} class="card-link">{it.linkLabel ?? 'Learn more'} <span aria-hidden="true">→</span></a>}
+        </article>
+      ))}
+    </div>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .cards { align-items: stretch; gap: 20px; }
+  .grid-2.cards .card { padding: clamp(24px, 3vw, 36px); }
+  .grid-4.cards .card { padding: 26px 24px; }
+  .grid-4.cards h3 { font-size: clamp(1.25rem, 1.7vw, 1.4rem); }
+  .cards .card { display: flex; flex-direction: column; align-items: flex-start; color: var(--text); }
+  .cards h3 { font-size: clamp(1.35rem, 2vw, 1.6rem); color: var(--ink); }
+  .cards .eyebrow { color: var(--muted); }
+  .cards .card.soft { background: #eceeea; }
+  .card-link { margin-top: auto; padding-top: 0.4rem; font-size: 0.88rem; color: var(--tan-dark); text-underline-offset: 4px; }
+  .card-link span { display: inline-block; margin-left: 6px; }
+  .center + .cards, .section-head.center ~ .grid-2.cards { max-width: 1000px; margin-inline: auto; }
+  .num { font-family: var(--serif); font-size: 1.5rem; line-height: 1; color: var(--ink); margin-bottom: 0.2rem; }
+  .cards .step { align-items: center; text-align: center; }
+  .step h3 { margin-bottom: 0.8em; }
+  .step p { font-size: 0.95rem; }
+  .cards .plain { background: none; box-shadow: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 22px 0 0; }
+  .plain h3 { font-size: clamp(1.3rem, 1.9vw, 1.5rem); margin-bottom: 0.7em; }
+  .plain p { font-size: 0.93rem; }
+  .tag { margin-top: auto; padding-top: 1.2rem; font-size: 0.82rem; color: var(--tan); }
+</style>

@@ -1,0 +1,114 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+import Icon from '../components/Icon.astro';
+import { SITE } from '../data/site';
+import ogDefault from '../assets/img/shabnam-headshot.jpg';
+import { getImage } from 'astro:assets';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: ImageMetadata;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown>;
+  /** Page opens with a full-bleed photo hero: transparent white header over it. */
+  overPhoto?: boolean;
+}
+
+const { title, description = '', image = ogDefault, type = 'website', noindex = false, jsonLd, overPhoto = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+// Preview builds (PUBLIC_PREVIEW=true, e.g. preview.shabnamlee.com) are kept out of search engines.
+const isPreview = import.meta.env.PUBLIC_PREVIEW === 'true';
+const og = await getImage({ src: image, width: 1200, format: 'jpg' });
+const ogUrl = new URL(og.src, SITE.url).href;
+
+const business = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalBusiness',
+  name: SITE.title,
+  url: SITE.url,
+  image: ogUrl,
+  founder: { '@type': 'Person', name: 'Shabnam Lee', jobTitle: 'Licensed Counsellor' },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Green Simprug Coworking Space',
+    addressLocality: 'Kebayoran Lama, Jakarta Selatan',
+    addressCountry: 'ID',
+  },
+  areaServed: ['Jakarta', 'Bali', 'Online'],
+  sameAs: [SITE.instagram, SITE.linkedin],
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    {(noindex || isPreview) && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="theme-color" content="#4e5a4e" />
+
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/favicon-192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Shabnam Lee Blog" href="/feed.xml" />
+
+    <link rel="preload" href="/fonts/Scholar-Regular.woff2" as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd ?? business)} />
+    <slot name="head" />
+    <!-- Motion is opt-in: content only starts hidden when JS runs and the visitor has not asked for reduced motion. -->
+    <script is:inline>
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');
+    </script>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Header overPhoto={overPhoto} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <a href={SITE.whatsapp} class="whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <Icon name="whatsapp" size={26} />
+    </a>
+    <CookieConsent />
+    <script src="../scripts/motion.ts"></script>
+
+    <style>
+      .whatsapp {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 60;
+        display: grid;
+        place-items: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: var(--green);
+        color: var(--white);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s, background 0.2s;
+      }
+      .whatsapp:hover { transform: scale(1.06); background: var(--green-dark); }
+    </style>
+  </body>
+</html>

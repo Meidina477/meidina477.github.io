@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PageHero from '../components/PageHero.astro';
+import Split from '../components/Split.astro';
+import CardGrid from '../components/CardGrid.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import hero from '../assets/img/pexels-vo-van-ti-n-2037497312-35841805-scaled.jpg';
+import settled from '../assets/img/pexels-tr-n-long-3093985-5984094-scaled.jpg';
+import ring from '../assets/img/marriage-counseling-commitment-ring.jpg';
+import firstSession from '../assets/img/mar-first-session.jpg';
+
+const forYou = [
+  ['You love each other', 'but <a href="/why-you-keep-having-the-same-fight-and-how-to-finally-stop/">the same fight keeps returning</a>, and nothing gets resolved.'],
+  ['You have drifted into parallel lives', 'and want closeness back, not just a truce.'],
+  ['One of you has raised the idea of leaving', 'and you want to give the marriage a real, honest try first.'],
+  ['Trust has been damaged', 'and you are not sure whether it can be rebuilt.'],
+  ['You have tried talking it through on your own', 'and keep landing in the same place.'],
+];
+---
+<Base {...SEO['marriage-counseling-jakarta']}>
+  <PageHero
+    eyebrow="In-person in Jakarta. Online worldwide."
+    title="Marriage counseling in Jakarta"
+    text='Marriage counselling in Jakarta is focused work for two people who are committed to each other and want the relationship to hold. I am a <a href="/therapist-in-jakarta/">licensed counsellor working in person in Jakarta</a> and online worldwide, drawing on Relational Life Therapy and the Gottman Method to help married couples move out of the same argument and back toward each other.'
+    image={hero}
+    imageAlt="A couple together"
+  />
+
+  <Split tone="white" image={settled} alt="" title="Settled on the outside. <em>It does not have to stay this way.</em>">
+    <p>Many of the couples I see look settled from the outside. The careers are established, the household runs, the children are cared for. In private, the two of you have become efficient roommates who manage logistics well and have <a href="/your-relationship-isnt-dying-from-a-lack-of-love-its-dying-from/">quietly stopped turning toward each other</a>.</p>
+    <p>You are not in crisis. You are running on empty, and you have started to wonder whether this is simply what marriage becomes.</p>
+    <p class="lead">It does not have to be. That is what this is for.</p>
+  </Split>
+
+  <section class="section bg-green-dark">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Who this is for</span>
+        <h2>This work is for you if you are married and want to stay married, <em>and you recognise some of this.</em></h2>
+      </div>
+      <ul class="for-you">
+        {forYou.map(([a, b]) => <li><span class="serif">{a}</span> <span set:html={b} /></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <Split tone="oat" image={ring} reverse alt="A hand wearing a gold wedding ring resting on warm wooden slats in afternoon light" eyebrow="How marriage counselling is different from general couples therapy" title="Marriage counselling is not the same as general couples therapy, <em>and the difference matters.</em>">
+    <p>General couples work often supports two people in deciding what they want, including whether to stay together at all. Marriage counselling starts from a shared commitment to the marriage itself. The question is not whether to stay, but how to rebuild the connection you committed to, honestly and without pretending the hard parts away.</p>
+    <p>That difference shapes the room. We name the patterns you have both fallen into, look at what each of you brings from your own history, and practise turning toward each other rather than scoring points.</p>
+    <p>If you are not married, or you are still deciding whether this relationship is one you want to continue, my <a href="/couple-therapy/">general couples therapy</a> may fit you better.</p>
+  </Split>
+
+  <CardGrid
+    tone="grey"
+    center
+    title="The methods I work with"
+    intro="I work relationally and practically. My primary approaches for married couples are Relational Life Therapy, in which I hold training at Levels 1, 2 and 3, and the Gottman Method, in which I hold training at Levels 1 and 2."
+    items={[
+      { title: 'Relational Life Therapy', text: 'Direct and honest. It does not let either partner hide behind being the reasonable one, and it helps you see the moves you each make that keep the distance in place.', href: '/rlt/', linkLabel: 'Learn about RLT' },
+      { title: 'The Gottman Method', text: 'Gives us a clear, well-researched map of what makes marriages work, so we are building on more than good intentions.', href: '/gottman/', linkLabel: 'Learn about Gottman' },
+      { title: 'I am also a licensed counsellor', text: 'Accredited by the Australian Counselling Association, with training in <a href="/brainspotting/">Brainspotting</a>, Acceptance and Commitment Therapy, and Perinatal Mental Health. When something in an individual history is driving the pattern between you, I can work with that too, rather than sending you elsewhere.', href: '/how-i-work/', linkLabel: 'Learn how I work' },
+    ]}
+  />
+
+  <Split tone="white" image={firstSession} alt="Two people with their hands resting together on a wooden table" eyebrow="What a first session looks like" title="Not an interrogation. <em>Not couples combat with a referee.</em>">
+    <p>It is a calm, honest conversation. We begin with a free 15-minute consultation so the three of us can feel whether this is the right fit before you commit to anything.</p>
+    <p>In the first full session, I listen to how each of you sees things, in your own words, without one story being treated as the correct one. Together we start to map the cycle you keep repeating, so that for the first time in a while you are looking at the pattern together rather than blaming each other for it. You leave with a clear sense of what the work would involve, and no pressure to continue if it does not feel right.</p>
+    <p><strong>Where sessions happen.</strong> I see couples in person in Jakarta and online worldwide. In-person sessions suit couples who want to be in the same room, away from the household and the phones, for focused time together. Online sessions work well for couples with demanding schedules, frequent travel, or a partner living in another city or country, and they keep the work going without a break. Sessions are conducted in English.</p>
+  </Split>
+
+  <Faq
+    tone="tan"
+    title="Frequently asked <em>questions</em>"
+    items={[
+      { q: 'What if only one of us wants to come?', a: 'That is very common. One partner is often more ready than the other. It is fine to begin with a conversation on your own about where things stand and what your options are. Many couples start exactly this way. That first stretch can also run as <a href="/individual-therapy/">individual therapy</a> while your partner decides.' },
+      { q: 'Is it too late for us?', a: 'If you are both willing to try honestly, there is usually something to work with, even after years of distance or a serious breach of trust. Whether the marriage can be rebuilt depends on what you both want and are prepared to do, and the first sessions help you see that clearly.' },
+      { q: 'Do you offer sessions in English?', a: 'Yes. All sessions are conducted in English, which suits expatriate, cross-cultural and international couples who want to do this work in the language they are most themselves in. If you are looking for individual work rather than couples work, I also see clients as an <a href="/english-speaking-therapist-jakarta/">English speaking therapist in Jakarta</a>.' },
+      { q: 'How much does marriage counselling cost?', a: 'The free 15-minute consultation lets us discuss fit and current fees before you commit to anything.' },
+    ]}
+  />
+
+  <CtaBand layout="inline" title="If you are both willing to try, <em>the next step is small.</em>" />
+</Base>
+
+<style>
+  .for-you { display: grid; gap: 16px; grid-template-columns: 1fr; list-style: none; padding: 0; margin: 0 auto; max-width: 1100px; }
+  @media (min-width: 640px) { .for-you { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .for-you { grid-template-columns: repeat(3, 1fr); } }
+  .for-you li { padding: 24px 26px; border-radius: var(--radius); background: #eceeea; color: var(--text); font-size: 0.92rem; }
+  .for-you .serif { display: block; margin-bottom: 6px; font-size: 1.3rem; line-height: 1.25; color: var(--ink); }
+  .for-you :global(a) { color: var(--green) !important; }
+</style>

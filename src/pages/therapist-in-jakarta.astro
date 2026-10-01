@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import { CORE_METHODS } from '../data/methods';
+import PageHero from '../components/PageHero.astro';
+import Split from '../components/Split.astro';
+import CardGrid from '../components/CardGrid.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import headshot from '../assets/img/shabnam-headshot.jpg';
+import handled from '../assets/img/tij-looks-handled.jpg';
+import roots from '../assets/img/tij-roots.jpg';
+import desk from '../assets/img/tij-what-to-expect-desk.jpg';
+
+const forYou = [
+  ['You want a therapist who works the way you think,', 'in the language you think in.'],
+  ['You are holding it together on the outside', 'and quietly running on empty on the inside.'],
+  ['You have tried therapy before', 'and it did not go deep enough.'],
+  ['You want someone who will be honest with you', 'and push when pushing is what is needed, not nod for an hour.'],
+  ['You are navigating anxiety, <a href="/burnout/">burnout</a>, a <a href="/couple-therapy/">relationship strain</a>, or a life transition,', 'and you want to understand the root, not just manage the surface.'],
+];
+---
+<Base {...SEO['therapist-in-jakarta']}>
+  <PageHero
+    eyebrow="In-person in Jakarta. Online worldwide."
+    title="Therapist in Jakarta"
+    text="Shabnam Lee is a licensed counsellor and therapist in Jakarta, working with internationals and locals in fluent English, in person and online worldwide. She specialises in IFS and RLT, with training in Gottman Method, Brainspotting, ACT and Perinatal Mental Health."
+    image={headshot}
+    imageAlt="Shabnam Lee, licensed counsellor, photographed against a soft neutral background"
+  />
+
+  <Split tone="white" image={handled} alt="Warm morning light falling across a made bed beside a window" title="From the outside, the life looks handled. <em>That is what this is for.</em>">
+    <p>You are functioning at a high level. Successful by every external measure, and quietly running on empty on the inside. From the outside the life looks handled. Inside, something has been asking for attention for a while.</p>
+    <p class="lead">Warm, direct, confidential therapy in Jakarta and online, for people who are done coping and ready to actually change.</p>
+  </Split>
+
+  <section class="section bg-green-dark">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Who this is for</span>
+        <h2>This might be for you if…</h2>
+      </div>
+      <ul class="for-you">
+        {forYou.map(([a, b]) => <li><span class="serif" set:html={a} /> <span set:html={b} /></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <Split tone="oat" image={roots} reverse alt="Moss-covered tree roots spreading across a forest floor" title="What kind of therapist works with <em>roots, not just symptoms</em>">
+    <p>Plenty of places in Jakarta will see you in English. Far fewer offer one senior practitioner, working in distinct evidence-based methods, with longer sessions built for real change. The goal is not to manage symptoms so you can keep coping. The goal is to reach what sits underneath them, so the pattern actually shifts.</p>
+    <p>I do not hand you between counsellors or run you through a standard intake and a generic plan. You work with me. I bring <a href="/about/">over two decades of mental health training</a> together with a decade in corporate strategy consulting across China and Southeast Asia, so I understand the world high achievers actually live in.</p>
+  </Split>
+
+  <CardGrid
+    tone="grey"
+    center
+    columns={4}
+    title="The methods I work with"
+    intro="An integrative approach, chosen for what each method reaches. Not one lens. The full picture."
+    items={CORE_METHODS}
+  />
+
+  <Split tone="white" image={desk} alt="A workbook, notebook and laptop on a warm wooden desk beside a cup of coffee" eyebrow="What to expect" title="How working together begins">
+    <p><strong>First, a free 15-minute consultation.</strong> You tell me what is going on. I tell you honestly whether this is the right fit. Online, no commitment.</p>
+    <p><strong>Next, workbook and data gathering.</strong> Before sessions begin, you complete a workbook and we meet for a dedicated session so I can personalise your therapy.</p>
+    <p><strong>Then, intensive or weekly sessions.</strong> Concentrated <a href="/ifs-therapy-intensive/">intensives</a> or <a href="/individual-therapy/">weekly sessions</a>, depending on your pathway. Real work from the first session.</p>
+    <p><strong>Where sessions happen.</strong> In person in Jakarta and online worldwide. If you travel often, split time between countries, or have moved away from Jakarta, we can continue online without losing momentum.</p>
+  </Split>
+
+  <Faq
+    tone="tan"
+    title="Frequently asked <em>questions</em>"
+    items={[
+      { q: 'Is counselling in Jakarta available in English?', a: 'Yes. I work in fluent English with both internationals and locals, in person in Jakarta and online worldwide. You do not need to translate your inner life to begin. There is more on this on my page for anyone looking specifically for an <a href="/english-speaking-therapist-jakarta/">English speaking therapist in Jakarta</a>.' },
+      { q: 'What does a therapist or counsellor actually do?', a: 'I help you understand what is driving a pattern, not just manage its symptoms. Using IFS, RLT and other evidence-based methods, we reach the root of anxiety, burnout, relationship strain or a life transition, so real change can hold. For married couples, that work runs as <a href="/marriage-counseling-jakarta/">marriage counselling in Jakarta</a>.' },
+      { q: 'What are your qualifications?', a: 'I am a Licensed Counsellor (ACA), trained in IFS (Levels 1, 2 and 3), RLT (Levels 1, 2 and 3), Gottman Method (Levels 1 and 2), Brainspotting, ACT and Perinatal Mental Health. I am based in Jakarta and work in person and online. <a href="/about/">Full training and education</a>.' },
+      { q: 'How much does therapy cost?', a: 'The free 15-minute consultation lets us discuss fit and current fees before you commit to anything.' },
+    ]}
+  />
+
+  <CtaBand layout="inline" title="A free 15-minute conversation." />
+</Base>
+
+<style>
+  .for-you { display: grid; gap: 16px; grid-template-columns: 1fr; list-style: none; padding: 0; margin: 0 auto; max-width: 1100px; }
+  @media (min-width: 640px) { .for-you { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .for-you { grid-template-columns: repeat(3, 1fr); } }
+  .for-you li { padding: 24px 26px; border-radius: var(--radius); background: #eceeea; color: var(--text); font-size: 0.92rem; }
+  .for-you .serif { display: block; margin-bottom: 6px; font-size: 1.3rem; line-height: 1.25; color: var(--ink); }
+  .for-you :global(a) { color: var(--green) !important; }
+</style>

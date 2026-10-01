@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PageHero from '../components/PageHero.astro';
+import CardGrid from '../components/CardGrid.astro';
+import Programmes from '../components/Programmes.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import hero from '../assets/photos/hero-burnout.png';
+import { INDIVIDUAL_PROGRAMMES, NOT_SURE_NOTE } from '../data/programmes';
+import { pick } from '../data/testimonials';
+
+const shifts = [
+  ['Energy comes back', 'Not all at once. But the flatness lifts. Things start to matter again in a way that feels real.'],
+  ['Rest stops feeling like failure', 'You learn the difference between stopping because you have to and stopping because you are allowed to.'],
+  ['The guilt loosens', 'You stop needing to justify being tired. What you have been carrying becomes visible, and that changes things.'],
+  ['You find your limits before they find you', 'The pattern shifts from crash and recover to something steadier.'],
+  ['Work feels like a choice again', 'Not a trap or an obligation. You reconnect with what you actually care about.'],
+  ['Relationships feel lighter', 'When you are not running on empty, you have more to give. The people around you feel the difference too.'],
+];
+
+const signs = [
+  '<strong>Exhausted</strong> but unable to fully rest because the to-do list never stops.',
+  'Things that used to energise you <strong>feel flat or meaningless.</strong>',
+  '<strong>Functioning, but only just.</strong> Nobody around you knows.',
+  '<strong>Guilty</strong> for struggling when your life looks good on paper.',
+  'Small things <strong>feel disproportionately hard.</strong>',
+  'Waiting for <strong>a holiday to fix it.</strong> It does not.',
+];
+---
+<Base {...SEO['burnout']}>
+  <PageHero
+    title="Burnout Therapy"
+    text="You have always been able to outwork the hard parts. But burnout does not respond to effort. The more you push, the further away okay feels. This is not about doing more. It is about understanding what got you here."
+    image={hero}
+    imageAlt="A person resting their head in their hands"
+  />
+
+  <CardGrid
+    tone="grey"
+    center
+    eyebrow="Who this is for"
+    title="People stuck in patterns. <em>And those ready to understand why.</em>"
+    items={[
+      { title: 'The high achiever', text: 'You have built a career on delivering. Now delivering feels hollow and you do not know who you are without the output.' },
+      { title: 'The working mother', text: 'Performing at work and showing up at home and somewhere in between you have disappeared. The exhaustion is not just physical.' },
+      { title: 'The one who is “fine”', text: 'No one around you knows anything is wrong. Reliable, competent, consistent. And completely running on empty.' },
+    ]}
+  />
+
+  <section class="section bg-white">
+    <div class="wrap">
+      <div class="section-head center weakness">
+        <h2>Burnout is not <em>weakness.</em></h2>
+        <p class="sub">It is what happens when you have given everything for too long.</p>
+        <p>High achievers are often the last to recognise burnout in themselves. You have built a life on drive and discipline. When the engine starts stalling, the instinct is to push harder. That strategy has always worked before.</p>
+        <p>But burnout is not a motivation problem. It is a signal. The gap between what you have and how you feel can be one of the loneliest places there is.</p>
+      </div>
+      <ul class="signs">
+        {signs.map((s) => <li set:html={s} />)}
+      </ul>
+    </div>
+  </section>
+
+  <CardGrid
+    tone="green"
+    center
+    eyebrow="How we work with this"
+    title="Not just rest. <em>Understanding what drove you here.</em>"
+    intro="Recovery from burnout is not only about slowing down. It is about understanding the internal patterns that kept you overriding your own limits. We work on both, at a pace that respects where you are right now."
+    items={[
+      { title: 'Internal Family Systems (IFS)', text: 'The parts of you that kept pushing past empty. What they were protecting you from, and what they need to finally rest.', href: '/ifs/', linkLabel: 'Learn about IFS' },
+      { title: 'Relational Life Therapy (RLT)', text: 'Burnout rarely stays at work. We explore how it is showing up in your closest relationships and what needs to shift there too.', href: '/rlt/', linkLabel: 'Learn about RLT' },
+      { title: 'Brainspotting', text: 'For the exhaustion that lives in the body and does not lift with sleep alone. We work at the level where it is actually stored.', href: '/brainspotting/', linkLabel: 'Learn about Brainspotting' },
+    ]}
+  />
+
+  <section class="section bg-grey">
+    <div class="wrap shifts">
+      <div class="shifts-head">
+        <span class="eyebrow">What shifts</span>
+        <h2>What becomes possible when you stop running <em>on empty</em></h2>
+      </div>
+      <dl>
+        {shifts.map(([t, x]) => <div><dt>{t}</dt><dd>{x}</dd></div>)}
+      </dl>
+    </div>
+  </section>
+
+  <Programmes
+    programmes={INDIVIDUAL_PROGRAMMES}
+    note={NOT_SURE_NOTE}
+  />
+
+  <Testimonials tone="grey" more items={pick('mikael-jasin', 'client-focused-on-overcoming-work-burnout-anxiety', 'client-focused-on-work-life-challenges', 'client-focused-on-building-healthy-habits', 'client-focused-on-building-resilience', 'client-focused-on-developing-self-understanding', 'client-focused-on-overcoming-anxiety', 'client-focused-on-self-improvement', 'client-focused-on-resolving-personal-issues', 'client-focused-on-overcoming-relationship-trauma')} />
+
+  <Faq
+    tone="paper"
+    items={[
+      { q: 'How do I know if I have burnout or just fatigue?', a: 'Burnout tends to look like more than tiredness. The flatness does not lift after a rest. Things that used to matter feel hollow. You are still functioning but only just, and you are not quite sure when it started. If a holiday has not fixed it, and the exhaustion feels deeper than your body, that is usually a signal worth taking seriously.' },
+      { q: 'Can I do burnout therapy without slowing down or stepping back from work?', a: 'Yes. The intensive format is specifically designed for people who cannot restructure their lives around weekly appointments. You can do focused, concentrated work across one to two days and come away with real insight and understanding without committing to an open-ended programme. That said, some of what we discover together may invite you to reconsider certain patterns. That is not a demand. It is part of the process.' },
+      { q: 'I have tried rest and holidays. Why has burnout not gone away?', a: 'Because burnout is not a lifestyle problem. It is a pattern problem. Rest manages the symptoms. This work looks at the internal drivers that kept you overriding your own limits long after you should have stopped: the perfectionist part, the one that equates rest with failure, the one that cannot stop without guilt. Until those parts are understood and worked with, the pattern tends to return regardless of how much you sleep.' },
+      { q: 'Can burnout therapy also help with relationship problems caused by burnout?', a: 'Yes. That is extremely common. Burnout rarely stays contained to one area of life. When you are running on empty, the people closest to you feel it first. We can address this within individual therapy or, if both partners are affected, through <a href="/couple-therapy/">couples work</a>. Either way, it is part of the picture from the start.' },
+      { q: 'How quickly does burnout therapy start to make a difference?', a: 'Some shifts happen within the first intensive. Not a complete turnaround, but a beginning. The flatness starts to lift. Things start to matter again in a way that feels real. The longer work is about making sure those changes hold and building patterns that do not lead back to the same place.' },
+      { q: 'Do I need a burnout diagnosis to start therapy in Jakarta?', a: 'No. You do not need a formal diagnosis or a referral. What matters is that you recognise yourself in what is described here and you are ready to do something more than cope.' },
+    ]}
+  />
+
+  <CtaBand tone="green" title="Something brought you here. <em>That is worth the conversation.</em>" />
+</Base>
+
+<style>
+  .weakness h2 { font-size: clamp(1.9rem, 3vw, 2.4rem); margin-bottom: 0.2em; }
+  .weakness .sub { font-size: 0.9rem; margin-bottom: 1.6rem; }
+  .weakness p { color: var(--ink); }
+  .signs { display: grid; gap: 16px; grid-template-columns: 1fr; list-style: none; padding: 0; margin: 0 auto; max-width: 1060px; }
+  @media (min-width: 640px) { .signs { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .signs { grid-template-columns: repeat(3, 1fr); } }
+  .signs li { padding: 18px 22px; border-radius: 12px; background: #eceeea; box-shadow: var(--shadow); font-size: 0.92rem; color: var(--text); }
+  .signs :global(strong) { color: var(--ink); font-weight: 600; }
+
+  .shifts { display: grid; gap: 32px 64px; max-width: 1080px; }
+  @media (min-width: 860px) { .shifts { grid-template-columns: 0.8fr 1.2fr; } .shifts-head { position: sticky; top: 120px; align-self: start; } }
+  .shifts-head h2 { font-size: clamp(1.7rem, 2.6vw, 2.1rem); }
+  .shifts dl { margin: 0; display: grid; gap: clamp(28px, 4vw, 48px); }
+  .shifts dt { font-family: var(--serif); font-size: clamp(1.35rem, 2vw, 1.6rem); color: var(--ink); margin-bottom: 0.4rem; }
+  .shifts dd { margin: 0; font-size: 0.95rem; }
+</style>

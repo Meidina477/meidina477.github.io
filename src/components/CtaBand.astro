@@ -1,0 +1,73 @@
+---
+import { SITE } from '../data/site';
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  text?: string;
+  secondary?: { label: string; href: string };
+  tone?: 'tan' | 'green' | 'sage' | 'paper' | 'stone' | 'white' | 'grey';
+  /** "inline": heading left, button right, joined onto the FAQ above it (same tone, divider line). */
+  layout?: 'center' | 'inline';
+}
+const {
+  eyebrow = 'Ready when you are',
+  title = 'You read this far.<br /><em>That means something.</em>',
+  text = 'A free 15-minute conversation. No commitment, no pressure. Just enough time to feel if this feels right.',
+  secondary = { label: 'Learn The Approach', href: '/how-i-work/' },
+  tone = 'tan',
+  layout = 'center',
+} = Astro.props;
+---
+{layout === 'inline' ? (
+<section class={`cta cta-inline bg-${tone}`}>
+  <div class="wrap-faq">
+    <div class="inline-grid">
+      <div>
+        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+        <h2 set:html={title} />
+        {tone !== 'white' && <p>{text}</p>}
+      </div>
+      <div class="inline-action">
+        {tone === 'white' && <p>{text}</p>}
+        <a href={SITE.book} class:list={['btn', tone === 'white' ? 'btn-primary' : 'btn-light']}>Book Free Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+) : (
+<section class={`section cta bg-${tone}`}>
+  <div class="wrap-narrow center">
+    {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    <h2 set:html={title} />
+    <p class="lead">{text}</p>
+    <div class="actions">
+      <a href={SITE.book} class:list={['btn', tone === 'paper' ? 'btn-grey' : 'btn-light']}>Book Free Consultation</a>
+      {secondary && <a href={secondary.href} class="link-underline">{secondary.label}</a>}
+    </div>
+  </div>
+</section>
+)}
+
+<style>
+  .cta h2 { font-size: clamp(2.3rem, 4.6vw, 3.6rem); }
+  .cta .lead { max-width: 52ch; margin-inline: auto; }
+  .bg-paper .lead { font-size: 1.05rem; color: var(--ink); }
+  .bg-paper .link-underline { color: var(--muted); }
+  .btn-grey { background: #7b827b; color: var(--white); }
+  .btn-grey:hover { background: var(--green); }
+  .cta-inline { padding-bottom: var(--section); }
+  .wrap-faq { width: min(100% - 2 * var(--gutter), 900px); margin-inline: auto; }
+  .inline-grid { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px 48px; padding-top: clamp(40px, 5vw, 60px); border-top: 1px solid var(--line-light); }
+  .cta-inline h2 { font-size: clamp(2.2rem, 4vw, 3rem); margin-bottom: 0.4em; }
+  .cta-inline p { max-width: 42ch; color: var(--white); }
+  :is(.bg-stone, .bg-grey) .inline-grid { border-color: rgba(0, 0, 0, 0.25); }
+  .bg-white .inline-grid { border-color: var(--line); }
+  .bg-white.cta-inline p { color: var(--ink); }
+  .bg-white.cta-inline h2 { font-size: clamp(1.8rem, 3vw, 2.3rem); color: var(--green-dark); }
+  .bg-white .inline-grid > * { flex: 1 1 320px; }
+  .inline-action p { margin-bottom: 1rem; }
+  :is(.bg-stone, .bg-grey).cta-inline p { color: var(--ink); }
+  :is(.bg-stone, .bg-grey) .eyebrow { color: var(--text) !important; }
+  .bg-white .eyebrow { color: var(--muted) !important; }
+</style>

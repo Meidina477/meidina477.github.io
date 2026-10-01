@@ -1,0 +1,102 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../data/site';
+
+const updated = '28 September 2026';
+---
+<Base
+  title="Privacy Policy | Shabnam Lee"
+  description="How Shabnam Lee Mental Health Therapy & Consulting collects, uses and protects your personal data, including the consultation form and cookies."
+>
+  <section class="section-sm bg-cream">
+    <div class="wrap-narrow">
+      <span class="eyebrow">Legal</span>
+      <h1>Privacy policy</h1>
+      <p class="muted">Last updated {updated}</p>
+    </div>
+  </section>
+
+  <section class="section-sm bg-paper">
+    <div class="wrap-narrow prose">
+      <p>Your privacy matters to us, especially because people often contact a therapist about things they have not shared with anyone else. This policy explains what personal data this website collects, why, how it is protected, and the choices you have.</p>
+      <p>This policy covers the website <strong>shabnamlee.com</strong>. What you share in therapy sessions is covered separately by the confidentiality terms you receive before starting therapy.</p>
+
+      <h2>Who we are</h2>
+      <p>This website is operated by <strong>{SITE.company}</strong> (“we”, “us”), trading as Shabnam Lee Mental Health Therapy &amp; Consulting, {SITE.address}, Indonesia. We are the data controller for the personal data described here.</p>
+      <p>For any privacy question or request, email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+
+      <h2>What we collect and why</h2>
+      <h3>When you send the consultation form</h3>
+      <p>We collect your first and last name, email address, WhatsApp number, how you heard about us, who the therapy is for, whether you have had therapy before, and what you choose to tell us about what brings you here.</p>
+      <p>We use this only to reply to you, arrange your free consultation, and understand whether working together is a good fit. The legal basis is your explicit consent, which you give by ticking the consent box, and taking steps at your request before a possible agreement to provide services.</p>
+      <p>What you write about your situation may include information about your health or relationships. Under Indonesia’s Personal Data Protection Law this is <em>specific personal data</em>, and we treat it with extra care: it is seen only by Shabnam and the person who manages her enquiries, and it is never used for marketing. Please share only what you are comfortable sharing at this stage.</p>
+
+      <h3>When you contact us on WhatsApp or by email</h3>
+      <p>We receive your phone number or email address and the messages you send, and use them to reply to you. WhatsApp is operated by Meta and its own privacy policy also applies.</p>
+
+      <h3>When you browse the site</h3>
+      <p>Our hosting provider automatically records basic technical information, such as your IP address, browser type and the pages requested, in server logs. These are used to keep the site secure and working and are kept for a short period.</p>
+
+      <h2 id="cookies">Cookies and analytics</h2>
+      <p>The site works without any cookies. We use <strong>Google Analytics</strong> to understand, in aggregate, which pages are useful and how people find the site. Google Analytics sets cookies (named <code>_ga</code> and similar), which is why we ask first.</p>
+      <ul>
+        <li>Google Analytics is <strong>only loaded if you click “Accept”</strong> on the cookie banner. If you click “Decline”, it is not loaded at all.</li>
+        <li>We do not use advertising or remarketing cookies, and we do not send the content of the consultation form to Google.</li>
+        <li>Your choice is remembered in your browser’s local storage (<code>sl-consent</code>) so we don’t ask on every page. This is not a tracking cookie.</li>
+        <li>You can change your mind at any time using the <button type="button" class="inline-btn" data-cookie-settings>Cookie settings</button> link in the footer. Declining removes the Google Analytics cookies from this site.</li>
+      </ul>
+
+      <h3>Embedded video and maps</h3>
+      <p>Videos on this site are hosted on YouTube. To protect your privacy, a video is not loaded until you click to play it, and videos use YouTube’s privacy-enhanced mode. Once you click, YouTube may set its own cookies under its privacy policy.</p>
+      <p>The map to our Jakarta office in the footer is embedded from Google Maps and loads with the page. Google may receive your IP address and set its own cookies when the map loads, under Google’s privacy policy.</p>
+
+      <h2>Who we share your data with</h2>
+      <p>We never sell your personal data. We share it only with service providers who help us run the website and practice, under their own confidentiality and security obligations:</p>
+      <ul>
+        <li><strong>GitHub</strong> (GitHub Pages): website hosting.</li>
+        <li><strong>FormSubmit</strong> (formsubmit.co): delivers what you write in the consultation form to our inbox.</li>
+        <li><strong>Our email provider</strong>: to receive and store enquiries sent to {SITE.email}.</li>
+        <li><strong>Google</strong>: Google Analytics, only if you accept analytics cookies.</li>
+        <li><strong>Meta (WhatsApp)</strong> and <strong>Zoom</strong>: if you choose to contact us on WhatsApp, or when your consultation takes place by video call.</li>
+      </ul>
+      <p>Some of these providers may process data outside Indonesia. Where that happens, we rely on providers that apply appropriate data protection safeguards, as required by law. We may also disclose information where the law requires it, or where there is a serious and imminent risk to someone’s life or safety.</p>
+
+      <h2>How long we keep it</h2>
+      <ul>
+        <li><strong>Enquiries that don’t lead to therapy:</strong> deleted within 12 months of our last contact with you, unless you ask us to delete them sooner.</li>
+        <li><strong>If you become a client:</strong> your information becomes part of your client record, which is kept in line with professional record-keeping requirements and your client agreement.</li>
+        <li><strong>Google Analytics data:</strong> kept by Google for no longer than 14 months, then deleted automatically.</li>
+      </ul>
+
+      <h2>How we protect it</h2>
+      <p>The website is served over an encrypted connection (HTTPS). The website itself stores nothing you type into the consultation form; your enquiry is sent over an encrypted connection to FormSubmit, which emails it to us. Access to enquiries is limited to the people who need to respond to them.</p>
+
+      <h2>Your rights</h2>
+      <p>Under Indonesia’s Personal Data Protection Law (Law No. 27 of 2022), you have the right to:</p>
+      <ul>
+        <li>ask what personal data we hold about you and get a copy of it;</li>
+        <li>correct data that is inaccurate or incomplete;</li>
+        <li>ask us to delete your data, or to stop or restrict processing it;</li>
+        <li>withdraw your consent at any time, without affecting anything done before you withdrew it;</li>
+        <li>object to decisions made solely by automated processing (we don’t make any);</li>
+        <li>complain to the relevant data protection authority in Indonesia.</li>
+      </ul>
+      <p>To use any of these rights, email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. We will respond as soon as we can, and within the time limits set by law.</p>
+
+      <h2>Children</h2>
+      <p>This website and our services are intended for adults. We do not knowingly collect personal data from anyone under 18 through this website.</p>
+
+      <h2>If you are in crisis</h2>
+      <p>This website and the consultation form are not monitored around the clock and are not an emergency service. If you are in crisis or thinking about harming yourself, please contact your local emergency services straight away.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>If we change how we handle personal data, we will update this page and the “last updated” date at the top.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  h1 { color: var(--green-dark); }
+  .inline-btn { padding: 0; border: 0; background: none; color: var(--green); text-decoration: underline; text-underline-offset: 3px; font: inherit; cursor: pointer; }
+  code { font-size: 0.9em; background: var(--cream); padding: 1px 5px; border-radius: 4px; }
+</style>

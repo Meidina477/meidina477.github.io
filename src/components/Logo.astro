@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import green from '../assets/brand/logo-green.png';
+import white from '../assets/brand/logo-white.png';
+
+interface Props { light?: boolean; height?: number }
+const { light = false, height = 30 } = Astro.props;
+const width = Math.round((green.width / green.height) * height);
+---
+<a href="/" class:list={['logo', { light }]} aria-label="Shabnam Lee Mental Health Therapy & Consulting, home">
+  <Image src={green} alt="" class="logo-green" width={width} height={height} densities={[1, 2]} loading="eager" />
+  <Image src={white} alt="" class="logo-white" width={width} height={height} densities={[1, 2]} loading="eager" />
+</a>
+
+<style>
+  .logo { display: inline-flex; line-height: 0; }
+  .logo img { width: auto; height: var(--logo-h, 30px); }
+  .logo-white { display: none; }
+  /* The white wordmark is used in the footer and whenever the header sits over a photo. */
+  .light .logo-green, :global(.over-photo:not(.scrolled):not(.open)) .logo-green { display: none; }
+  .light .logo-white, :global(.over-photo:not(.scrolled):not(.open)) .logo-white { display: block; }
+</style>

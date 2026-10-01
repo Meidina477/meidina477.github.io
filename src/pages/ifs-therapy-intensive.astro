@@ -1,0 +1,182 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PageHero from '../components/PageHero.astro';
+import CardGrid from '../components/CardGrid.astro';
+import Versus from '../components/Versus.astro';
+import Programmes from '../components/Programmes.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import hero from '../assets/photos/hero-ifs-intensive.png';
+import { INDIVIDUAL_PROGRAMMES, INTENSIVE_VS_WEEKLY } from '../data/programmes';
+import { pick } from '../data/testimonials';
+
+const signs = [
+  'A part of you wants to change. <strong>Another part will not let you.</strong>',
+  'You react in ways that <strong>surprise</strong> even yourself.',
+  'You are <strong>harsh on yourself</strong> in ways you would never be with others.',
+  'You <strong>feel like different people</strong> in different situations.',
+  '<strong>Old wounds</strong> keep showing up in current relationships.',
+  'You know what the pattern is. <strong>You cannot seem to stop it.</strong>',
+];
+
+const shifts = [
+  ['You stop fighting yourself', 'The internal conflict quiets. Parts that were pulling in opposite directions find a way to coexist.'],
+  ['Patterns start to make sense', 'The thing you kept doing that you could not explain. You understand where it came from. That changes its grip on you.'],
+  ['Self-criticism softens', 'The harsh inner voice was a part too. When it feels heard, it does not need to be so loud.'],
+  ['You respond instead of react', 'There is more space between the trigger and your response. That space is where change actually lives.'],
+  ['Old wounds lose their charge', 'The parts carrying pain from the past get what they needed. They no longer have to carry it forward.'],
+  ['You feel more like yourself', 'Not a new person. The one who was underneath all the protection. Calmer, clearer, more present.'],
+];
+
+const steps = [
+  ['Settling', 'We begin by creating space and settling. IFS works with the nervous system, not against it. Nothing is forced or rushed.'],
+  ['Noticing', 'You are invited to notice what is present inside. A feeling, a tension, a thought. We approach it with curiosity rather than trying to fix it or push it away.'],
+  ['Getting to know the part', 'We get to know the part that is there. Where it lives in your body. What it is carrying. What it needs. This is where the real shifts happen.'],
+  ['Self steps into the lead', 'Over time, parts that have been burdened for years begin to trust. They soften. They transform. And your Self steps into the lead.'],
+];
+
+const programmes = [
+  INDIVIDUAL_PROGRAMMES[0],
+  INDIVIDUAL_PROGRAMMES[1],
+  {
+    name: 'Bali Therapy Intensive',
+    duration: 'Fully customisable',
+    text: 'Step completely out of your environment for deep, immersive IFS work. Other modalities are woven in where useful. No daily life pulling you out of the process. Just you and the work. For when you are between chapters, on sabbatical, or carving out intentional time for deeper healing.',
+    steps: [
+      { label: 'Pre retreat', detail: 'Personalised workbook and consultation, before you arrive' },
+      { label: 'The retreat', detail: 'Intensive IFS therapy in Bali, fully customised format and duration' },
+      { label: 'Aftercare', detail: 'Post-retreat follow-up session, online' },
+    ],
+    price: 'Pricing upon consultation',
+  },
+];
+---
+<Base {...SEO['ifs-therapy-intensive']}>
+  <PageHero
+    title="IFS Therapy Intensive"
+    text="You are not broken. You are not one thing. Inside all of us are parts that learned to protect, perform, shut down, or take over. IFS helps you understand those parts, and find the version of you that was there before any of it began."
+    image={hero}
+    imageAlt=""
+  />
+
+  <CardGrid
+    tone="oat"
+    center
+    eyebrow="Who this is for"
+    title="People stuck in patterns. <em>And those ready to understand why.</em>"
+    items={[
+      { title: 'Curious about parts work', text: 'You have heard about IFS and something in you recognised it. You want to understand the different voices inside and why they do what they do.' },
+      { title: 'Stuck in a pattern', text: 'You know what you want to do differently. You cannot seem to do it. Something keeps taking over and you do not know where it comes from.' },
+      { title: 'Done with insight alone', text: 'You understand yourself. You have done the reading, the therapy, the journalling. And things still have not shifted. IFS goes deeper than understanding.' },
+    ]}
+  />
+
+  <section class="section bg-white">
+    <div class="wrap">
+      <div class="section-head center system">
+        <h2>You are not one thing. <em>You are a system of parts.</em></h2>
+        <p>Internal Family Systems (IFS) is a model developed by Richard Schwartz that understands the mind as made of different parts. Some parts protect you. Some carry old pain. Some have been running the show since childhood without you realising.</p>
+        <p>At the centre of all of it is what IFS calls the Self. Calm, curious, compassionate. It was always there. The work is about helping your parts trust it enough to step back.</p>
+      </div>
+      <ul class="signs">
+        {signs.map((s) => <li set:html={s} />)}
+      </ul>
+    </div>
+  </section>
+
+  <CardGrid
+    tone="tan"
+    columns={2}
+    center
+    eyebrow="How we work with this"
+    title="IFS at the centre. <em>Other modalities where the work calls for it.</em>"
+    intro="IFS is the primary framework. We get to know your parts, understand what they are protecting, and help them find new ways of being. The work is slow, respectful, and often surprising. Where the body is holding what words cannot reach, I bring in Brainspotting. Where patterns are showing up in relationship, RLT. Where values and meaning need anchoring, ACT. The approach is integrative because people are."
+    items={[
+      { title: 'Internal Family Systems (IFS)', text: 'Getting to know your parts. The protectors, the exiles, the managers. Understanding what they need and helping them trust your Self to lead.', href: '/ifs/' },
+      { title: 'Brainspotting', text: 'When a part is held in the body and talking about it is not enough. We work at the level where it is actually stored.', href: '/brainspotting/' },
+      { title: 'Relational Life Therapy (RLT)', text: 'When your parts are most activated in relationship. We look at what is happening between you and the people closest to you.', href: '/rlt/' },
+      { title: 'ACT', text: 'When parts have disconnected you from what matters. We reconnect with values and help you move toward them, even with difficult parts present.', href: '/act-therapy/' },
+    ]}
+  />
+
+  <section class="section bg-oat">
+    <div class="wrap shifts">
+      <div class="shifts-head">
+        <span class="eyebrow">What shifts</span>
+        <h2>What becomes possible when your parts are <em>no longer running the show</em></h2>
+      </div>
+      <dl>
+        {shifts.map(([t, x]) => <div><dt>{t}</dt><dd>{x}</dd></div>)}
+      </dl>
+    </div>
+  </section>
+
+  <section class="section-top bg-tan">
+    <div class="wrap session">
+      <div>
+        <span class="eyebrow">What a session feels like</span>
+        <h2>IFS is experiential. <em>The best way to understand it is to try it.</em></h2>
+        <p>IFS is not about analysing yourself from the outside. It is about going inside and making contact with your parts directly. Most clients describe it as unlike anything they have experienced in therapy before.</p>
+      </div>
+      <ol class="session-steps">
+        {steps.map(([t, x], i) => <li><span class="n">{String(i + 1).padStart(2, '0')}</span><p><span class="visually-hidden">{t}. </span>{x}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <Versus
+    tone="tan"
+    eyebrow="Which is right for you"
+    title="Individual intensive therapy vs weekly therapy"
+    intro="Most therapists offer weekly sessions only. The intensive format exists because some people need to move faster, go deeper, or cannot fit weekly therapy to their lives right now. Neither is better. They suit different people at different moments."
+    {...INTENSIVE_VS_WEEKLY}
+  />
+
+  <Programmes accent="tan" title="Two ways to work together. <em>Built around your life.</em>" programmes={programmes} />
+
+  <Testimonials tone="oat" more items={pick('mikael-jasin', 'client-focused-on-overcoming-work-burnout-anxiety', 'client-focused-on-overcoming-relationship-trauma', 'client-focused-on-resolving-personal-issues', 'client-focused-on-self-improvement', 'client-focused-on-building-healthy-habits', 'client-focused-on-building-resilience', 'client-focused-on-developing-self-understanding', 'client-focused-on-work-life-challenges', 'client-focused-on-overcoming-anxiety')} />
+
+  <Faq
+    tone="paper"
+    items={[
+      { q: 'Do I need prior IFS knowledge to do an IFS therapy intensive?', a: 'No. Some people arrive having read about parts work and recognising themselves in it. Others come in completely fresh. Either way, the process is guided from the start. You will understand IFS by doing it, not by studying it beforehand.' },
+      { q: 'What does an IFS therapy intensive session actually feel like?', a: 'It is unlike most therapy. You are not talking about your experience from a distance. You are going inside and making contact with specific parts directly: noticing where they live in the body, what they are carrying, what they need. It is experiential and often surprising. Most clients describe it as the first time a pattern they have tried for years to understand has actually begun to shift.' },
+      { q: 'I have had years of therapy. Will an IFS intensive still be useful?', a: 'Often, yes. This is one of the most common presentations for the IFS intensive. Many people who have done years of therapy, journalling, or coaching arrive because insight alone has not produced change. Understanding a pattern does not always shift it. IFS works at the level where the pattern is actually being held, which is often below what conscious understanding can reach.' },
+      { q: 'What is the difference between an IFS intensive in Jakarta and the Bali retreat?', a: 'The Jakarta intensive is a structured programme of 6 hours across two days (or 8.5 hours across three), designed to go deep in a concentrated format while you remain in your daily environment. The Bali retreat takes you completely out of that environment for a fully customised, immersive experience with a minimum of nine hours of therapy. It suits people who are between chapters, on sabbatical, or ready for a more total reset. Both deliver serious work. The setting, the duration, and the level of immersion are the main differences.' },
+      { q: 'Is a therapy intensive suitable if I am going through a difficult time right now?', a: 'The intensive can actually be ideal during a difficult period because it gives you concentrated, supported time to work through what is present rather than managing it alone across weeks. That said, the consultation before booking is where we assess whether the intensive format or a different starting point makes more sense for where you are right now.' },
+      { q: 'What is included in the aftercare session after an IFS intensive?', a: 'The aftercare session, included in every intensive pathway, is a 50-minute follow-up after the main work is done. It gives us space to consolidate what shifted, address anything that has surfaced in the days after, and assess whether ongoing work makes sense. Nothing ends cold.' },
+    ]}
+  />
+
+  <CtaBand title="Something brought you here. <em>That is worth the conversation.</em>" />
+</Base>
+
+<style>
+  .system { max-width: 900px; }
+  .system h2 { font-size: clamp(1.9rem, 3vw, 2.4rem); }
+  .system p { color: var(--ink); }
+  .signs { display: grid; gap: 16px; grid-template-columns: 1fr; list-style: none; padding: 0; margin: 0 auto; max-width: 1060px; }
+  @media (min-width: 640px) { .signs { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .signs { grid-template-columns: repeat(3, 1fr); } }
+  .signs li { padding: 18px 22px; border-radius: 12px; background: #eceeea; box-shadow: var(--shadow); font-size: 0.92rem; color: var(--text); }
+  .signs :global(strong) { color: var(--ink); font-weight: 600; }
+
+  .shifts { display: grid; gap: 32px 64px; max-width: 1080px; }
+  @media (min-width: 860px) { .shifts { grid-template-columns: 0.8fr 1.2fr; } .shifts-head { position: sticky; top: 120px; align-self: start; } }
+  .shifts-head h2 { font-size: clamp(1.7rem, 2.6vw, 2.1rem); }
+  .shifts dl { margin: 0; display: grid; gap: clamp(28px, 4vw, 48px); }
+  .shifts dt { font-family: var(--serif); font-size: clamp(1.35rem, 2vw, 1.6rem); color: var(--ink); margin-bottom: 0.4rem; }
+  .shifts dd { margin: 0; font-size: 0.95rem; }
+
+  .section-top { padding-top: var(--section); }
+  .session { display: grid; gap: 32px 64px; max-width: 1080px; padding-bottom: clamp(40px, 5vw, 64px); border-bottom: 1px solid var(--line-light); }
+  @media (min-width: 860px) { .session { grid-template-columns: 1fr 1fr; } }
+  .session h2 { font-size: clamp(1.8rem, 2.8vw, 2.2rem); }
+  .session-steps { display: grid; gap: 24px 28px; grid-template-columns: 1fr; list-style: none; padding: 0; margin: 0; }
+  @media (min-width: 560px) { .session-steps { grid-template-columns: 1fr 1fr; } }
+  .session-steps li { display: flex; gap: 10px; }
+  .session-steps .n { font-family: var(--serif); font-size: 1.5rem; line-height: 1; color: var(--white); }
+  .session-steps p { font-size: 0.9rem; color: var(--white); }
+</style>

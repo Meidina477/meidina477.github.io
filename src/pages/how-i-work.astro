@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PageHero from '../components/PageHero.astro';
+import CardGrid from '../components/CardGrid.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const rows = [
+  { label: 'Approach', regular: 'Single method, often focused on coping and symptom management', shabnam: 'Integrates IFS, RLT, Brainspotting and perinatal mental health to address root causes' },
+  { label: 'Therapist experience', regular: 'Primarily clinical training, often without real-world business or leadership experience', shabnam: 'Clinical training combined with corporate leadership, high-pressure environments and lived family experience' },
+  { label: 'Focus of work', regular: 'Symptom reduction and skills building', shabnam: 'Understanding and healing root emotional and relational patterns before teaching skills for lasting change' },
+  { label: 'Session format', regular: 'Standard weekly sessions, typically 50 to 60 minutes', shabnam: 'Flexible formats including extended sessions and therapy intensives of 6 to 13 hours for deeper, faster progress' },
+];
+---
+<Base {...SEO['how-i-work']}>
+  <PageHero
+    eyebrow="How this is different"
+    title="Therapy with <br />Shabnam Lee vs Regular Therapy"
+    text="This is not one-size-fits-all therapy. Here is how this approach differs and why it creates more lasting change."
+    cta={false}
+    tone="white"
+    center
+  />
+
+  <section class="section-sm bg-white compare-section">
+    <div class="wrap">
+      <div class="table-wrap">
+        <table class="compare">
+          <thead>
+            <tr>
+              <td></td>
+              <th scope="col">Regular therapy</th>
+              <th scope="col" class="hl">Therapy with Shabnam Lee</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr>
+                <th scope="row">{r.label}</th>
+                <td data-label="Regular therapy">{r.regular}</td>
+                <td data-label="Therapy with Shabnam Lee" class="hl">{r.shabnam}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <CardGrid
+    tone="grey"
+    center
+    eyebrow="The methods"
+    title="Mind, body and relationship. <em>All six methods work together.</em>"
+    intro="An integrative, holistic approach that works across your inner world, your nervous system and your relationships. Not one lens. The full picture."
+    items={[
+      { title: 'Internal Family Systems', text: 'Works with the parts of you in conflict. The perfectionist, the inner critic, the one that shuts down.', href: '/ifs/' },
+      { title: 'Relational Life Therapy', text: 'Direct, honest work on how you relate to yourself and others. Confronts patterns with compassion.', href: '/rlt/' },
+      { title: 'Brainspotting', text: 'Reaches what is held in the body and nervous system. The things talk therapy alone cannot shift.', href: '/brainspotting/' },
+      { title: 'Acceptance and Commitment Therapy', text: 'Helps you stop fighting your own experience and move toward what actually matters to you.', href: '/act-therapy/' },
+      { title: 'Gottman Method', text: 'Research-based tools for couples. Understanding conflict patterns, building friendship and trust.', href: '/gottman/' },
+      { title: 'Perinatal Mental Health', text: 'Therapy informed by perinatal mental health training. Supportive of mothers across pregnancy, postpartum and early parenthood.', href: '/perinatal-health/' },
+    ]}
+  />
+
+  <Faq
+    tone="white"
+    items={[
+      { q: 'Do you use all six methods in every session?', a: 'Not always. The methods are woven together based on what you specifically need. Some clients work primarily with IFS. Others need Brainspotting to reach what talk therapy cannot. The approach is always tailored to your situation.' },
+      { q: 'I have tried therapy before and it did not work.', a: 'Most therapy is designed to help you cope. This is designed to help you change. If previous therapy felt too surface-level or not relevant to the life you are actually living, that is worth paying attention to.' },
+      { q: 'How is this different from coaching?', a: 'Coaching works on goals and performance. This work goes deeper into the patterns, parts and relational dynamics that drive how you behave and how you feel. It is therapeutic, not advisory.' },
+      { q: 'Where do I start if I am not sure which pathway is right for me?', a: 'Start with a free 15-minute consultation. That conversation will make it clear whether individual therapy, couples work or the retreat format is the right fit, and I will be honest even if that means pointing you elsewhere.' },
+    ]}
+  />
+
+  <CtaBand title="Not sure where to start? <em>That’s exactly what the consultation is for.</em>" secondary={{ label: 'See the pathways', href: '/work-with-me/' }} />
+</Base>
+
+<style>
+  .compare-section { padding-top: 0; }
+  .compare-section { padding-bottom: var(--section); }
+  .table-wrap { max-width: 900px; margin-inline: auto; }
+  .compare { width: 100%; border-collapse: collapse; font-size: 0.85rem; color: var(--text); }
+  .compare th, .compare td { padding: 20px 20px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  .compare thead th { font-weight: 600; font-size: 1rem; color: var(--ink); }
+  .compare tbody th { font-weight: 600; font-size: 1rem; color: var(--ink); width: 24%; }
+  .compare tbody .hl { background: #efebe6; }
+  @media (max-width: 720px) {
+    .compare thead { display: none; }
+    .compare, .compare tbody, .compare tr, .compare th, .compare td { display: block; width: 100%; }
+    .compare tr { border-bottom: 1px solid var(--line); }
+    .compare tbody th { padding-bottom: 8px; border: 0; }
+    .compare td { border: 0; padding-top: 10px; }
+    .compare td::before { content: attr(data-label); display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  }
+</style>

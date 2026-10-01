@@ -1,0 +1,219 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import { Image } from 'astro:assets';
+import CtaBand from '../components/CtaBand.astro';
+import PhotoHero from '../components/PhotoHero.astro';
+import heroPhoto from '../assets/photos/hero-work-with-me.png';
+import iconIndividual from '../assets/brand/path-individual.png';
+import iconCouples from '../assets/brand/path-couples.png';
+import iconMothers from '../assets/brand/path-mothers.png';
+import iconRetreats from '../assets/brand/path-retreats.png';
+
+const pathways = [
+  {
+    title: 'Individual Therapy',
+    sub: 'IFS Intensive and Weekly',
+    price: 'Intensives from IDR 11,000,000',
+    where: 'In-person or online worldwide',
+    tags: ['IFS + Brainspotting', 'In-person or online'],
+    forYou: [
+      'You feel stuck, burnt out or disconnected and want to understand why.',
+      'You want to work at the root, not just manage symptoms.',
+      'You have tried therapy before and it didn’t go deep enough.',
+      'You are in a transition and need focused, real support.',
+    ],
+    how: [
+      'Begins with Client Workbook and Data Gathering Session.',
+      'Therapy Intensive: 6 hours across 2 days, or 8.5 hours across 3 days, plus aftercare.',
+      'Weekly Therapy: 4 × 75-minute sessions with Workbook.',
+      'Prefer not to take a package yet? Start with a single 1.5-hour session (IDR 4,000,000).',
+    ],
+    href: '/individual-therapy/',
+    link: 'Learn more about Individual Therapy',
+    icon: iconIndividual,
+    tone: 'individual',
+  },
+  {
+    title: 'Couple Therapy',
+    sub: 'RLT and Gottman',
+    price: 'From IDR 14,500,000',
+    where: 'In-person or online worldwide',
+    tags: ['RLT + Gottman', 'In-person or online'],
+    forYou: [
+      'You keep having the same argument and nothing shifts.',
+      'Distance has crept in and you do not know how to close it.',
+      'You want to build something that actually holds.',
+      'You are ready to stop managing each other and start connecting.',
+    ],
+    how: [
+      'Couple Exploration: 2 days, 7 hours of focused work.',
+      'Couple Deepening: 2 days, 13 hours including a post-intensive check-in.',
+      'Relational Life Therapy and Gottman Method combined.',
+      'Available as intensive or ongoing weekly.',
+    ],
+    href: '/couple-therapy/',
+    link: 'Learn more about Couple Therapy',
+    icon: iconCouples,
+    tone: 'couples',
+  },
+  {
+    title: 'High Achieving Mothers',
+    sub: 'IFS, ACT and perinatal mental health',
+    price: 'Intensives from IDR 11,000,000',
+    where: 'In-person or online worldwide',
+    tags: ['IFS + ACT', 'In-person or online'],
+    forYou: [
+      'You love your child and also feel lost in motherhood.',
+      'You are a high achiever who cannot optimise your way out of this one.',
+      'Rage, guilt, or numbness have become your default settings.',
+      'You want to mother from a grounded place, not an exhausted one.',
+    ],
+    how: [
+      'IFS to understand the parts of you in conflict.',
+      'ACT to reconnect with what matters most.',
+      'Perinatal mental health informed throughout.',
+      'Therapy intensive or weekly format available.',
+    ],
+    href: '/high-achieving-mothers/',
+    link: 'Learn more about High Achieving Mothers',
+    icon: iconMothers,
+    tone: 'mothers',
+  },
+  {
+    title: 'Therapy Retreat in Bali',
+    sub: 'IFS, RLT and Brainspotting',
+    price: 'Pricing upon consultation',
+    where: 'Fully customisable',
+    tags: ['IFS + RLT + Brainspotting', 'In-person, Bali'],
+    forYou: [
+      'You want to go deep in a setting that matches the work.',
+      'You are ready for a real reset, not just a holiday.',
+      'You want to combine intensive therapy with time to integrate.',
+      'You are coming in solo, as a couple, or with a small group.',
+    ],
+    how: [
+      'Minimum 9 hours of therapy across your stay.',
+      'Fully customised to your goals and timeline.',
+      'IFS and RLT woven throughout.',
+      'Available for individuals and couples.',
+    ],
+    href: '/retreats/',
+    link: 'Learn more about the Retreat',
+    icon: iconRetreats,
+    tone: 'retreats',
+  },
+];
+
+const steps = [
+  { title: 'Free 15-minute consultation', text: 'You tell me what’s going on. I will tell you honestly whether this is the right fit, what working together would look like, and what it costs. No prep needed.', where: 'Online. No commitment.' },
+  { title: 'Workbook & data gathering', text: 'Before any sessions begin you complete a workbook and we meet for a dedicated data gathering session that allows me to personalise your therapy programme.', where: 'Jakarta, Bali or online' },
+  { title: 'Intensive or weekly sessions', text: 'Concentrated intensive sessions or weekly sessions depending on your pathway. Real work from the first session. Aftercare included in every intensive pathway.', where: 'Jakarta, Bali or online' },
+];
+---
+<Base {...SEO['work-with-me']} overPhoto>
+  <PhotoHero
+    layout="center"
+    title="The right pathway for <br /><em>where you are right now.</em>"
+    text="<span class='place'>All sessions available online and in-person in Jakarta. Retreats in Bali and Jakarta.</span>Whether you are looking for ongoing weekly therapy, a concentrated intensive, or an immersive retreat, the work is the same. Deep, honest, and built around you."
+    image={heroPhoto}
+    imageAlt="A woman in a yellow dress standing on a ridge above green hills and a winding bay"
+    position="center 60%"
+    cta={false}
+    shade={0.3}
+  />
+
+  <section class="section bg-white">
+    <div class="wrap">
+      <div class="section-head center">
+        <h2 class="paths-title">Four pathways. <em>Designed to your needs.</em></h2>
+        <p>Jakarta, Bali, and online</p>
+      </div>
+
+      <div class="pathways">
+        {pathways.map((p) => (
+          <article class={`pathway tone-${p.tone}`}>
+            <header class="p-head">
+              <Image src={p.icon} alt="" class="icon" height={48} densities={[1, 2]} />
+              <h3>{p.title}:<br />{p.sub}</h3>
+              <p class="price">{p.price}<span>{p.where}</span></p>
+            </header>
+            <div class="p-body">
+              <div>
+                <span class="eyebrow">This is for you if</span>
+                <ul class="dots">{p.forYou.map((x) => <li>{x}</li>)}</ul>
+              </div>
+              <div>
+                <span class="eyebrow">How it works</span>
+                <ul class="dots">{p.how.map((x) => <li>{x}</li>)}</ul>
+              </div>
+            </div>
+            <footer class="p-foot">
+              <ul class="tags">{p.tags.map((t) => <li>{t}</li>)}</ul>
+              <a href={p.href} class="more">{p.link} <span aria-hidden="true">→</span></a>
+            </footer>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-tan">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">How it works, every time</span>
+        <h2>Starting therapy. What to expect.</h2>
+      </div>
+      <ol class="steps">
+        {steps.map((st, i) => (
+          <li class="card">
+            <span class="step-num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{st.title}</h3>
+            <p>{st.text}</p>
+            <span class="step-where">{st.where}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <CtaBand tone="paper" eyebrow="" title="Not sure which pathway <br />is right for you?" />
+</Base>
+
+<style>
+  .paths-title { font-size: clamp(1.8rem, 3vw, 2.3rem); margin-bottom: 0.4em; }
+
+  .pathways { display: grid; gap: 28px; max-width: 1000px; margin-inline: auto; }
+  .pathway { border-radius: var(--radius); box-shadow: var(--shadow); padding: clamp(24px, 4vw, 50px); padding-bottom: clamp(20px, 3vw, 28px); color: var(--text); }
+  .tone-individual { background: #c8cdc7; }
+  .tone-couples { background: var(--blush); }
+  .tone-mothers { background: #d9cbbd; }
+  .tone-retreats { background: var(--mist); }
+  .p-head { display: grid; grid-template-columns: auto 1fr; gap: 12px 22px; align-items: center; padding-bottom: 26px; border-bottom: 1px solid var(--line); }
+  .icon { width: auto; height: 48px; }
+  .p-head h3 { margin: 0; font-size: clamp(1.5rem, 2.4vw, 1.9rem); }
+  .price { grid-column: 1 / -1; margin: 0; font-size: 0.95rem; color: var(--ink); }
+  .price span { display: block; font-size: 0.82rem; color: var(--text); margin-top: 4px; }
+  @media (min-width: 760px) {
+    .p-head { grid-template-columns: auto 1fr auto; }
+    .price { grid-column: auto; text-align: right; }
+  }
+  .p-body { display: grid; gap: 24px; padding: 26px clamp(0px, 3vw, 24px); border-bottom: 1px solid var(--line); }
+  @media (min-width: 760px) { .p-body { grid-template-columns: 1fr 1fr; gap: 48px; } }
+  .p-body .eyebrow { color: var(--ink); font-size: 0.85rem; letter-spacing: 0.02em; }
+  .dots { margin: 0; padding-left: 1.1em; display: grid; gap: 0.8rem; font-size: 0.95rem; }
+  .dots li::marker { color: var(--muted); }
+  .p-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 18px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+  .tags li { padding: 5px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.85); font-size: 0.8rem; color: var(--ink); }
+  .more { font-size: 0.88rem; color: var(--ink); text-underline-offset: 4px; }
+  .more span { display: inline-block; margin-left: 6px; text-decoration: none; }
+
+  .steps { display: grid; gap: 24px; list-style: none; padding: 0; margin: 0; }
+  @media (min-width: 860px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+  .steps .card { display: flex; flex-direction: column; align-items: center; text-align: center; color: var(--ink); }
+  .step-num { font-family: var(--serif); font-size: 1.6rem; color: var(--ink); line-height: 1; }
+  .steps h3 { font-size: clamp(1.4rem, 2vw, 1.65rem); margin: 0.2em 0 0.7em; max-width: 12ch; color: var(--ink); }
+  .steps p { font-size: 0.95rem; }
+  .step-where { margin-top: auto; padding-top: 1.2rem; font-size: 0.85rem; color: var(--tan); }
+</style>

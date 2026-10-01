@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PageHero from '../components/PageHero.astro';
+import chaos from '../assets/img/placeholder-image.png';
+import journal from '../assets/img/placeholder-image-1.png';
+import meditation from '../assets/img/placeholder-image-2.png';
+
+const items = [
+  {
+    eyebrow: 'A guide to understanding anxiety',
+    title: 'Chaos to Clarity',
+    text: 'When worries, anxieties, and frustrations pile up, it can feel impossible to think clearly. This structured, science-backed workbook helps you make sense of what is going on inside, so you can take back control and find the clarity you have been looking for.',
+    note: 'Download free for a limited time.',
+    cta: 'Get the workbook',
+    href: 'https://drive.google.com/drive/folders/14iQMiqlHRCO0BTngoabC2u9tAS7UG1vg?usp=sharing',
+    image: chaos,
+    alt: 'Chaos to Clarity workbook cover',
+    tone: 'paper',
+  },
+  {
+    eyebrow: 'Journal',
+    title: 'Reflect on what was. <em>Reset for what’s next.</em>',
+    text: 'A three-part journal designed to help you pause, look back on the year honestly, and map out where you want to focus your energy next.',
+    cta: 'Download free journal',
+    href: '/downloads/reflection-reset-journal.pdf',
+    image: journal,
+    alt: 'Reflect + Reset journal cover',
+    tone: 'blush',
+  },
+  {
+    eyebrow: 'Meditation',
+    title: 'Get a felt sense of what IFS is like <em>before your first session.</em>',
+    text: 'A short guided meditation by Shabnam to help you begin to notice your parts, with curiosity and without judgement. The best way to understand IFS is to experience it.',
+    cta: 'Experience the meditation',
+    href: 'https://youtu.be/5KCxT9XmxBk',
+    image: meditation,
+    alt: 'Laptop showing Bali rice terraces',
+    tone: 'paper',
+  },
+];
+---
+<Base {...SEO['resource']}>
+  <PageHero
+    eyebrow="Resources"
+    title="Everything you need <em>to begin</em>"
+    text="Practical guides, journals, and meditations to help you understand your mind and move forward with clarity."
+    cta={false}
+    tone="paper"
+    center
+  />
+
+  <section class="section-sm bg-paper res-list">
+    <div class="wrap">
+      {items.map((it, i) => (
+        <article class:list={['res', { flip: i % 2 === 1 }]}>
+          <div class="res-copy">
+            <span class="eyebrow">{it.eyebrow}</span>
+            <h2 set:html={it.title} />
+            <p>{it.text}</p>
+            {it.note && <p class="muted">{it.note}</p>}
+            <div class="actions">
+              <a href={it.href} class="btn btn-primary" target={it.href.startsWith('http') ? '_blank' : undefined} rel="noopener" download={it.href.endsWith('.pdf') ? '' : undefined}>{it.cta}</a>
+            </div>
+          </div>
+          <Image src={it.image} alt={it.alt} class="res-img" widths={[400, 576]} sizes="(min-width: 760px) 50vw, 92vw" />
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .res-list { padding-top: 0; }
+  .res { display: grid; grid-template-columns: 1fr; margin-bottom: 32px; border: 1px solid rgba(42, 42, 42, 0.07); border-radius: var(--radius); overflow: hidden; background: var(--white); box-shadow: var(--shadow); }
+  @media (min-width: 760px) { .res { grid-template-columns: 1fr 1fr; } .flip .res-img { order: -1; } }
+  .res-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(28px, 5vw, 48px); }
+  .res-copy .eyebrow { color: var(--ink); letter-spacing: 0.02em; font-size: 0.78rem; margin-bottom: 0.5rem; }
+  .res-copy h2 { font-size: clamp(1.6rem, 2.6vw, 2rem); }
+  .res-copy p { color: var(--ink); }
+  .res-img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; }
+</style>

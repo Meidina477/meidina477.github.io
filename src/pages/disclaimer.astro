@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../data/site';
+
+// DRAFT for Shabnam to review (see PAGES.md, C19). Remove `noindex` once approved.
+const updated = '28 September 2026';
+---
+<Base
+  title="Disclaimer | Shabnam Lee"
+  description="The information on shabnamlee.com is general and educational. It is not a substitute for therapy, medical advice or emergency care."
+  noindex
+>
+  <section class="section-sm bg-cream">
+    <div class="wrap-narrow">
+      <span class="eyebrow">Legal</span>
+      <h1>Disclaimer</h1>
+      <p class="muted">Last updated {updated}</p>
+    </div>
+  </section>
+
+  <section class="section-sm bg-paper">
+    <div class="wrap-narrow prose">
+      <h2>General information only</h2>
+      <p>The articles, videos, resources and other content on <strong>shabnamlee.com</strong> are for general and educational purposes. They are not therapy, counselling, medical or psychiatric advice, and they are not a diagnosis. Reading them does not create a therapist–client relationship.</p>
+      <p>Everyone’s situation is different. Please don’t make decisions about your mental health, medication or relationships based on this website alone. Speak to a qualified professional who knows your circumstances.</p>
+
+      <h2>Not for emergencies</h2>
+      <p>This website, the consultation form, email and WhatsApp are not monitored around the clock and are not an emergency service. If you are in crisis or thinking about harming yourself, please contact your local emergency services straight away. In Indonesia you can call 119 (extension 8) for the Ministry of Health mental health line.</p>
+
+      <h2>Methods and results</h2>
+      <p>The approaches described on this site, including IFS, Relational Life Therapy, Brainspotting, ACT, the Gottman Method and perinatal mental health support, are used within a professional therapeutic relationship. Research findings mentioned on this site describe results from studies. They are not a promise of any particular outcome for you.</p>
+
+      <h2>Client stories</h2>
+      <p>Testimonials are shared with clients’ permission and reflect their own experience. Individual experiences vary.</p>
+
+      <h2>Other websites and recommendations</h2>
+      <p>We link to books, podcasts, videos and other websites we find helpful. We don’t control that content and are not responsible for it. <mark>[If any links are affiliate links, say so here.]</mark></p>
+
+      <h2>Accuracy</h2>
+      <p>We work to keep the information on this site accurate and up to date, including programme details and fees, but it may change. The details confirmed with you when you book are the ones that apply.</p>
+
+      <h2>Questions</h2>
+      <p>Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. See also our <a href="/terms/">terms of use</a> and <a href="/privacy-policy/">privacy policy</a>.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  h1 { color: var(--green-dark); }
+  mark { background: #f3e6c8; padding: 0 3px; border-radius: 3px; }
+</style>

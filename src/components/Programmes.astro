@@ -1,0 +1,136 @@
+---
+import { SITE } from '../data/site';
+
+interface Step { label: string; detail: string; time?: string }
+interface Programme {
+  name: string;
+  duration?: string;
+  text?: string;
+  steps?: Step[];
+  price: string;
+  where?: string;
+  featured?: boolean;
+}
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  programmes: Programme[];
+  intro?: string;
+  note?: string;
+  international?: boolean;
+  /** Colour of the first (highlighted) programme card. */
+  accent?: 'green' | 'tan' | 'mauve';
+}
+const { eyebrow = 'The programmes', title = 'Two ways to work together. <em>Built around your life.</em>', intro, programmes, note, international = true, accent = 'green' } = Astro.props;
+
+// Programmes with a step-by-step structure get the large cards; the rest (e.g. the Bali retreat)
+// sit in a smaller row underneath, next to the "not sure?" note.
+const main = programmes.filter((p) => p.steps?.length);
+const extra = programmes.filter((p) => !p.steps?.length);
+---
+<section class="section bg-paper">
+  <div class="wrap progs-wrap">
+    <div class="section-head center">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2 set:html={title} />
+      {intro && <p set:html={intro} />}
+    </div>
+
+    <div class:list={['progs', `cols-${Math.min(main.length, 3)}`]}>
+      {main.map((p, i) => (
+        <article class:list={['prog', i === 0 ? `dark ${accent}` : `light light-${accent}`]}>
+          <header class="prog-head">
+            <h3>{p.name}</h3>
+            {p.duration && <span class="duration">{p.duration}</span>}
+          </header>
+          {p.text && <p class="prog-text">{p.text}</p>}
+          <ol class="steps">
+            {p.steps!.map((s) => (
+              <li>
+                <span class="step-label">{s.label}</span>
+                <span>{s.detail}</span>
+                {s.time && <span>{s.time}</span>}
+              </li>
+            ))}
+          </ol>
+          <footer class="prog-foot">
+            <p class="price">{p.price}{p.where && <span>{p.where}</span>}</p>
+            <a href={SITE.book} class="book">Book a consult <span aria-hidden="true">→</span></a>
+          </footer>
+        </article>
+      ))}
+    </div>
+
+    {(extra.length > 0 || note) && (
+      <div class="progs cols-2 extras">
+        {extra.map((p) => (
+          <article class="prog small">
+            <h3>{p.name}</h3>
+            <footer class="prog-foot">
+              <p class="price">{p.price}{(p.where ?? p.duration) && <span>{p.where ?? p.duration}</span>}</p>
+              <a href={SITE.book} class="book">Book a consult <span aria-hidden="true">→</span></a>
+            </footer>
+          </article>
+        ))}
+        {note && (
+          <aside class="prog small note">
+            <h3>Not sure?</h3>
+            <p set:html={note} />
+          </aside>
+        )}
+      </div>
+    )}
+
+    <slot />
+
+    {international && (
+      <p class="intl">
+        My pricing varies based on your location for parity purposes. If you’re based outside Indonesia,
+        please <a href={SITE.internationalPricing} target="_blank" rel="noopener">view the international pricing here</a>.
+      </p>
+    )}
+  </div>
+</section>
+
+<style>
+  .progs-wrap { max-width: 1000px; }
+  .progs { display: grid; gap: 20px; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .cols-2, .cols-3 { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1000px) { .cols-3 { grid-template-columns: repeat(3, 1fr); } }
+  .extras { margin-top: 20px; }
+
+  .prog { display: flex; flex-direction: column; padding: clamp(26px, 3.4vw, 40px) clamp(24px, 3vw, 36px); border-radius: var(--radius); font-size: 0.9rem; color: var(--text); }
+  .dark { background: var(--green); color: rgba(255, 255, 255, 0.9); }
+  .dark.tan { background: var(--tan); }
+  .dark.mauve { background: #9e887b; }
+  .light.light-tan { background: #f3f0eb; }
+  .light.light-mauve { background: #dbd1cb; }
+  .light { background: #d3d6d1; }
+  .small { background: #e6e7e3; padding-block: 28px; }
+  .note { background: #f3f2ee; }
+  .note :global(strong) { font-weight: 400; }
+
+  .prog-head { display: flex; flex-direction: column; gap: 4px; }
+  .prog h3 { margin: 0; font-size: clamp(1.35rem, 2vw, 1.55rem); color: inherit; }
+  .light h3, .small h3 { color: var(--ink); }
+  .duration { font-size: 0.82rem; opacity: 0.85; }
+  .prog-text { margin: 0.9rem 0 0; font-size: 0.85rem; }
+  .note p { margin-top: 0.8rem; font-size: 0.85rem; }
+
+  .steps { display: grid; gap: 14px; list-style: none; margin: 18px 0 0; padding: 18px 0; border-block: 1px solid currentColor; border-color: rgba(127, 127, 127, 0.35); }
+  .steps li { display: grid; line-height: 1.35; }
+  .step-label { text-transform: uppercase; }
+
+  .prog-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 10px 16px; margin-top: auto; padding-top: 18px; }
+  .price { margin: 0; font-size: 0.95rem; }
+  .dark .price { color: var(--white); }
+  .light .price, .small .price { color: var(--ink); }
+  .price span { display: block; font-size: 0.78rem; opacity: 0.8; }
+  .book { font-size: 0.82rem; color: inherit; text-underline-offset: 4px; white-space: nowrap; }
+  .dark .book { color: var(--white); }
+  .book span { display: inline-block; margin-left: 4px; }
+  .small .prog-foot { padding-top: 12px; }
+
+  .intl { max-width: 640px; margin: 32px auto 0; text-align: center; font-size: 0.88rem; color: var(--muted); }
+  .intl a { color: var(--green); }
+</style>

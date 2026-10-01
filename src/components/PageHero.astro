@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import { SITE } from '../data/site';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  text?: string;
+  image?: ImageMetadata;
+  imageAlt?: string;
+  cta?: { label: string; href: string } | false;
+  secondary?: { label: string; href: string };
+  tone?: 'glow' | 'cream' | 'paper' | 'white' | 'blush' | 'mist';
+  /** Centre the text (pages without a hero image). */
+  center?: boolean;
+}
+const {
+  eyebrow,
+  title,
+  text,
+  image,
+  imageAlt = '',
+  cta = { label: 'Book Free Consultation', href: SITE.book },
+  secondary,
+  tone = 'glow',
+  center = false,
+} = Astro.props;
+---
+<section class:list={['page-hero', tone === 'glow' ? 'glow' : `bg-${tone}`, { 'no-image': !image, 'is-center': center }]}>
+  <div class:list={['wrap', { 'grid-2': image }]}>
+    <div class="copy">
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+      <h1 set:html={title} />
+      {text && <p class="lead" set:html={text} />}
+      <slot />
+      {(cta || secondary) && (
+        <div class="actions">
+          {cta && <a href={cta.href} class="btn btn-primary">{cta.label}</a>}
+          {secondary && <a href={secondary.href} class="link-underline">{secondary.label}</a>}
+        </div>
+      )}
+    </div>
+    {image && (
+      <Image src={image} alt={imageAlt} class="hero-img" widths={[400, 600, 800]} sizes="(min-width: 760px) 520px, 92vw" loading="eager" fetchpriority="high" />
+    )}
+  </div>
+</section>
+
+<style>
+  .page-hero { padding-block: clamp(56px, 8vw, 110px); }
+  .page-hero h1 { color: var(--ink); font-size: clamp(2.4rem, 4.4vw, 3.4rem); }
+  .page-hero .eyebrow { text-transform: none; letter-spacing: 0; font-size: 0.88rem; color: var(--ink); margin-bottom: 0.8rem; }
+  .page-hero .lead { max-width: 46ch; font-size: 1.08rem; color: var(--ink); }
+  .page-hero .grid-2 { grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .page-hero .grid-2 { grid-template-columns: 1fr 1fr; } .copy { padding-left: clamp(0px, 3vw, 40px); } }
+  .no-image .copy { max-width: 820px; }
+  .is-center .copy { margin-inline: auto; padding-left: 0; text-align: center; }
+  .is-center .lead { margin-inline: auto; }
+  .is-center .actions { justify-content: center; }
+  .hero-img { width: 100%; max-width: 520px; aspect-ratio: 26 / 30; justify-self: center; border-radius: 18px; box-shadow: var(--shadow); object-fit: cover; }
+</style>

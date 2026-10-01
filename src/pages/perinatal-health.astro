@@ -1,0 +1,152 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PhotoHero from '../components/PhotoHero.astro';
+import heroPhoto from '../assets/photos/hero-perinatal.png';
+import Split from '../components/Split.astro';
+import CardGrid from '../components/CardGrid.astro';
+import IssueList from '../components/IssueList.astro';
+import Reading from '../components/Reading.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import momSon from '../assets/photos/perinatal-mother-son.png';
+import feature from '../assets/photos/perinatal-desk.png';
+import unburdening from '../assets/img/71i8i14jjtl.-sy522-.jpg';
+import goodInside from '../assets/img/71hzynnwxbl.-sy522-.jpg';
+import bookYouWish from '../assets/img/71p2yoxwhl.-sy522-.jpg';
+---
+<Base {...SEO['perinatal-health']} overPhoto>
+  <PhotoHero
+    title="Perinatal Mental Health"
+    image={heroPhoto}
+    imageAlt="A mother holding her young child close"
+    position="center 35%"
+    text="Nobody tells you that becoming a mother is also a kind of undoing. That you will lose yourself in ways that have nothing to do with sleep deprivation. That old wounds you thought were long settled will find their way to the surface. That the love can be enormous and the grief real at the same time. That you can be doing everything right and still feel like you are failing."
+  >
+    <p>This is not a crisis. This is matrescence. The profound, disorienting and often invisible transformation that every woman moves through as she becomes a mother. It has a name. And it has a path through.</p>
+  </PhotoHero>
+
+  <Split tone="white" reverse image={momSon} alt="A mother and her young son sitting together on the rocks, looking out at the sea at sunset" eyebrow="What is matrescence?" title="The transformation <em>nobody warned you about.</em>">
+    <p class="lead">You were told pregnancy would be joyful. You were told you would feel complete. Nobody mentioned the disorientation.</p>
+    <p>Matrescence is a word coined by anthropologist Dana Raphael in the 1970s and brought back into the mainstream by developmental psychologist Dr Aurélie Athan. It describes the profound process of becoming a mother: the physical, psychological, emotional and identity shift that every woman moves through, whether her baby is her first or her fourth.</p>
+    <p>Just like adolescence, it is a developmental passage. It reshapes who you are. And just like adolescence, nobody really prepares you for it. The disorientation you feel is not weakness. It is transformation. And transformation, without support, can feel like falling apart.</p>
+  </Split>
+
+  <CardGrid
+    tone="white"
+    items={[
+      { title: 'A process, not a problem', text: 'Matrescence is not a disorder. It is a developmental passage. The struggle does not mean you are failing. It means you are in the middle of something real.' },
+      { title: 'It reshapes everything', text: 'Your identity, your relationships, your sense of self, your relationship with your own childhood. Nothing is untouched. That is not a flaw in the process. That is the process.' },
+      { title: 'It has a path through', text: 'With the right support, matrescence becomes a gateway rather than a wall. A chance to understand yourself more deeply than you ever have before.' },
+    ]}
+  />
+
+  <Split layout="feature" tone="white" image={feature} alt="A woman sitting at a desk by a window, looking out at the trees" eyebrow="One of the gifts matrescence offers, if you let it" title="Most of us were never taught to mother ourselves. <em>So we mother from fear, obligation and an invisible rulebook we never agreed to.</em>">
+    <p>Matrescence does not just reshape your identity. It gives you access to it. The disorientation, the rage, the grief, the guilt are not signs that you are failing. They are parts of you, asking to be understood.</p>
+    <p>When you learn to lead from your Self rather than react from your wounds, something shifts. You stop parenting from the part that needs to be perfect. You stop giving from the part that is running on empty. You begin making choices from a place of genuine clarity, values and compassion. This is what the passage of matrescence can open up, when it is met with curiosity rather than shame.</p>
+  </Split>
+
+  <CardGrid
+    tone="white"
+    items={[
+      { eyebrow: 'Part', title: 'The perfectionist part', text: 'The part that believes if you control enough, prepare enough and give enough, nothing will go wrong. It exhausts you. And it was never yours to carry alone.' },
+      { eyebrow: 'Part', title: 'The reactive part', text: 'The part that snaps, withdraws or over-gives when something in your child triggers something much older in you. Not a failure of patience. A signal from the past.' },
+      { eyebrow: 'Self', title: 'The Self-led mother', text: 'Present, grounded and clear. Not because she has it all figured out, but because she has learned to lead from within rather than react from her wounds.' },
+    ]}
+  />
+
+  <section class="section bg-tan">
+    <figure class="wrap from-shabs card">
+      <h2 class="from-title">From Shabs</h2>
+      <blockquote>
+        <p>Motherhood brought me to therapy. Not in a dramatic way, but in the quiet, cumulative way that matrescence tends to work. Returning to work after having my son, I realised that the woman who went back was genuinely not the same one who had left.</p>
+        <p>The identity I had built so carefully before motherhood no longer quite fit. Underneath it, I found old wounds I had never fully tended to, a perfectionism that had quietly been running my life, and a need for control that was damaging the relationships I cared about most.</p>
+        <p>Therapy gave me a way to understand all of it with compassion rather than judgment. That understanding changed how I showed up as a mother, as a partner and eventually as a therapist. It is the same work I now do with the mothers who find their way here.</p>
+      </blockquote>
+      <figcaption>Shabnam Lee, Licensed Counsellor</figcaption>
+    </figure>
+  </section>
+
+  <IssueList
+    tone="cream"
+    eyebrow="What we work on"
+    title="Therapy for mothers navigating matrescence"
+    intro="Most mothers arrive carrying several things at once. These are the areas we work on most often."
+    items={[
+      ['Identity and the return to work', 'Who am I now, and how do I bring all of me back?'],
+      ['Mum guilt and self-worth', 'The feeling that nothing you do is ever quite enough'],
+      ['Perfectionism and control', 'The part that believes staying in control keeps everyone safe'],
+      ['Rage, resentment and numbness', 'Feelings that have no safe place to land'],
+      ['The relationship quietly suffering', 'Two people pulled in every direction except toward each other'],
+      ['Old wounds surfacing', 'Your own childhood, showing up in how you parent'],
+    ]}
+  />
+
+  <CardGrid
+    tone="blush"
+    columns={2}
+    center
+    eyebrow="Where this sits in the work"
+    title="Perinatal support for high achieving mothers"
+    intro="This work is available as part of individual therapy or as a dedicated focus within an intensive."
+    items={[
+      { eyebrow: 'For mothers', title: 'Therapy for mothers', text: 'The full mothers page', href: '/high-achieving-mothers/' },
+      { eyebrow: 'Inner work', title: 'IFS for mothers', text: 'Parts work and self-led motherhood', href: '/ifs/' },
+      { eyebrow: 'Deep dive', title: 'Bali retreat', text: 'Concentrated work away from everyday life', href: '/retreats/' },
+      { eyebrow: 'Individual therapy', title: 'Individual intensives', text: '6-hour and 8.5-hour formats', href: '/individual-therapy/' },
+    ]}
+  />
+
+  <CardGrid
+    tone="blush"
+    columns={2}
+    center
+    title="Perinatal in my practice"
+    intro="The work draws on several approaches depending on what each mother brings."
+    items={[
+      { title: 'Internal Family Systems (IFS)', text: 'Works with the parts driving perfectionism, guilt and reactivity. The foundation of self-led motherhood.', href: '/ifs/' },
+      { title: 'Relational Life Therapy (RLT)', text: 'For the relationship quietly suffering under the weight of it all. Direct, honest and focused on real change.', href: '/rlt/' },
+      { title: 'Brainspotting', text: 'For what talk therapy alone cannot reach. Old wounds and nervous system patterns held in the body.', href: '/brainspotting/' },
+      { title: 'Acceptance and Commitment Therapy (ACT)', text: 'For clarity on what matters now. Especially useful for identity shifts and the return to work.', href: '/act-therapy/' },
+    ]}
+  />
+
+  <Reading
+    tone="rose"
+    title="If you are curious about matrescence and motherhood"
+    intro="Three books worth reading. Three podcasts worth listening to."
+    books={[
+      { title: 'Unburdening Motherhood', author: 'Dr Angele Close', cover: unburdening, href: 'https://www.amazon.com/Unburdening-Motherhood-Breaking-Becoming-Self-Led-ebook/dp/B0FDL97MBJ' },
+      { title: 'Good Inside', author: 'Dr Becky Kennedy', cover: goodInside, href: 'https://www.amazon.com/dp/0063159481' },
+      { title: 'The Book You Wish Your Parents Had Read', author: 'Philippa Perry', cover: bookYouWish, href: 'https://www.amazon.com/Book-Wish-Your-Parents-Read/dp/1984879553' },
+    ]}
+    podcasts={[
+      { show: 'Good Inside', episode: 'Good Inside with Dr. Becky', guests: 'Dr Becky Kennedy' },
+      { show: 'We Can Do Hard Things', episode: 'Overwhelm and Motherhood', guests: 'Glennon Doyle' },
+      { show: 'The Matrescence', episode: 'The Matrescence Podcast', guests: 'Amy Taylor-Kabbaz' },
+    ]}
+  />
+
+  <Faq
+    tone="grey"
+    items={[
+      { q: 'What is matrescence and how is it different from postnatal depression?', a: 'Matrescence is the term for the profound psychological, emotional, and identity transformation that every woman moves through when she becomes a mother. Like adolescence, it is a developmental passage that reshapes who you are. Postnatal depression is one of the things we work with, but the scope here is broader. Matrescence encompasses the full range of psychological experience that comes with becoming a mother: identity shifts, relationship changes, old wounds resurfacing, the gap between how motherhood was supposed to feel and how it actually does.' },
+      { q: 'Why do childhood wounds surface during motherhood?', a: 'Parenting tends to activate whatever we have not fully processed from our own early experience. The way you were parented becomes the template you either replicate or react against, often without realising it. The rage that feels disproportionate to the moment. The over-control that comes from a very old fear. IFS helps us understand these as parts with a history, not character flaws, and work with them at the root.' },
+      { q: 'Can perinatal therapy support me during pregnancy, not just postpartum?', a: 'Yes. The perinatal period covers pregnancy, birth, and the postpartum years. Support during pregnancy, before the transition happens, is often the most useful time to do this work. Understanding your patterns and your history before the baby arrives means you step into motherhood with more self-knowledge and more resources.' },
+      { q: 'Is it too late for perinatal therapy if I am years into motherhood?', a: 'Matrescence does not have an expiry date. Whether you are newly postpartum or years into motherhood and still feeling like a stranger to yourself, this work is available. Many women arrive years after having children and find that understanding matrescence helps them make sense of a shift they experienced but never had a framework for.' },
+      { q: 'Can therapy help with the identity shift when returning to work after maternity leave?', a: 'Yes, and it is one of the most common presentations. The return to work after maternity leave is its own passage, one that brings a new version of yourself back into a structure that was built around the old one. That transition, and the identity questions it raises, is directly addressed in this work.' },
+      { q: 'Is perinatal mental health therapy available online in Jakarta and internationally?', a: 'Yes. All sessions are available online, making them accessible to mothers in Jakarta, Singapore, Kuala Lumpur, and across Southeast Asia and worldwide. In-person sessions are available in Jakarta.' },
+    ]}
+  />
+
+  <CtaBand tone="grey" layout="inline" eyebrow="" title="You give everything to everyone. <em>This is yours.</em>" />
+</Base>
+
+<style>
+  .from-shabs { max-width: 1080px; margin-block: 0; padding: clamp(28px, 5vw, 60px); border-radius: 18px; }
+  .from-title { font-size: clamp(1.6rem, 2.4vw, 1.9rem); color: var(--ink) !important; }
+  .from-shabs blockquote { margin: 0; font-size: 1.05rem; line-height: 1.55; color: var(--ink); }
+  .from-shabs blockquote p { margin-bottom: 0; display: inline; }
+  .from-shabs blockquote p + p::before { content: ' '; }
+  .from-shabs figcaption { margin-top: 1.4rem; color: var(--text); font-style: italic; font-size: 0.92rem; }
+</style>

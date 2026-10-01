@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import rli from '../assets/img/rli-logo-1.png';
+import gottman from '../assets/img/business-card-2-1.png';
+import ifs from '../assets/img/artboard-1-1.png';
+import brainspotting from '../assets/img/brainspotting-logo-1.png';
+import aca from '../assets/img/aca-logo-rgb-main-1.png';
+import perinatal from '../assets/img/perinatal-training-centrer-1.png';
+
+const logos = [
+  { src: rli, alt: 'Relational Life Institute' },
+  { src: gottman, alt: 'The Gottman Institute' },
+  { src: ifs, alt: 'IFS Institute' },
+  { src: brainspotting, alt: 'Brainspotting' },
+  { src: aca, alt: 'Australian Counselling Association' },
+  { src: perinatal, alt: 'Perinatal Training Centre' },
+];
+---
+<section class="certs">
+  <div class="wrap">
+    <h2 class="visually-hidden">Trained and certified by</h2>
+    <ul>
+      {logos.map((l) => (
+        <li><Image src={l.src} alt={l.alt} height={48} loading="lazy" /></li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .certs { padding-block: 24px 56px; background: var(--white); }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 28px clamp(32px, 5vw, 64px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  img { width: auto; max-height: 48px; max-width: 130px; object-fit: contain; }
+</style>

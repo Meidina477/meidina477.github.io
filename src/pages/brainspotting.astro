@@ -1,0 +1,148 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PhotoHero from '../components/PhotoHero.astro';
+import heroPhoto from '../assets/photos/hero-brainspotting.png';
+import CardGrid from '../components/CardGrid.astro';
+import { Image } from 'astro:assets';
+import eye from '../assets/photos/brainspotting-eye.png';
+import IssueList from '../components/IssueList.astro';
+import Research from '../components/Research.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const howItWorks = [
+  { title: 'Bypasses the thinking mind', text: 'Talk therapy engages the reasoning brain. Brainspotting accesses the subcortical brain, where trauma is actually stored. This is why it reaches what years of talking cannot.' },
+  { title: 'Uses eye position as a gateway', text: 'Your therapist finds the eye position that activates a feeling in your body. You hold your gaze there. Your brain processes and releases what it has been holding.' },
+  { title: 'Follows where your system leads', text: 'Not rigid or protocol-driven. The session goes wherever your nervous system needs to go. It feels different from any therapy you have tried before.' },
+  { title: 'Relational at its core', text: 'The therapist’s attuned, regulated presence is as important as the technique. Healing trauma requires feeling safe with another person.' },
+];
+
+const principles = ['No reliving', 'No retelling', 'No protocol', 'Body-led', 'Nervous system focused', 'Relational'];
+---
+<Base {...SEO['brainspotting']} overPhoto>
+  <PhotoHero
+    title="Brainspotting"
+    image={heroPhoto}
+    imageAlt="Ripples spreading across dark, still water"
+    position="center"
+    text="You have talked about it. You understand it intellectually. You know where it came from. And it is still there. That is not a failure of insight. That is because trauma does not live in your thoughts. It lives in your body, your nervous system, and in the parts of you that formed long before you had words for any of it."
+  >
+    <p>Brainspotting bypasses the thinking mind entirely and accesses where the pain is actually held. The change it creates is often faster and deeper than anything talk therapy can produce alone.</p>
+  </PhotoHero>
+
+  <section class="section bg-white bs-intro">
+    <div class="wrap">
+      <h2 class="bs-head">A brain-body therapy that works where talk therapy cannot reach</h2>
+      <p class="bs-lead">Developed by Dr David Grand in 2003, Brainspotting locates where trauma and emotions are held in the brain through a specific eye position, then allows the nervous system to process and release it. No reliving. No retelling. Just deep, often rapid change.</p>
+      <Image src={eye} alt="Close-up of a person’s eye lit by a band of warm light" class="bs-img" widths={[640, 960, 1100]} sizes="(min-width: 1180px) 1100px, 92vw" />
+      <div class="bs-quote">
+        <figure>
+          <blockquote class="serif">“Where you look affects how you feel.”</blockquote>
+          <figcaption>Dr David Grand, founder of Brainspotting</figcaption>
+        </figure>
+        <p>Specific eye positions connect directly to where unprocessed pain is held in the subcortical brain. Your nervous system already knows how to heal. Brainspotting gives it the access to do so.</p>
+      </div>
+      <ul class="bs-cards">
+        {howItWorks.map((c) => <li class="card tint"><h3>{c.title}</h3><p>{c.text}</p></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-grey">
+    <div class="wrap-mid heal">
+      <h2>Your nervous system already knows how to heal.</h2>
+      <div>
+        <p>Brainspotting does not impose a structure or ask you to follow a protocol. It trusts that your system holds the wisdom of what needs to come. The therapist’s role is simply to help you find the spot, hold the space, and stay present while your brain does what it already knows how to do.</p>
+        <ul class="pills">{principles.map((p) => <li>{p}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+
+  <IssueList
+    tone="cream"
+    eyebrow="What Brainspotting helps with"
+    title="Brainspotting therapy for high achievers, couples and mothers"
+    intro="Particularly powerful for people whose analytical mind has kept them from accessing what is actually driving their patterns."
+    items={[
+      ['Trauma and PTSD', 'Held in the body, not just the mind'],
+      ['Anxiety and overthinking', 'The nervous system on high alert'],
+      ['Burnout and exhaustion', 'When the body has had enough'],
+      ['Chronic stress and depression', 'Stuck emotion that cannot move'],
+      ['Relationship patterns', 'Reactions that feel bigger than the moment'],
+      ['Performance and creative blocks', 'Expansion Brainspotting for peak performance'],
+    ]}
+  >
+    <div class="why">
+      <h2>Why Brainspotting works especially well for high achievers</h2>
+      <p>High achievers are often extraordinarily good at thinking their way through problems. The analytical mind is their greatest strength at work. But in Brainspotting, that same mind steps aside. The session does not ask you to explain, analyse or understand. It simply asks you to notice. And in that noticing, things shift that years of talking could not move.</p>
+    </div>
+  </IssueList>
+
+
+  <Research
+    tone="white"
+    title="What the research shows"
+    intro="Growing body of peer-reviewed and clinical evidence"
+    items={[
+      { text: 'One study found significant improvements in PTSD, anxiety and depression symptoms after just six Brainspotting sessions, with 82% of surveyed therapists rating it as more effective than EMDR.', source: 'Mental Health Hotline research review, 2025' },
+      { text: 'A comparative study found Brainspotting comparable to EMDR in reducing distress from unpleasant memories after a single 40-minute session, and more effective than mindful body scan.', source: 'Healthline clinical review, 2025' },
+      { text: 'Brainspotting clients showed a reduction in traumatic disturbance of greater than 50% at completion of sessions in early clinical evidence from Brainspotting practitioners.', source: 'Road to Wellness Therapy, brainspotting.com' },
+      { text: 'Over 13,000 therapists are now trained in Brainspotting worldwide, reflecting its rapid growth and increasing acceptance as an effective trauma modality.', source: 'Brainspotting.com, 2025' },
+    ]}
+  />
+
+  <CardGrid
+    tone="tan"
+    columns={2}
+    center
+    title="Where Brainspotting sits within the work"
+    intro="Brainspotting is used alongside IFS and other modalities to access and process material that talk therapy alone cannot reach. It works with the body and the brain’s natural capacity to heal, and is integrated where the work calls for it."
+    items={[
+      { eyebrow: 'Combined method', title: 'Brainspotting and IFS together', text: 'Somatic processing meets parts work. The body holds it. IFS helps you work with it.', href: '/ifs/' },
+      { eyebrow: 'For individuals', title: 'Individual therapy', text: 'Weekly and intensive formats', href: '/individual-therapy/' },
+      { eyebrow: 'When it helps', title: 'Trauma, anxiety and stuck patterns', text: 'For what feels hard to say out loud. Brainspotting reaches where words cannot.' },
+      { eyebrow: 'Deep dive', title: 'Intensives and retreats', text: 'Concentrated somatic and parts work in Jakarta or Bali', href: '/retreats/' },
+    ]}
+  />
+
+  <Faq
+    tone="stone"
+    items={[
+      { q: 'What actually happens in a Brainspotting session?', a: 'You identify something you want to work with, a feeling, a memory, a tension in the body. Using a pointer or your own gaze, we find a specific eye position that activates your processing around that material. Then we hold it. You do not need to talk, narrate, or explain. Your nervous system does the work. Most people describe the experience as nothing like conventional therapy.' },
+      { q: 'Why does eye position matter in Brainspotting therapy?', a: 'Brainspotting draws on the neurological connection between eye position and where trauma or emotional material is stored in the brain. David Grand, who developed Brainspotting, found that a fixed gaze position corresponding to activation in the body accesses subcortical brain structures that are not reachable through talk alone. The research behind it is growing and the clinical evidence is strong.' },
+      { q: 'Do I need a trauma diagnosis for Brainspotting to work?', a: 'No. Brainspotting is not only for clinical trauma. It works with anything held in the body that has not fully processed: burnout, chronic anxiety, performance pressure, the reactivity that fires even when you know better. If something keeps showing up despite your best efforts to think your way through it, Brainspotting is often the tool that reaches it.' },
+      { q: 'Do I have to talk about what happened in a Brainspotting session?', a: 'No. You do not need to narrate, retell, or relive anything for Brainspotting to work. Processing happens at a level that does not require words. For people who have found talking about certain things retraumatising or simply impossible, this is often a profound relief.' },
+      { q: 'Is Brainspotting used on its own or combined with other approaches?', a: 'It is used alongside IFS and other modalities here, not in isolation. IFS helps you understand the parts connected to the material. Brainspotting accesses and processes what those parts are holding at the body level. Together they reach layers that neither approach fully addresses alone.' },
+    ]}
+  />
+
+  <CtaBand tone="stone" layout="inline" eyebrow="" title="Your nervous system already knows how to heal. <em>Let us give it the space.</em>" />
+</Base>
+
+<style>
+  .bs-head { font-size: clamp(1.7rem, 2.8vw, 2.2rem); margin-bottom: 0.5em; }
+  .bs-lead { max-width: 80ch; color: var(--ink); }
+  .bs-img { width: 100%; aspect-ratio: 1100 / 600; object-fit: cover; border-radius: 18px; margin-top: 32px; }
+  .bs-quote { display: grid; gap: 16px 48px; margin-top: 32px; }
+  @media (min-width: 860px) { .bs-quote { grid-template-columns: 1fr 1fr; } }
+  .bs-quote figure { margin: 0; }
+  .bs-quote blockquote { margin: 0; font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.15; color: var(--ink); }
+  .bs-quote figcaption { margin-top: 0.6rem; font-style: italic; font-size: 0.9rem; color: var(--text); }
+  .bs-quote p { color: var(--ink); }
+  .bs-cards { display: grid; gap: 20px; grid-template-columns: 1fr; list-style: none; padding: 0; margin: 48px 0 0; }
+  @media (min-width: 640px) { .bs-cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .bs-cards { grid-template-columns: repeat(4, 1fr); } }
+  .bs-cards .card { padding: 26px 24px; }
+  .bs-cards h3 { font-size: clamp(1.25rem, 1.7vw, 1.4rem); }
+  .bs-cards p { font-size: 0.9rem; }
+  .wrap-mid { width: min(100% - 2 * var(--gutter), 1060px); margin-inline: auto; }
+  .heal { display: grid; gap: 24px 64px; }
+  @media (min-width: 860px) { .heal { grid-template-columns: 1fr 1fr; } }
+  .heal h2 { font-size: clamp(1.8rem, 2.8vw, 2.2rem); }
+  .heal p { color: var(--ink); }
+  .pills { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+  .pills li { font-family: var(--serif); font-size: clamp(1.2rem, 1.8vw, 1.4rem); line-height: 1.25; color: var(--green-dark); }
+  .why { max-width: 900px; margin: clamp(48px, 6vw, 72px) auto 0; text-align: center; }
+  .why h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
+</style>

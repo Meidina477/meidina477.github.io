@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import { excerpt, formatDate, readingTime, type Post } from '../data/blog';
+import avatar from '../assets/img/shabnam-headshot.jpg';
+interface Props { post: Post }
+const { post } = Astro.props;
+---
+<article class="post-card" data-cats={post.data.categories.join('|')}>
+  <a href={`/${post.id}/`} class="img-link" tabindex="-1" aria-hidden="true">
+    {post.data.image ? (
+      <Image src={post.data.image} alt="" widths={[400, 640]} sizes="(min-width: 1000px) 360px, (min-width: 760px) 45vw, 92vw" />
+    ) : <div class="ph"></div>}
+  </a>
+  <div class="body">
+    <p class="cat">{post.data.categories.slice(0, 2).join(' · ')}</p>
+    <h3><a href={`/${post.id}/`}>{post.data.title}</a></h3>
+    <p class="ex">{excerpt(post, 120)}</p>
+    <div class="byline">
+      <Image src={avatar} alt="" width={40} height={40} class="avatar" />
+      <p><span>Shabnam Lee</span><time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time> · {readingTime(post)} min read</p>
+    </div>
+  </div>
+</article>
+
+<style>
+  .post-card { display: flex; flex-direction: column; }
+  .img-link { display: block; overflow: hidden; border-radius: 4px; }
+  .img-link img, .ph { width: 100%; aspect-ratio: 16 / 12; object-fit: cover; background: var(--sand); transition: transform 0.4s; }
+  .post-card:hover .img-link img { transform: scale(1.03); }
+  .body { display: flex; flex-direction: column; flex: 1; padding-top: 16px; }
+  .cat { font-size: 0.8rem; color: var(--ink); margin-bottom: 0.3rem; }
+  .body h3 { font-size: 1.35rem; line-height: 1.2; margin-bottom: 0.4em; }
+  .body h3 a { text-decoration: none; }
+  .body h3 a:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--tan); }
+  .ex { font-size: 0.95rem; color: var(--ink); }
+  .byline { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 0.8rem; }
+  .avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; object-position: top; }
+  .byline p { margin: 0; font-size: 0.78rem; color: var(--muted); }
+  .byline span { display: block; color: var(--text); }
+</style>

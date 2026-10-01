@@ -1,0 +1,60 @@
+---
+// Accordion FAQ. Also outputs FAQPage structured data so Google can show the answers in search.
+interface Props { title?: string; items: { q: string; a: string }[]; tone?: 'paper' | 'cream' | 'white' | 'tan' | 'grey' | 'stone' }
+const { title = 'Common questions about <em>the approach</em>', items, tone = 'cream' } = Astro.props;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((i) => ({
+    '@type': 'Question',
+    name: i.q,
+    acceptedAnswer: { '@type': 'Answer', text: i.a.replace(/<[^>]+>/g, '') },
+  })),
+};
+---
+<section class={`section faq-section bg-${tone}`}>
+  <div class="wrap grid-2 start faq-wrap">
+    <h2 set:html={title} />
+    <div class="faq">
+      {items.map((i, n) => (
+        <details name="faq" open={n === 0}>
+          <summary>{i.q}</summary>
+          <div class="answer">
+            {i.a.split('\n\n').map((p) => <p set:html={p} />)}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</section>
+
+<script>
+  // One answer open at a time. Browsers that support <details name> already do this;
+  // this covers the rest.
+  document.querySelectorAll<HTMLElement>('.faq').forEach((faq) => {
+    const items = [...faq.querySelectorAll<HTMLDetailsElement>('details')];
+    items.forEach((d) => d.addEventListener('toggle', () => {
+      if (d.open) items.forEach((o) => { if (o !== d) o.open = false; });
+    }));
+  });
+</script>
+
+<style>
+  .faq-wrap h2 { font-size: clamp(1.9rem, 3vw, 2.4rem); }
+  /* Tan and stone FAQs are always followed by the inline CTA band in the same colour. */
+  .faq-section:is(.bg-tan, .bg-stone, .bg-grey) { padding-bottom: clamp(40px, 5vw, 60px); }
+  :is(.bg-tan, .bg-stone, .bg-grey) .faq-wrap { max-width: 900px; }
+  :is(.bg-tan, .bg-stone, .bg-grey) .faq { border-top: 0; }
+  :is(.bg-tan, .bg-stone, .bg-grey) .faq :global(details:last-child) { border-bottom: 0; }
+  .bg-stone .faq :global(details) { border-color: rgba(0, 0, 0, 0.2); }
+  .bg-tan .faq :global(details) { border-color: var(--line-light); }
+  .bg-tan .faq :global(summary) { color: var(--white); }
+  .bg-tan .faq :global(summary::after) { color: var(--white); }
+  .bg-tan .faq :global(.answer a) { color: var(--white); }
+  @media (min-width: 760px) {
+    .faq-wrap { grid-template-columns: 1fr 1.6fr; }
+    .faq-wrap h2 { position: sticky; top: 130px; }
+  }
+</style>

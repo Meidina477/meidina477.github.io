@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PhotoHero from '../components/PhotoHero.astro';
+import Split from '../components/Split.astro';
+import CardGrid from '../components/CardGrid.astro';
+import IssueList from '../components/IssueList.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { pick } from '../data/testimonials';
+import feature from '../assets/photos/act-cave.png';
+import hero from '../assets/photos/hero-act.png';
+
+const hexaflex = ['Acceptance', 'Present moment', 'Values', 'Defusion', 'Self as context', 'Committed action'];
+---
+<Base {...SEO['act-therapy']} overPhoto>
+  <PhotoHero
+    title="ACT Therapy"
+    image={hero}
+    imageAlt="A man standing alone in a wide field of golden grass below the hills"
+    text="You have tried to think your way out of it. You have told yourself to let it go, to stop overthinking, to just move on. And still it is there. Still pulling at you. That is not weakness. That is what happens when we try to control what the mind does, instead of changing our relationship with it."
+  >
+    <p>Acceptance and Commitment Therapy (ACT) is not about feeling better by thinking differently. It is about learning to carry difficult thoughts and feelings with more ease, and moving toward the life and the person you actually want to be.</p>
+  </PhotoHero>
+
+  <Split layout="feature" tone="white" image={feature} alt="A lone figure standing in the narrow opening of a canyon, looking out toward the light" eyebrow="A values-led therapy built for people who are tired of just managing" title="You have achieved a lot. <em>And you are still waiting to feel like enough.</em>">
+    <p>That is not a character flaw. That is what happens when you have spent years chasing outcomes without ever getting clear on what actually matters to you.</p>
+    <p>Acceptance and Commitment Therapy was developed by Dr Steven Hayes and is one of the most extensively researched approaches in modern psychology. It does not try to fix your thoughts or eliminate discomfort. It works with a different question entirely: what kind of person do you want to be, and what is getting in the way of living that way?</p>
+  </Split>
+
+  <CardGrid
+    tone="white"
+    items={[
+      { eyebrow: 'Accept', title: 'Make room for what is difficult', text: 'Rather than fighting or avoiding painful thoughts and feelings, ACT teaches you to hold them differently. They are part of being human, not evidence that something is wrong with you.' },
+      { eyebrow: 'Choose', title: 'Get clear on what matters', text: 'Not what you think should matter or what looks good from the outside. ACT helps you get genuinely clear on your values, the things you actually want to move toward.' },
+      { eyebrow: 'Act', title: 'Move toward your life', text: 'Take committed steps in the direction of what matters, even when discomfort is present. This is where real change happens. Not waiting until you feel ready, but moving anyway.' },
+    ]}
+  >
+    <div class="flex-goal">
+      <div>
+        <h3>The goal: <em>psychological flexibility.</em></h3>
+        <p>ACT does not aim to make you feel good all the time. It aims to make you more flexible. Able to have difficult thoughts and feelings without being ruled by them. Able to choose your direction even when things are hard. Able to live a life that actually reflects what you value. For high achievers, this is often the shift that changes everything.</p>
+      </div>
+      <ul class="pills">{hexaflex.map((h) => <li>{h}</li>)}</ul>
+    </div>
+  </CardGrid>
+
+  <IssueList
+    tone="tan"
+    eyebrow="What ACT helps with"
+    title="ACT therapy for high achievers, couples and mothers"
+    intro="ACT is particularly effective when someone understands what is happening but cannot seem to change it. That gap between knowing and doing is exactly where this work operates."
+    items={[
+      ['Anxiety and overthinking', 'A mind that will not switch off'],
+      ['Burnout and exhaustion', 'Driven by obligation rather than meaning'],
+      ['Perfectionism', 'Standards that have become a cage'],
+      ['Identity and life transitions', 'Who am I now, and what do I actually want?'],
+      ['Feeling stuck or lost', 'Success on paper, emptiness underneath'],
+      ['Value conflicts', 'Living a life that no longer feels like yours'],
+    ]}
+  >
+    <div class="why-act">
+      <h2>Why ACT works especially well <em>for high achievers</em></h2>
+      <p class="lead">High achievers are often very good at pushing through discomfort. They have spent years treating difficult feelings as obstacles to overcome rather than information to listen to. ACT does not ask you to slow down or stop achieving. It asks a different question: are you moving toward something you actually value, or away from something you are afraid of? That distinction changes everything.</p>
+    </div>
+  </IssueList>
+
+
+  <CardGrid
+    tone="grey"
+    columns={2}
+    center
+    title="Where ACT sits within the work"
+    intro="ACT is woven into the work alongside IFS and other modalities. It is rarely used in isolation. It brings the values-led, forward-facing direction that complements the deeper inner work."
+    items={[
+      { eyebrow: 'Combined method', title: 'ACT and IFS together', text: 'Inner healing and forward direction', href: '/ifs/' },
+      { eyebrow: 'For individuals', title: 'Individual therapy', text: 'Intensive and weekly formats', href: '/individual-therapy/' },
+      { eyebrow: 'For mothers', title: 'Therapy for mothers', text: 'Identity, values and what matters most', href: '/high-achieving-mothers/' },
+      { eyebrow: 'Deep dive', title: 'Intensives and retreats', text: 'Concentrated values-led work in Jakarta or Bali', href: '/retreats/' },
+    ]}
+  />
+
+  <Testimonials tone="white" more items={pick('lygia', 'ken-khalid', 'aprilia-nugrahani', 'angeline-sutanto', 'client-focused-on-growth-mindset-core-values', 'client-focused-on-self-improvement', 'client-focused-on-building-healthy-habits', 'client-focused-on-building-resilience', 'client-focused-on-developing-self-understanding', 'client-focused-on-overcoming-anxiety')} />
+
+  <Faq
+    tone="stone"
+    items={[
+      { q: 'Does acceptance in ACT mean accepting things you want to change?', a: 'Acceptance in ACT does not mean resignation. It means making room for difficult thoughts and feelings without fighting them, while still moving in the direction you choose. The premise is that fighting your inner experience uses enormous energy and usually makes it louder. When you stop fighting it, there is more space to actually act from your values.' },
+      { q: 'What is psychological flexibility and why does it matter?', a: 'Psychological flexibility is the ability to have difficult thoughts and feelings without being ruled by them, and to choose your direction even when discomfort is present. For high achievers, this is often the shift that changes everything. Not eliminating anxiety or self-doubt, but being able to move toward what matters even when those things are present.' },
+      { q: 'What is the difference between ACT therapy and mindfulness?', a: 'ACT includes mindfulness as one of its six components but it does not stop there. Mindfulness in ACT is a tool for creating distance from your thoughts so they have less power over you. ACT then adds a values clarification process and committed action: getting genuinely clear on what matters to you and taking concrete steps toward it, even when discomfort is present.' },
+      { q: 'I understand my patterns but cannot seem to change them. Can ACT therapy help?', a: 'That gap between knowing and doing is exactly where ACT operates. It looks at what is getting in the way: the thoughts fusing with your identity, the experiential avoidance, the values that have been buried under obligation and performance pressure. When those become visible, the path forward tends to clarify.' },
+      { q: 'Is ACT therapy effective for burnout?', a: 'Yes, and particularly for the kind of burnout that comes from spending years driving toward goals without ever getting clear on whether those goals reflect what you actually value. ACT does not just help you recover. It helps you reconnect with direction so that what you move toward next is genuinely yours.' },
+      { q: 'Is ACT used on its own or combined with other therapy approaches?', a: 'Here it is woven into the work alongside IFS and other modalities rather than used in isolation. It brings the values-led, forward-facing dimension that complements the deeper inner work. When IFS helps you understand why a pattern is running, ACT helps you clarify what you want to move toward instead.' },
+    ]}
+  />
+
+  <CtaBand tone="stone" layout="inline" eyebrow="" title="Ready to stop managing and start moving toward the life <em>you actually want?</em>" />
+</Base>
+
+<style>
+  .flex-goal { display: grid; gap: 32px 56px; margin-top: 56px; }
+  @media (min-width: 860px) { .flex-goal { grid-template-columns: 1.1fr 1fr; align-items: center; } }
+  .flex-goal h3 { font-size: clamp(1.4rem, 2.2vw, 1.7rem); color: var(--ink); }
+  .pills { display: grid; grid-template-columns: repeat(3, auto); gap: 18px 28px; list-style: none; padding: 0; margin: 0; }
+  .pills li { font-family: var(--serif); font-size: clamp(1.15rem, 1.8vw, 1.4rem); color: var(--ink); }
+  .why-act { max-width: 900px; margin: clamp(48px, 6vw, 72px) auto 0; text-align: center; }
+  .why-act h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
+  .why-act p { color: var(--white); }
+</style>

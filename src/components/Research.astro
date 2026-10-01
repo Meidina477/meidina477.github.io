@@ -1,0 +1,33 @@
+---
+interface Props { eyebrow?: string; title: string; intro?: string; items: { text: string; source: string }[]; tone?: 'paper' | 'cream' | 'mist' | 'sand' | 'white' }
+const { eyebrow, title, intro, items, tone = 'paper' } = Astro.props;
+---
+<section class={`section bg-${tone}`}>
+  <div class="wrap">
+    <div class="research-grid">
+    <div class="head">
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+      <h2 set:html={title} />
+      {intro && <p set:html={intro} />}
+    </div>
+    <div class="research">
+      {items.map((r) => (
+        <figure>
+          <blockquote set:html={r.text} />
+          <figcaption>{r.source}</figcaption>
+        </figure>
+      ))}
+    </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .research-grid { display: grid; gap: 32px 64px; grid-template-columns: 1fr; max-width: 1080px; margin-inline: auto; }
+  @media (min-width: 860px) { .research-grid { grid-template-columns: 0.9fr 1fr; } .head { position: sticky; top: 120px; align-self: start; } }
+  .head h2 { font-size: clamp(1.8rem, 2.8vw, 2.2rem); }
+  .head p { max-width: 44ch; }
+  .research figure { margin: 0; padding: 0 0 26px; margin-bottom: 26px; border-bottom: 1px solid var(--line); }
+  .research blockquote { margin: 0 0 1rem; color: var(--ink); }
+  .research figcaption { font-size: 0.92rem; font-style: italic; color: var(--text); }
+</style>

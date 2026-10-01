@@ -1,0 +1,150 @@
+---
+import Icon from './Icon.astro';
+import type { Testimonial } from '../data/testimonials';
+
+interface Props {
+  items: Testimonial[];
+  eyebrow?: string;
+  title?: string;
+  tone?: 'sand' | 'blush' | 'cream' | 'mist' | 'oat' | 'stone' | 'grey' | 'white';
+  /** Show a "See More Testimonials" button linking to /testimonials/. */
+  more?: boolean;
+}
+const { items, eyebrow = 'Client stories', title = 'What changes when the work goes deep', tone = 'sand', more = false } = Astro.props;
+---
+<section class={`section bg-${tone}`}>
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2>{title}</h2>
+    </div>
+
+    <div class="slider">
+      <button type="button" class="nav prev" aria-label="Previous story"><Icon name="arrow" size={22} /></button>
+      <ul class="track" tabindex="0" aria-label="Client testimonials">
+        {items.map((t, i) => (
+          <li class="slide">
+            <figure>
+              <blockquote id={`quote-${Astro.url.pathname.replace(/\W/g, '')}-${i}`}>
+                {t.quote.split('\n\n').map((p) => <p>{p}</p>)}
+              </blockquote>
+              <button type="button" class="read-more" aria-expanded="false" hidden>Read more</button>
+              <figcaption>{t.name}</figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
+      <button type="button" class="nav next" aria-label="Next story"><Icon name="arrow" size={22} /></button>
+    </div>
+    {more && (
+      <div class="center more"><a href="/testimonials/" class="btn btn-dark">See More Testimonials</a></div>
+    )}
+  </div>
+</section>
+
+<script>
+  // "Read more" for long quotes: collapse to a few lines only where the quote actually overflows.
+  document.querySelectorAll<HTMLElement>('.slider figure').forEach((fig) => {
+    const quote = fig.querySelector<HTMLElement>('blockquote')!;
+    const btn = fig.querySelector<HTMLButtonElement>('.read-more')!;
+    btn.setAttribute('aria-controls', quote.id);
+    const measure = () => {
+      if (fig.classList.contains('open')) return;
+      fig.classList.add('clamp');
+      const overflowing = quote.scrollHeight > quote.clientHeight + 4;
+      fig.classList.toggle('clamp', overflowing);
+      btn.hidden = !overflowing;
+    };
+    measure();
+    addEventListener('resize', measure, { passive: true });
+    btn.addEventListener('click', () => {
+      const open = !fig.classList.contains('open');
+      fig.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.textContent = open ? 'Read less' : 'Read more';
+    });
+  });
+
+  document.querySelectorAll<HTMLElement>('.slider').forEach((slider) => {
+    const track = slider.querySelector<HTMLElement>('.track')!;
+    const go = (dir: number) => {
+      const w = track.clientWidth;
+      const atEnd = track.scrollLeft + w >= track.scrollWidth - 4;
+      const atStart = track.scrollLeft <= 4;
+      if (dir > 0 && atEnd) track.scrollTo({ left: 0 });
+      else if (dir < 0 && atStart) track.scrollTo({ left: track.scrollWidth });
+      else track.scrollBy({ left: dir * w });
+    };
+    slider.querySelector('.prev')!.addEventListener('click', () => go(-1));
+    slider.querySelector('.next')!.addEventListener('click', () => go(1));
+  });
+</script>
+
+<style>
+  .slider { position: relative; display: flex; align-items: center; gap: 12px; }
+  .track {
+    display: flex;
+    flex: 1;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .track::-webkit-scrollbar { display: none; }
+  .slide { flex: 0 0 100%; scroll-snap-align: center; display: flex; justify-content: center; }
+  figure { margin: 0; max-width: 800px; text-align: center; padding: 0 8px; }
+  blockquote {
+    margin: 0;
+    font-style: italic;
+    font-size: clamp(1rem, 1.4vw, 1.1rem);
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  blockquote p:first-child::before { content: '“'; }
+  blockquote p:last-child::after { content: '”'; }
+  blockquote p { margin-bottom: 0.8em; }
+  figcaption { margin-top: 1.4rem; font-size: 1.05rem; color: var(--text); }
+  /* Long quotes show ~5 lines with a soft fade until "Read more" is pressed. */
+  .clamp:not(.open) blockquote {
+    max-height: calc(1.55em * 5);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  }
+  .read-more {
+    margin-top: 0.9rem;
+    padding: 2px 0;
+    border: 0;
+    border-bottom: 1px solid currentColor;
+    background: none;
+    font: inherit;
+    font-size: 0.88rem;
+    color: var(--tan-dark);
+    cursor: pointer;
+  }
+  .read-more:hover { color: var(--ink); }
+  .read-more[hidden] { display: none; }
+  .more { margin-top: 40px; }
+  .nav {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .nav:hover { background: rgba(255, 255, 255, 0.5); }
+  .prev :global(svg) { transform: rotate(180deg); }
+  @media (max-width: 640px) {
+    .slider { flex-wrap: wrap; justify-content: center; }
+    .track { flex-basis: 100%; order: -1; margin-bottom: 20px; }
+  }
+</style>

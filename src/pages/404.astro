@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../data/site';
+---
+<Base title="Page not found | Shabnam Lee" description="This page could not be found." noindex>
+  <section class="section bg-cream">
+    <div class="wrap-narrow center">
+      <span class="eyebrow">404</span>
+      <h1>This page has moved, <em>or never existed.</em></h1>
+      <p class="lead">The site has recently been rebuilt, so some addresses have changed. These are good places to start.</p>
+      <ul class="links">
+        <li><a href="/work-with-me/">Work with me</a></li>
+        <li><a href="/how-i-work/">How I work</a></li>
+        <li><a href="/about/">About Shabnam</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+      <div class="actions"><a href="/" class="btn btn-primary">Go to home</a><a href={SITE.book} class="link-underline">Book Free Consultation</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  h1 { color: var(--green-dark); }
+  .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; list-style: none; padding: 0; margin: 2rem 0 0; }
+  .links a { display: block; padding: 10px 18px; border-radius: 999px; background: var(--white); border: 1px solid var(--line); text-decoration: none; }
+  .links a:hover { border-color: var(--green); }
+</style>

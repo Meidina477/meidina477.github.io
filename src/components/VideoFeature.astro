@@ -1,0 +1,27 @@
+---
+import YouTube from './YouTube.astro';
+import { SITE } from '../data/site';
+
+interface Props { id?: string; videoTitle?: string; eyebrow?: string; title?: string; text?: string; tone?: 'paper' | 'cream' | 'green' | 'mist' | 'grey'; cta?: boolean }
+const {
+  id = SITE.youtubeId,
+  videoTitle = 'Shabnam Lee in conversation with Mikael Jasin',
+  eyebrow = 'Watch • IFS and the high achiever',
+  title = 'What does real change actually look like?',
+  text = 'Shabnam in conversation with Mikael Jasin, 2024 World Barista Champion and the first Indonesian to win the world title. A candid conversation on how IFS works, why high achievers are often the last to ask for help, and what it looks like to actually change from the inside out.',
+  tone = 'paper',
+  cta = true,
+} = Astro.props;
+---
+<section class={`section bg-${tone}`}>
+  <div class="wrap grid-2">
+    <YouTube id={id} title={videoTitle} />
+    <div>
+      <span class="eyebrow">{eyebrow}</span>
+      <h2 set:html={title} />
+      <p>{text}</p>
+      <slot />
+      {cta && <div class="actions"><a href={SITE.book} class={tone === 'green' ? 'btn btn-light' : 'btn btn-primary'}>Book a consult</a></div>}
+    </div>
+  </div>
+</section>

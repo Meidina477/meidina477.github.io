@@ -1,0 +1,51 @@
+---
+// Image beside text. Body text goes in the default slot.
+// layout="feature" (method pages in the 2026 designs): the eyebrow line becomes the section heading,
+// the photo runs full width underneath, then the title sits left of the body text.
+import { Image } from 'astro:assets';
+interface Props {
+  image: ImageMetadata;
+  alt?: string;
+  eyebrow?: string;
+  title?: string;
+  tone?: 'paper' | 'cream' | 'white' | 'blush' | 'mist' | 'oat';
+  reverse?: boolean;
+  layout?: 'split' | 'feature';
+}
+const { image, alt = '', eyebrow, title, tone = 'paper', reverse = false, layout = 'split' } = Astro.props;
+---
+{layout === 'feature' ? (
+  <section class={`section feature bg-${tone}`}>
+    <div class="wrap">
+      {eyebrow && <h2 class="feature-head" set:html={eyebrow} />}
+      <Image src={image} alt={alt} class="feature-img" widths={[640, 960, 1100]} sizes="(min-width: 1180px) 1100px, 92vw" />
+      <div class="feature-cols">
+        {title && <h3 class="feature-title" set:html={title} />}
+        <div class="feature-body"><slot /></div>
+      </div>
+    </div>
+  </section>
+) : (
+  <section class={`section bg-${tone}`}>
+    <div class:list={['wrap grid-2', { reverse }]}>
+      <Image src={image} alt={alt} class="rounded split-img" widths={[480, 720, 1024]} sizes="(min-width: 760px) 560px, 92vw" />
+      <div>
+        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+        {title && <h2 set:html={title} />}
+        <slot />
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .split-img { width: 100%; }
+  @media (min-width: 760px) { .reverse .split-img { order: 2; } }
+
+  .feature-head { font-size: clamp(1.7rem, 2.8vw, 2.2rem); margin-bottom: 1.2em; }
+  .feature-img { width: 100%; aspect-ratio: 1100 / 600; object-fit: cover; border-radius: 18px; }
+  .feature-cols { display: grid; gap: 20px 48px; margin-top: 32px; }
+  @media (min-width: 860px) { .feature-cols { grid-template-columns: 0.55fr 1.45fr; } }
+  .feature-title { font-size: clamp(1.35rem, 2vw, 1.6rem); line-height: 1.2; }
+  .feature-body :global(p) { color: var(--ink); }
+</style>

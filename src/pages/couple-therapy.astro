@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PageHero from '../components/PageHero.astro';
+import CardGrid from '../components/CardGrid.astro';
+import Programmes from '../components/Programmes.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import hero from '../assets/photos/hero-couples.png';
+import { COUPLE_PROGRAMMES } from '../data/programmes';
+import { pick } from '../data/testimonials';
+---
+<Base {...SEO['couple-therapy']}>
+  <PageHero
+    eyebrow="In-person in Jakarta and Bali. Online worldwide."
+    title="Couple therapy"
+    text="Some couples arrive in crisis. Others arrive before it gets there. What they share is a sense that something has stopped working and the usual tools are not enough. This work goes deeper than communication skills."
+    image={hero}
+    imageAlt="Two people holding hands across a table beside cups of coffee"
+  />
+
+  <CardGrid
+    tone="tan"
+    center
+    eyebrow="Who this is for"
+    title="The patterns that keep repeating. <em>Not just the arguments.</em>"
+    intro="Most people arrive with several things tangled together. These are the areas we work on most often."
+    items={[
+      { title: 'The same argument, cycling', text: 'Different trigger each time, same fight. Neither of you is wrong. Both of you are stuck.' },
+      { title: 'Distance and disconnection', text: 'You share a life but not much else. Politeness has replaced intimacy without either of you choosing it.' },
+      { title: 'One pursues, one withdraws', text: 'The more one reaches, the more the other pulls back. A pattern that exhausts both people and solves nothing.' },
+      { title: 'Rupture', text: 'Infidelity, a betrayal, a period of crisis. You want to rebuild but do not know if it is possible or where to start.' },
+      { title: 'Two high achievers, one relationship', text: 'Both of you are capable and driven. The relationship keeps coming last, and it is starting to show.' },
+      { title: 'Wanting more than coexistence', text: 'Nothing is dramatically wrong. But you sense the relationship could be more than it currently is.' },
+    ]}
+  />
+
+  <CardGrid
+    tone="oat"
+    numbered
+    center
+    eyebrow="How it works, every time"
+    title="Starting therapy. What to expect."
+    intro="You have probably read the books. Maybe tried therapy before. You know what you should do. But in the moment, when it matters most, something else takes over. That is what we work with here. <br /><br />Three phases. Each one builds on the last."
+    items={[
+      { title: 'See the pattern clearly', text: 'Not just the argument. The cycle underneath it. What you are both actually trying to say, and why it keeps coming out wrong.', eyebrow: 'Gottman • RLT' },
+      { title: 'Work with the parts that take over', text: 'There is a part of you that knows better. And a part that, when triggered, forgets it all. We work with the part that forgets, so it stops running the relationship.', eyebrow: 'IFS • RLT' },
+      { title: 'Build something that actually holds', text: 'Skills and new patterns that work because the parts that used to resist them are no longer in the way.', eyebrow: 'Gottman • IFS • RLT' },
+    ]}
+  />
+
+  <CardGrid
+    tone="green"
+    center
+    eyebrow="The methods"
+    title="IFS, RLT, and Gottman for couples."
+    intro="Each method is chosen because it reaches what standard talk therapy cannot. Together they address the relational pattern, the individual parts driving it, and the skills that make new behaviour stick."
+    items={[
+      { title: 'Relational Life Therapy (RLT)', text: 'Terry Real’s method is built for couples who have learned to perform rather than connect. Direct and confronting, it gets to the root of adaptive patterns faster than most approaches for high-achieving couples.', href: '/rlt/', linkLabel: 'Learn about RLT' },
+      { title: 'Internal Family Systems (IFS)', text: 'Helps each partner understand the parts of themselves that show up in conflict. The part that shuts down. The part that attacks. When both partners understand their own internal system, the relationship changes profoundly.', href: '/ifs/', linkLabel: 'Learn about IFS' },
+      { title: 'Gottman Method', text: 'Research-based tools for understanding conflict patterns, building friendship and trust, and creating shared meaning. Gives couples a clear map of their dynamic and concrete skills that hold beyond the sessions.', href: '/gottman/', linkLabel: 'Learn about Gottman' },
+    ]}
+  />
+
+  <Programmes
+    title="Two formats, both begin the same way."
+    intro="Every couple begins with a Couple Workbook Assessment completed together one week before the intensive. Nothing starts cold and every session counts."
+    programmes={COUPLE_PROGRAMMES}
+    accent="tan"
+  >
+    <aside class="bali">
+      <div>
+        <span class="eyebrow">Want to go deeper?</span>
+        <h3>Take the work to Bali.</h3>
+        <p>For couples who want a fully immersive experience away from everyday life. The Bali Intensive gives the work the space it deserves.</p>
+      </div>
+      <a href="/retreats/" class="bali-link">Explore the Bali retreat <span aria-hidden="true">→</span></a>
+    </aside>
+  </Programmes>
+
+  <Testimonials tone="oat" more items={pick('client-focused-on-overcoming-relationship-trauma', 'joe-halim', 'client-facing-relationship-healing-and-trauma-recovery')} />
+
+  <Faq
+    tone="stone"
+    items={[
+      { q: 'Do we need to be in crisis to start couples therapy?', a: 'No. Some couples arrive in crisis. Others arrive before it gets there, with a sense that something has stopped working and the usual tools are not enough. Both are equally valid reasons to start. The earlier you come, the more room there is to work with.' },
+      { q: 'Can couples therapy actually stop the same argument repeating?', a: 'Yes, and it is one of the most common reasons couples come. The argument is rarely the real issue. RLT and IFS together help you see the cycle underneath it: what each of you is actually trying to say and why it keeps coming out wrong. Once that becomes visible, it changes.' },
+      { q: 'What is the difference between the Exploration and Deepening couple intensives?', a: 'The Exploration intensive is 7 hours across two days and is designed to help you understand what is keeping you stuck. The Deepening intensive is 13 hours and includes individual sessions for each partner alongside the couples work, plus a follow-up check-in one week after. It suits couples who want more sustained, layered work and deeper repair.' },
+      { q: 'Is the couples therapy intensive in Jakarta right for two busy professionals?', a: 'That is exactly who the intensive format is designed for. Rather than fitting couples therapy around already-full schedules week after week, the intensive gives you a concentrated block of focused work. Many high-achieving couples find this easier to commit to and more effective than ongoing weekly sessions.' },
+      { q: 'Can I benefit from couples therapy if my partner does not want to come?', a: 'Couples therapy works best when both partners are present. If your partner is reluctant, it is worth having a consultation to talk through what that means and whether individual work first might be a useful step. In some cases, one partner starting individually shifts the dynamic enough that the other becomes open to joining.' },
+      { q: 'Why do you use RLT, IFS, and Gottman together in couples sessions?', a: 'Because they reach different layers. Gottman gives you a research-based map of your conflict patterns and concrete tools for communication. RLT goes after the character patterns and relational wounds driving the dynamic. IFS helps each partner understand the parts of themselves that take over in conflict. Used together, they address the surface, the roots, and the individual systems that run the relationship.' },
+      { q: 'Is couples therapy available online for clients outside Jakarta?', a: 'Yes. All couples work is available online worldwide as well as in-person in Jakarta. Research confirms that Gottman Method therapy is equally effective online as in person.' },
+    ]}
+  />
+
+  <CtaBand tone="stone" layout="inline" />
+</Base>
+
+<style>
+  .bali { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px 40px; margin-top: 20px; padding: clamp(24px, 3.4vw, 36px) clamp(24px, 3vw, 36px); border-radius: var(--radius); background: #dcd0c5; box-shadow: var(--shadow); }
+  .bali .eyebrow { margin-bottom: 0.4rem; color: var(--tan-dark); }
+  .bali h3 { font-size: clamp(1.4rem, 2vw, 1.6rem); margin-bottom: 0.4em; }
+  .bali p { max-width: 52ch; font-size: 0.9rem; color: var(--ink); }
+  .bali-link { font-size: 0.85rem; color: var(--ink); text-underline-offset: 4px; }
+</style>

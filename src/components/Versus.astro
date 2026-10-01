@@ -1,0 +1,54 @@
+---
+// Two-column "A vs B" comparison. Replaces the comparison images on the old site.
+interface Side { eyebrow?: string; title: string; points: string[] }
+interface Props { eyebrow?: string; title?: string; intro?: string; left: Side; right: Side; tone?: 'green' | 'paper' | 'cream' | 'white' | 'blush' | 'tan' }
+const { eyebrow, title, intro, left, right, tone = 'green' } = Astro.props;
+---
+<section class={`section bg-${tone}`}>
+  <div class="wrap">
+    {(eyebrow || title || intro) && (
+      <div class="section-head center head">
+        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+        {title && <h2 set:html={title} />}
+        {intro && <p set:html={intro} />}
+      </div>
+    )}
+    <div class="vs">
+      <div class="vs-head">
+        <div>{left.eyebrow && <span class="eyebrow">{left.eyebrow}</span>}<h3>{left.title}</h3></div>
+        <span class="vs-mark" aria-hidden="true">vs</span>
+        <div>{right.eyebrow && <span class="eyebrow">{right.eyebrow}</span>}<h3>{right.title}</h3></div>
+      </div>
+      <div class="vs-body">
+        {[left, right].map((side) => (
+          <div class="side">
+            <h3 class="side-title">{side.title}</h3>
+            <ul>{side.points.map((p) => <li>{p}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .head { max-width: 900px; }
+  .head p { font-size: 1.02rem; }
+  .vs { max-width: 800px; margin-inline: auto; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; color: var(--text); text-align: center; }
+  .vs-head { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 26px 24px; border-bottom: 1px solid rgba(0, 0, 0, 0.35); }
+  .vs-head h3, .side-title { margin: 0; font-size: clamp(1.25rem, 2vw, 1.5rem); color: var(--text); }
+  .vs-head .eyebrow { margin-bottom: 0.3rem; color: var(--muted); }
+  .vs-mark { padding: 0 1rem; font-size: 1rem; color: var(--ink); }
+  .vs-body { display: grid; grid-template-columns: 1fr 1fr; }
+  .side { padding: clamp(24px, 4vw, 40px) clamp(16px, 3vw, 36px); }
+  .side + .side { border-left: 1px solid rgba(0, 0, 0, 0.35); }
+  .side-title { display: none; }
+  ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.9rem; font-size: 0.93rem; line-height: 1.4; }
+
+  @media (max-width: 599px) {
+    .vs-head { display: none; }
+    .vs-body { grid-template-columns: 1fr; }
+    .side + .side { border-left: 0; border-top: 1px solid rgba(0, 0, 0, 0.2); }
+    .side-title { display: block; margin-bottom: 1rem; }
+  }
+</style>

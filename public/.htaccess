@@ -1,0 +1,70 @@
+# shabnamlee.com: static site rules for Hostinger (LiteSpeed/Apache)
+
+Options -Indexes
+DirectorySlash On
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Always use https://shabnamlee.com (no www)
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://shabnamlee.com/$1 [R=301,L]
+
+# ---- Merged blog posts (old URL -> merged article) ----
+RewriteRule ^understanding-your-inner-world-how-internal-family-systems-ifs-therapy-creates-lasting-change/?$ /internal-family-systems-therapy-understanding-your-inner-world/ [R=301,L]
+RewriteRule ^understanding-internal-family-systems-therapy-a-path-to-inner-harmony/?$ /internal-family-systems-therapy-understanding-your-inner-world/ [R=301,L]
+RewriteRule ^why-talk-therapy-alone-isnt-always-enough-how-brainspotting-reaches-what-words-cant/?$ /when-talk-therapy-isnt-enough-how-brainspotting-reaches-trauma-your-mind-cant-access/ [R=301,L]
+RewriteRule ^relational-life-therapy-transforming-connections-through-direct-experiential-change/?$ /relational-life-therapy-building-deeper-connections-through-mind-body-and-nervous-system/ [R=301,L]
+
+# ---- Renamed post ----
+RewriteRule ^35661-2/?$ /5-things-you-do-in-a-fight-that-make-everything-worse/ [R=301,L]
+
+# ---- WordPress archives ----
+RewriteRule ^testimonials/.+$ /testimonials/ [R=301,L]
+RewriteRule ^author/.*$ /about/ [R=301,L]
+RewriteRule ^(category|tag)/ifs/?$ /blog/?topic=IFS [R=301,L]
+RewriteRule ^(category|tag)/rlt/?$ /blog/?topic=RLT [R=301,L]
+RewriteRule ^(category|tag)/act/?$ /blog/?topic=ACT [R=301,L]
+RewriteRule ^(category|tag)/brainspotting/?$ /blog/?topic=Brainspotting [R=301,L]
+RewriteRule ^(category|tag)/couple/?$ /blog/?topic=Couples [R=301,L]
+RewriteRule ^(category|tag)/(high-achievement-mothers|high-achieving-mothers)/?$ /blog/?topic=Mothers [R=301,L]
+RewriteRule ^(category|tag)/(individuals|individual)/?$ /blog/?topic=Individuals [R=301,L]
+RewriteRule ^(category|tag)/.*$ /blog/ [R=301,L]
+RewriteRule ^page/[0-9]+/?$ /blog/ [R=301,L]
+RewriteRule ^wp-content/uploads/2026/05/Reflection-Reset-Journal\.pdf$ /downloads/reflection-reset-journal.pdf [R=301,L]
+
+# ---- Feeds ----
+RewriteRule ^comments/feed/?$ /feed.xml [R=301,L]
+RewriteRule ^[^/]+/feed/?$ /feed.xml [R=301,L]
+RewriteRule ^feed/?$ /feed.xml [L]
+
+# ---- Old WordPress endpoints: gone for good ----
+RewriteRule ^(wp-admin|wp-login\.php|xmlrpc\.php|wp-json|wp-includes)(/.*)?$ - [G,L]
+</IfModule>
+
+# ---- Caching: fingerprinted assets never change, pages revalidate ----
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|webp|avif|jpg|jpeg|png|svg|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(html|xml)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/xml application/rss+xml image/svg+xml
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType image/avif .avif
+</IfModule>

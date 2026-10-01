@@ -1,0 +1,28 @@
+---
+// "What this helps with" list: short title plus a one-line description, in columns.
+interface Props { eyebrow?: string; title: string; intro?: string; items: [string, string][]; tone?: 'green' | 'cream' | 'paper' | 'white' | 'sand' | 'tan' | 'grey' }
+const { eyebrow = 'What this helps with', title, intro, items, tone = 'green' } = Astro.props;
+---
+<section class={`section bg-${tone}`}>
+  <div class="wrap">
+    <div class="section-head center">
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+      <h2 set:html={title} />
+      {intro && <p set:html={intro} />}
+    </div>
+    <dl class="issues">
+      {items.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+    </dl>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section-head { max-width: 900px; }
+  .issues { display: grid; gap: 16px; grid-template-columns: 1fr; max-width: 1140px; margin: 0 auto; }
+  @media (min-width: 640px) { .issues { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .issues { grid-template-columns: repeat(3, 1fr); } }
+  .issues > div { padding: 22px 26px; border: 1px solid rgba(42, 42, 42, 0.07); border-radius: var(--radius); background: var(--white); box-shadow: var(--shadow); }
+  .issues dt { font-family: var(--serif); font-size: 1.35rem; line-height: 1.2; color: var(--ink); }
+  .issues dd { margin: 6px 0 0; font-size: 0.88rem; color: var(--text); }
+</style>

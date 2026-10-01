@@ -1,0 +1,82 @@
+---
+// Books and podcasts recommended on the method pages.
+import { Image } from 'astro:assets';
+
+interface Book { title: string; author: string; cover?: ImageMetadata; href?: string }
+interface Podcast { show: string; episode: string; guests: string; href?: string }
+interface Props { title: string; intro?: string; books?: Book[]; podcasts?: Podcast[]; tone?: 'paper' | 'cream' | 'blush' | 'grey' | 'rose' }
+const { title, intro, books = [], podcasts = [], tone = 'paper' } = Astro.props;
+---
+<section class={`section bg-${tone}`}>
+  <div class="wrap">
+    <div class="section-head center">
+      <h2 set:html={title} />
+      {intro && <p>{intro}</p>}
+    </div>
+
+    {books.length > 0 && (
+      <ul class:list={['books', { three: books.length >= 3 }]}>
+        {books.map((b) => (
+          <li class="book card">
+            {b.cover ? <Image src={b.cover} alt={`Cover of ${b.title}`} width={180} class="cover" /> : <div class="cover blank" aria-hidden="true"><span>{b.title}</span></div>}
+            <div>
+              <h3>{b.title}</h3>
+              <p class="muted">{b.author}</p>
+              {b.href && <a href={b.href} class="find" target="_blank" rel="noopener">Find on Amazon <span aria-hidden="true">→</span></a>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    {podcasts.length > 0 && (
+      <ul class="pods">
+        {podcasts.map((p) => (
+          <li class="card">
+            <svg class="mic" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true">
+              <circle cx="22" cy="22" r="22" fill="#2f362f" />
+              <g fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round">
+                <rect x="18.5" y="12" width="7" height="12.5" rx="3.5" />
+                <path d="M15 21.5a7 7 0 0 0 14 0M22 28.5V32" />
+              </g>
+            </svg>
+            <span class="eyebrow">{p.show}</span>
+            <h3>{p.href ? <a href={p.href} target="_blank" rel="noopener">{p.episode}</a> : p.episode}</h3>
+            <p class="muted">{p.guests}</p>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</section>
+
+<style>
+  .books, .pods { max-width: 1000px; margin-inline: auto; }
+  .section-head { max-width: 1000px; }
+  .section-head h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+  .books { display: grid; gap: 20px; grid-template-columns: 1fr; list-style: none; padding: 0; margin-bottom: 20px; }
+  @media (min-width: 760px) { .books { grid-template-columns: repeat(2, 1fr); } }
+  .book { display: flex; gap: 24px; align-items: center; padding: 24px; }
+  .cover { flex: 0 0 90px; width: 90px; height: auto; border-radius: 3px; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12); }
+  .cover.blank { aspect-ratio: 2 / 3; display: grid; place-items: center; padding: 10px; background: var(--green); color: var(--white); font-family: var(--serif); font-size: 0.9rem; text-align: center; }
+  .book h3 { font-size: clamp(1.25rem, 1.8vw, 1.5rem); margin-bottom: 0.3em; }
+  /* Three books: one row of three, matching the three podcast cards below. */
+  @media (min-width: 1000px) {
+    .books.three { grid-template-columns: repeat(3, 1fr); }
+    .books.three, .books.three + .pods { max-width: 1080px; }
+  }
+  .three .book { gap: 22px; padding: 20px; }
+  .three .cover { flex: 0 0 clamp(88px, 9.5vw, 130px); width: clamp(88px, 9.5vw, 130px); aspect-ratio: 1; object-fit: cover; border-radius: 2px; box-shadow: none; }
+  .three .book h3 { font-size: clamp(1.2rem, 1.7vw, 1.5rem); line-height: 1.15; }
+  .book p { margin-bottom: 0.4em; }
+  .find { font-size: 0.85rem; color: var(--tan-dark); text-underline-offset: 4px; white-space: nowrap; }
+  .pods { display: grid; gap: 20px; grid-template-columns: 1fr; list-style: none; padding: 0; }
+  @media (min-width: 760px) { .pods { grid-template-columns: repeat(3, 1fr); } }
+  .pods .card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 26px 22px; }
+  .mic { width: 44px; height: 44px; margin-bottom: 14px; flex: 0 0 auto; }
+  .pods .eyebrow { margin-bottom: 0.5rem; font-size: 0.72rem; }
+  .pods h3 { font-size: 1.1rem; }
+  .pods p { font-size: 0.85rem; }
+  .pods a { text-decoration: none; }
+  .pods a:hover { text-decoration: underline; }
+</style>

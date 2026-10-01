@@ -1,0 +1,150 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PhotoHero from '../components/PhotoHero.astro';
+import heroPhoto from '../assets/photos/hero-gottman.png';
+import Split from '../components/Split.astro';
+import CardGrid from '../components/CardGrid.astro';
+import IssueList from '../components/IssueList.astro';
+import Research from '../components/Research.astro';
+import Reading from '../components/Reading.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import feature from '../assets/photos/gottman-beach.png';
+import sevenPrinciples from '../assets/img/418iysn0mbl.-sy445-sx342-ml2-.jpg';
+import fightRight from '../assets/img/81v0byo4sql.-sy522-.jpg';
+
+const horsemen = [
+  ['Criticism', 'Gentle start-up'],
+  ['Contempt', 'Culture of appreciation'],
+  ['Defensiveness', 'Taking responsibility'],
+  ['Stonewalling', 'Self-soothing'],
+];
+---
+<Base {...SEO['gottman']} overPhoto>
+  <PhotoHero
+    title="Gottman"
+    image={heroPhoto}
+    imageAlt="A couple walking apart along the shore at the water’s edge"
+    position="center 40%"
+    text="Most couples arrive knowing what the problem is. They have talked about it countless times. What they do not have is a way to actually change it. The Gottman Method gives you that. Not insight alone. A map, tools and a clear direction for how to build something that lasts."
+  >
+    <p>Developed by Drs John and Julie Gottman over 40 years of research with thousands of couples, the Gottman Method is one of the most evidence-based approaches to couples therapy in the world. It is used here as part of an integrated approach alongside RLT and IFS.</p>
+  </PhotoHero>
+
+  <Split layout="feature" tone="white" image={feature} alt="A couple holding hands on a rocky beach, looking out at the sea at dusk" eyebrow="A research-based map for what actually makes relationships work" title="Dr John and Dr Julie Gottman spent 40 years studying couples. He could predict divorce with over 90% accuracy. Then he built a method to prevent it.">
+    <p>The Gottman Method is not based on intuition or theory alone. It is grounded in decades of observational research with thousands of couples across all backgrounds. Gottman identified the precise behaviours that damage relationships and the precise conditions that make them thrive. That research became a clinical framework. Used here as part of an integrated approach alongside RLT and IFS, Gottman brings structure, clear tools and a research-backed map for how couples can build something that holds.</p>
+  </Split>
+
+  <CardGrid
+    tone="white"
+    items={[
+      { eyebrow: 'Foundation', title: 'Friendship and knowing each other', text: 'Gottman found that the strongest couples have a deep knowledge of each other’s inner world. Their hopes, fears, history and daily life. This is what Gottman calls building love maps.' },
+      { eyebrow: 'Conflict', title: 'Solvable and perpetual problems', text: '69% of couples’ conflicts are perpetual: they will never fully go away. Gottman’s insight is that the goal is not to resolve them. It is to manage them without contempt or distance.' },
+      { eyebrow: 'Meaning', title: 'Shared meaning and vision', text: 'Lasting relationships are built on more than conflict management. They are built on rituals, shared goals and a sense of purpose that both partners feel part of.' },
+    ]}
+  >
+    <div class="horsemen">
+      <div>
+        <h3>The Four Horsemen, <em>and their antidotes</em></h3>
+        <p>Gottman identified four communication patterns that predict relationship breakdown with remarkable accuracy. Knowing them is the first step to changing them.</p>
+      </div>
+      <ul>
+        {horsemen.map(([h, a]) => (
+          <li><span class="h">{h}</span><span class="arrow" aria-hidden="true">→</span><span class="a">{a}</span></li>
+        ))}
+      </ul>
+    </div>
+  </CardGrid>
+
+  <IssueList
+    tone="grey"
+    eyebrow="What Gottman helps with"
+    title="Gottman Method couples therapy for high achievers"
+    intro="Gottman is particularly useful when couples need a clear framework, concrete tools and a shared language for what is happening between them."
+    items={[
+      ['Communication breakdown', 'Talking but not landing'],
+      ['Recurring conflict', 'The same argument, different day'],
+      ['Emotional distance', 'Functional but disconnected'],
+      ['Trust and betrayal', 'Rebuilding after a breach'],
+      ['Contempt and criticism', 'Patterns that quietly corrode'],
+      ['Intimacy and connection', 'Rebuilding friendship and closeness'],
+    ]}
+  >
+    <div class="why">
+      <h2>Why Gottman works especially well <em>for high achievers</em></h2>
+      <p class="lead">High achievers respond well to structure and evidence. Gottman gives them both. Rather than feeling like they are sitting in an abstract conversation about feelings, couples using Gottman have a clear map of their relationship, concrete tools they can practise and a shared vocabulary for what is going wrong and how to change it. For analytical, results-oriented people, this is often what makes the work feel real.</p>
+    </div>
+  </IssueList>
+
+
+  <Research
+    tone="white"
+    title="What 40 years of research shows"
+    intro="One of the most extensively researched couples therapy methods in the world"
+    items={[
+      { text: 'Gottman could predict divorce with over 90% accuracy by observing couples’ conflict patterns, a finding that became the foundation of the entire method.', source: 'Gottman, J.M. · Why Marriages Succeed or Fail, 1994' },
+      { text: 'A 2024 randomised controlled trial found Gottman Method Couples Therapy was significantly more effective than standard approaches for affair recovery, with improvements in trust, conflict management and relationship satisfaction.', source: 'Irvine et al. · The Family Journal, 2024' },
+      { text: 'A study with 490 couples found the Gottman Seven Principles program improved relationship quality significantly, with results equally strong whether delivered in person or online.', source: 'Zahl-Olsen et al. · Journal of Marital and Family Therapy, 2024' },
+      { text: 'Research consistently shows Gottman therapy improves marital adjustment, reduces emotional distance and increases intimacy, with effects maintained at follow-up.', source: 'Davoodvandi et al. · Iranian Journal of Psychiatry, 2018' },
+    ]}
+  />
+
+  <CardGrid
+    tone="grey"
+    columns={2}
+    center
+    title="Where Gottman sits within the work"
+    intro="Gottman is used within couples intensives alongside RLT and IFS. It brings structure, shared vocabulary and concrete tools that complement the deeper relational and parts work."
+    items={[
+      { eyebrow: 'For couples', title: 'Couples therapy', text: 'Exploration and Deepening therapy intensives', href: '/couple-therapy/' },
+      { eyebrow: 'Combined method', title: 'Gottman and RLT together', text: 'Structure and depth in the same room', href: '/rlt/' },
+      { eyebrow: 'Combined method', title: 'Gottman and IFS together', text: 'Tools and parts work combined', href: '/ifs/' },
+      { eyebrow: 'Deep dive', title: 'Bali Retreat Intensive', text: 'Immersive couples work in Bali', href: '/retreats/' },
+    ]}
+  />
+
+  <Reading
+    tone="grey"
+    title="If you are curious about Gottman"
+    intro="Two books worth reading. Three podcasts worth listening to."
+    books={[
+      { title: 'The Seven Principles for Making Marriage Work', author: 'John Gottman', cover: sevenPrinciples, href: 'https://www.amazon.com/Seven-Principles-Making-Marriage-Work/dp/0553447718' },
+      { title: 'Fight Right', author: 'John and Julie Gottman', cover: fightRight, href: 'https://www.amazon.com/Fight-Right-Successful-Conflict-Connection/dp/0593579658' },
+    ]}
+    podcasts={[
+      { show: 'Unlocking Us', episode: 'Dr. John Gottman and Dr. Julie Gottman on What Makes Love Last', guests: 'Brené Brown with Drs John and Julie Gottman, founders of the Gottman Method' },
+      { show: '10% Happier', episode: 'How Not to Ruin Your Relationships', guests: 'Dan Harris with Drs John and Julie Gottman, founders of the Gottman Method' },
+      { show: 'The Diary of a CEO', episode: 'Women Tend to be More Unhappily Married', guests: 'Steven Bartlett with Drs John and Julie Gottman, founders of the Gottman Method' },
+    ]}
+  />
+
+  <Faq
+    tone="white"
+    items={[
+      { q: 'What are the Four Horsemen in Gottman couples therapy?', a: 'Gottman’s research identified four communication patterns that predict relationship breakdown with remarkable accuracy: criticism, contempt, defensiveness, and stonewalling. Knowing which of these are present in your dynamic is the first step to changing them. Each has a specific antidote. The work involves recognising the pattern as it happens and learning to shift it in real time.' },
+      { q: 'Can Gottman therapy help couples who have grown apart but are not fighting?', a: 'Yes. Emotional distance is one of Gottman’s core areas. His research found that lasting relationships are built on deep friendship and knowledge of each other’s inner world, not just the absence of conflict. If closeness has quietly slipped away, Gottman’s framework for rebuilding that foundation is where a significant part of the work happens.' },
+      { q: 'How quickly does Gottman couples therapy produce results?', a: 'In the intensive format used here, couples often begin to see a shift in the first concentrated block of work. Gottman’s framework gives you a clear map and concrete tools from the start, so you leave with more than insight. That said, change in a relationship is a process. The follow-up session included in the Deepening intensive helps consolidate what has shifted and identify what still needs work.' },
+      { q: 'Can Gottman Method therapy help after an affair?', a: 'Yes. Gottman has developed specific protocols for affair recovery and research published in 2024 found that Gottman Method therapy was significantly more effective than standard approaches for rebuilding trust, managing conflict, and restoring relationship satisfaction after infidelity. It is used here alongside RLT for the deeper work underneath.' },
+      { q: 'What is the Sound Relationship House in Gottman therapy?', a: 'The Sound Relationship House is Gottman’s framework for what makes relationships thrive, built on levels from friendship and trust through to shared meaning and vision. It is not a lecture. It becomes a shared vocabulary for understanding where your relationship is strong and where it needs attention. Most couples find it clarifying rather than clinical.' },
+      { q: 'Does Gottman couples therapy work if only one partner is fully committed?', a: 'Both partners need to be present and willing to engage honestly. Equal enthusiasm at the start is not required. It is common for one partner to be more reluctant initially. What matters is that both are in the room and willing to look at their own part in the dynamic, not just the other person’s.' },
+    ]}
+  />
+
+  <CtaBand tone="white" layout="inline" eyebrow="" title="Ready to build something that <em>actually holds?</em>" />
+</Base>
+
+<style>
+  .horsemen { display: grid; gap: 28px 56px; margin-top: 56px; }
+  @media (min-width: 860px) { .horsemen { grid-template-columns: 1fr 1.1fr; align-items: center; } }
+  .horsemen h3 { font-size: clamp(1.4rem, 2.2vw, 1.7rem); color: var(--ink); }
+  .why { max-width: 900px; margin: clamp(48px, 6vw, 72px) auto 0; text-align: center; }
+  .why h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
+  .horsemen ul { display: grid; grid-template-columns: 1fr; gap: 14px 28px; list-style: none; padding: 0; margin: 0; }
+  @media (min-width: 560px) { .horsemen ul { grid-template-columns: 1fr 1fr; } }
+  .horsemen li { font-family: var(--serif); font-size: 1.05rem; color: var(--ink); }
+  .horsemen .arrow { margin: 0 0.4em; color: var(--muted); }
+  .horsemen .arrow::before { content: '–'; }
+  .horsemen .arrow { font-size: 0; }
+  .horsemen .arrow::before { font-size: 1.05rem; }
+</style>

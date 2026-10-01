@@ -1,0 +1,55 @@
+---
+// Lightweight YouTube embed: shows a thumbnail and only loads the player (about 1 MB) when clicked.
+import Icon from './Icon.astro';
+interface Props { id: string; title: string }
+const { id, title } = Astro.props;
+---
+<div class="yt" data-id={id} data-title={title}>
+  <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" width="480" height="360" />
+  <button type="button" class="yt-play" aria-label={`Play video: ${title}`}>
+    <Icon name="play" size={30} />
+  </button>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.yt').forEach((el) => {
+    el.querySelector('button')!.addEventListener('click', () => {
+      const f = document.createElement('iframe');
+      f.src = `https://www.youtube-nocookie.com/embed/${el.dataset.id}?autoplay=1&rel=0`;
+      f.title = el.dataset.title!;
+      f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen = true;
+      el.replaceChildren(f);
+    });
+  });
+</script>
+
+<style>
+  .yt {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--ink);
+    box-shadow: var(--shadow);
+  }
+  .yt img { width: 100%; height: 100%; object-fit: cover; opacity: 0.92; }
+  .yt :global(iframe) { width: 100%; height: 100%; border: 0; }
+  .yt-play {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    border: 0;
+    display: grid;
+    place-items: center;
+    padding-left: 4px;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--green-dark);
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .yt-play:hover { transform: scale(1.07); }
+</style>

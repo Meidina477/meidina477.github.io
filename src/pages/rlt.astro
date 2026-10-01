@@ -1,0 +1,121 @@
+---
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PhotoHero from '../components/PhotoHero.astro';
+import heroPhoto from '../assets/photos/hero-rlt.png';
+import Split from '../components/Split.astro';
+import CardGrid from '../components/CardGrid.astro';
+import IssueList from '../components/IssueList.astro';
+import Reading from '../components/Reading.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { pick } from '../data/testimonials';
+import feature from '../assets/photos/rlt-couple.png';
+import us from '../assets/img/91ocbyrbkbl.-sy522-1.jpg';
+import newRules from '../assets/img/71vd58xocal.-sl1500-2.jpg';
+---
+<Base {...SEO['rlt']} overPhoto>
+  <PhotoHero
+    title="RLT Therapy"
+    image={heroPhoto}
+    imageAlt="A couple sitting in long grass on a hillside above the sea"
+    position="center"
+    text="You have had the same conversation more times than you can count. It starts differently and ends the same way. One of you shuts down. One of you pushes harder. And somewhere underneath the argument is something neither of you knows how to say."
+  >
+    <p>Relational Life Therapy (RLT) does not just help you communicate better. It goes after the patterns that keep pulling you back into the same dynamic, where they come from, and what it would take to finally change them.</p>
+  </PhotoHero>
+
+  <Split layout="feature" tone="white" image={feature} alt="A couple sitting side by side on the rocks, looking out to sea" eyebrow="The most direct, honest approach to relational change available" title="Most of us were never taught how to be in a relationship. <em>Not really.</em>">
+    <p>We were taught to perform, to manage, to keep the peace or to win the argument. RLT, developed by Terry Real over 40 years of clinical work, starts from a different premise entirely.</p>
+    <p>That true intimacy is only possible when partners show up as equals. Not one-up, not one-down. Same as. And that to get there, both partners have to look honestly at the patterns they brought into the relationship and take real responsibility for changing them.</p>
+  </Split>
+
+  <CardGrid
+    tone="white"
+    columns={4}
+    title="How RLT differs from traditional couple therapy"
+    items={[
+      { title: 'Speed', text: 'RLT often reaches the root of the problem in the first session. It does not spend time circling the issue.' },
+      { title: 'Directness', text: 'The therapist is not neutral. RLT names what is not working, confronts harmful behaviour with compassion and takes sides when one partner is causing more harm.' },
+      { title: 'Depth', text: 'Trauma work happens in the room with both partners present. When each partner sees the other’s pain and patterns, empathy deepens and real change becomes possible.' },
+      { title: 'Skills', text: 'RLT teaches practical relational skills. But only after the parts that resist using them have been worked with directly.' },
+    ]}
+  />
+
+  <CardGrid
+    tone="grey"
+    numbered
+    plain
+    center
+    eyebrow="The three phases"
+    title="Starting therapy. What to expect."
+    items={[
+      { title: 'Seeing the pattern clearly', text: 'We identify the cycle you are both stuck in. Not the surface argument but what is driving it. The roles each of you plays, how you trigger each other, and what you are both actually trying to say underneath the noise. Most couples describe this phase as the first time they have ever truly understood what is happening between them.' },
+      { title: 'Healing what is underneath', text: 'We go to the roots. The childhood wounds, the learned survival strategies, the ways each of you learned to protect yourselves that now damage your relationship. This is where trauma work happens, with both partners present. When each person sees the pain behind the other’s behaviour, everything shifts.' },
+      { title: 'Building skills that actually hold', text: 'Now we build. New ways of communicating, repairing, and relating. Concrete tools from Terry Real’s framework, including the Feedback Wheel and relational mindfulness. Skills that work because the parts that used to resist them are no longer running the show.' },
+    ]}
+  />
+
+  <IssueList
+    tone="sand"
+    eyebrow="What RLT helps with"
+    title="RLT couples therapy in Jakarta and Southeast Asia"
+    intro="RLT is particularly powerful for high-achieving couples who are good at solving problems everywhere except in their relationship."
+    items={[
+      ['Repeated conflict', 'Same fight, different day'],
+      ['Emotional distance', 'Functional but disconnected'],
+      ['Trust and betrayal', 'Infidelity and broken trust'],
+      ['Power imbalances', 'One-up and one-down dynamics'],
+      ['Communication breakdown', 'Not hearing and not being heard'],
+      ['Intimacy and connection', 'Wanting to feel close again'],
+      ['Individual patterns', 'Relational work for individuals too'],
+      ['On the brink', 'One last real attempt before giving up'],
+      ['High achieving couples', 'Successful everywhere except here'],
+    ]}
+  />
+
+  <CardGrid
+    tone="paper"
+    columns={2}
+    center
+    title="Where RLT sits within the work"
+    intro="RLT is the backbone of how I work with couples. It is often combined with IFS so each partner understands their own parts, and with Brainspotting when deeper trauma work is needed."
+    items={[
+      { eyebrow: 'For couples', title: 'Couples IFS and RLT', text: 'Exploration and Deepening therapy intensives', href: '/couple-therapy/' },
+      { eyebrow: 'Combined method', title: 'RLT and IFS together', text: 'Parts work meets relational change', href: '/ifs/' },
+      { eyebrow: 'For individuals', title: 'Individual RLT work', text: 'Relational patterns in your own life', href: '/individual-therapy/' },
+      { eyebrow: 'Deep dive', title: 'Bali Retreat Intensive', text: 'Immersive couples work in Bali', href: '/retreats/' },
+    ]}
+  />
+
+  <Reading
+    title="If you are curious about RLT"
+    intro="Two books worth reading. Three podcasts worth listening to."
+    books={[
+      { title: 'Us: Getting Past You and Me to Build a More Loving Relationship', author: 'Terry Real', cover: us, href: 'https://www.amazon.com/Us-Getting-Build-Loving-Relationship/dp/0593233670' },
+      { title: 'The New Rules of Marriage', author: 'Terry Real', cover: newRules, href: 'https://www.amazon.com/New-Rules-Marriage-What-Need/dp/0345480864' },
+    ]}
+    podcasts={[
+      { show: 'The Mel Robbins Podcast', episode: 'Married, Dating, or Single: The Best Relationship Advice You Will Ever Receive', guests: 'Mel Robbins with Terry Real, founder of RLT' },
+      { show: 'The Tim Ferriss Show', episode: 'Breaking the Rules of Traditional Couples Therapy for Superior Results, A Few Frameworks That Work', guests: 'Tim Ferriss with Terry Real, founder of RLT' },
+      { show: 'Huberman Lab', episode: 'Defining Healthy Masculinity & How to Build It', guests: 'Andrew Huberman with Terry Real, founder of RLT' },
+    ]}
+  />
+
+  <Testimonials tone="oat" more items={pick('client-focused-on-overcoming-relationship-trauma', 'client-facing-relationship-healing-and-trauma-recovery')} />
+
+  <Faq
+    tone="tan"
+    items={[
+      { q: 'How is Relational Life Therapy different from standard couples therapy?', a: 'RLT is considerably more direct than most couples therapy. The therapist is not a neutral facilitator. When a harmful pattern is present, it gets named. Terry Real developed RLT specifically for couples who are capable, high-performing, and still stuck in the same relational cycle. It moves faster than most approaches because it does not spend time circling the issue. It goes straight to the root.' },
+      { q: 'Is RLT therapy confrontational? Will it make conflict worse?', a: 'Directness is not the same as harshness. RLT confronts harmful patterns with compassion. The goal is never to blame but to make visible what is keeping both of you stuck. Most couples describe the experience as the first time they have genuinely understood what is happening between them, not as an attack on either person.' },
+      { q: 'What are the three phases of RLT couples therapy?', a: 'The first phase is about seeing the cycle clearly: what is driving the dynamic and what each of you is actually trying to say beneath the argument. The second goes to the roots, the childhood wounds and survival strategies that show up in the relationship now. The third builds new skills and patterns that hold because the parts that used to resist them have been worked with. In an intensive format, all three phases can unfold across two concentrated days.' },
+      { q: 'Can RLT therapy help after infidelity or a serious betrayal?', a: 'Yes. RLT is particularly well-suited to repair after betrayal because it works at the level of the underlying patterns that contributed to the rupture, not just the surface event. Repair is possible. Whether a couple chooses it is a different question, and one that the work helps clarify.' },
+      { q: 'Does RLT include practical communication tools to use between sessions?', a: 'Yes. RLT includes concrete relational skills, including the Feedback Wheel and relational mindfulness practices. The important distinction is that in RLT, skills come after the parts that would normally resist using them have been worked with. That is what makes them stick.' },
+      { q: 'Does RLT work for same-sex couples?', a: 'Yes. RLT is relational rather than prescriptive, meaning it works with the specific dynamic between the two people in the room, regardless of gender or orientation.' },
+    ]}
+  />
+
+  <CtaBand layout="inline" eyebrow="" title="Ready to stop having the same fight and <em>start actually changing something?</em>" />
+</Base>

@@ -1,0 +1,188 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { SEO } from '../data/seo';
+import PageHero from '../components/PageHero.astro';
+import CardGrid from '../components/CardGrid.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import hero from '../assets/photos/hero-corporate.png';
+import commonGrounds from '../assets/img/common-grounds-2.png';
+import bosch from '../assets/img/bosch.png';
+
+const statement = 'Your people do not need another workshop about resilience. They need someone who understands the actual pressure they are under and can work with it. That is what I do.';
+
+const symptoms = [
+  '<strong>High output but low energy.</strong> People are delivering but running on empty.',
+  '<strong>Tension in the team</strong> that surfaces in meetings but nobody addresses directly.',
+  'Wellness initiatives that do not stick because <strong>they do not touch the real issue.</strong>',
+  'Good people leaving because they <strong>feel unseen or unsupported.</strong>',
+  'Leaders who are technically strong but <strong>struggle with the relational side of their role.</strong>',
+  'Mothers returning from leave who feel they have to <strong>pretend nothing has changed.</strong>',
+  'A culture that rewards performance but has <strong>no language for struggle.</strong>',
+  'Organisations <strong>losing talented women</strong> in the year after they return from maternity leave.',
+];
+---
+<Base {...SEO['corporate-wellness']}>
+  <PageHero
+    eyebrow="In-person in Jakarta and Bali. Online worldwide."
+    title="Corporate Wellness"
+    text="High-performing teams are made up of people. And people carry things. Stress, burnout, relational tension, unspoken dynamics. Most wellness programmes address the surface. This goes deeper."
+    image={hero}
+    imageAlt="A team talking together around a long table in a bright café"
+  />
+
+  <CardGrid
+    tone="grey"
+    columns={2}
+    center
+    eyebrow="Who this is for"
+    title="Organisations that take their people seriously."
+    items={[
+      { title: 'High-performing teams', text: 'Teams delivering at a high level where the costs are showing up in burnout, disconnection, or tension that nobody names.' },
+      { title: 'Leaders under pressure', text: 'Executives and managers who want to lead more consciously and understand how their own patterns affect the people around them.' },
+      { title: 'Organisations investing in culture', text: 'Companies that want wellness to mean something real, not a tick-box exercise or a one-day retreat that changes nothing.' },
+      { title: 'Mothers returning to work', text: 'Organisations who want to genuinely support women transitioning back after maternity leave, not just with logistics but with the identity shift that comes with it.' },
+    ]}
+  />
+
+  <section class="section bg-green">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">What is really happening</span>
+        <h2>Retention, engagement, burnout.<br /><em>You are managing the symptoms, not the cause.</em></h2>
+        <p>These are not operational problems. They are human ones.</p>
+      </div>
+      <ul class="symptoms">
+        {symptoms.map((s) => <li set:html={s} />)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-paper">
+    <div class="wrap-mid grid-2 start">
+      <div>
+        <span class="eyebrow">For working mothers specifically</span>
+        <h2 class="mat-title">Returning to work after maternity leave is not just a scheduling problem. <em>It is an identity transition.</em></h2>
+        <p>A woman returning from maternity leave is not the same person who left. She is navigating a new version of herself, a changed relationship with her work and her identity, and in many cases a workplace that has not made space for any of that.</p>
+        <p>The organisations that retain talented mothers are the ones that recognise this transition as real and support it properly.</p>
+      </div>
+      <div class="card include">
+        <span class="eyebrow">What this can include</span>
+        <ul>
+          <li>1:1 therapy or coaching before, during, and after leave</li>
+          <li>Return-to-work workshops for mothers and their managers</li>
+          <li>Group sessions for working mothers within the organisation</li>
+          <li>Consulting on how your organisation structures maternal support</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CardGrid
+    tone="oat"
+    center
+    eyebrow="How we work"
+    title="Not just another programme. <em>An actual shift in how your people function.</em>"
+    intro="Internal Family Systems gives us a framework for understanding the parts of us that over-function, shut down, people please, or explode under pressure. In a corporate context this becomes a powerful lens for self-awareness, leadership, and team dynamics.<br /><br />All engagements are tailored to your organisation. Nothing off the shelf."
+    items={[
+      { title: 'Workshops and group sessions', text: 'Half-day or full-day sessions for teams. Topics include burnout and resilience, parts work and self-awareness, psychological safety, and leading under pressure. Delivered in person or online.' },
+      { title: '1:1 coaching and therapy for leaders', text: 'Individual sessions for executives or senior leaders who want to work on themselves. IFS, RLT, and ACT drawn on as relevant.' },
+      { title: 'Ongoing organisational partnerships', text: 'Retained engagements for companies who want consistent psychological support embedded into their culture, not a one-off event.' },
+    ]}
+  />
+
+  <section class="why">
+    <div class="why-text bg-sand">
+      <span class="eyebrow">Why this works</span>
+      <h2>Most corporate wellness programmes are designed by people who have never sat in the rooms they are trying to fix. <em>I have.</em></h2>
+      <p>A decade in management consulting across Asia taught me what pressure looks like from the inside, and what it costs the people who never show it. That background is why what I bring into organisations actually lands.</p>
+    </div>
+    <div class="why-statement bg-tan" data-no-reveal>
+      <p class="serif statement">{statement.split(' ').map((w) => <><span class="w">{w}</span>{' '}</>)}</p>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="wrap-mid center">
+      <span class="eyebrow tan-eyebrow">Client stories</span>
+      <h2 class="stories-title">What changes when the work goes deep</h2>
+      <ul class="client-photos" aria-label="Organisations Shabnam has worked with">
+        <li><Image src={commonGrounds} alt="The Common Grounds team after a workshop with Shabnam" widths={[400, 600]} sizes="(min-width: 760px) 400px, 90vw" /></li>
+        <li><Image src={bosch} alt="A leadership team workshop at Bosch Jakarta" widths={[400, 600]} sizes="(min-width: 760px) 400px, 90vw" /></li>
+      </ul>
+      <figure class="corp-quote">
+        <blockquote>“It was insightful, interesting and enjoyable to learn how we can foster greater body, mind and heart connection in order to improve our overall wellbeing.”</blockquote>
+        <figcaption>Client from Bosch Jakarta Leadership Team Workshop</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <Faq
+    tone="paper"
+    items={[
+      { q: 'How is this different from a standard corporate wellness programme?', a: 'Most corporate wellness programmes address the surface: stress management tools, resilience workshops, a tick-box exercise that changes nothing. This goes to the root. Using Internal Family Systems as a framework, we work with the actual patterns driving burnout, disconnection, and underperformance in your people. The difference is whether you are managing symptoms or understanding what is causing them.' },
+      { q: 'What kinds of organisations does corporate wellness work suit?', a: 'High-performing teams where the cost of that performance is showing up in burnout, tension, or quiet disengagement. Leaders who want to understand how their own patterns affect the people around them. Organisations investing seriously in culture, not just compliance. And companies that want to genuinely support mothers returning from maternity leave, not just manage the logistics of the transition.' },
+      { q: 'How does IFS apply in a corporate or leadership context?', a: 'Directly. IFS gives us a way to understand the parts of people that over-function, shut down, people-please, or react under pressure. In a team or leadership context, that becomes a powerful lens for self-awareness, communication, and relational dynamics. It is not abstract. It is immediately applicable to what is actually happening in the room.' },
+      { q: 'Is corporate wellness delivered in-person in Jakarta or online?', a: 'Both. Workshops, group sessions, and individual coaching are available online as well as in-person in Jakarta and Bali. Format and delivery are always tailored to the organisation.' },
+      { q: 'How do we get started with a corporate wellness programme?', a: 'Every engagement begins with a conversation. There is no standard programme to select from because the work is always built around what your organisation actually needs. A free 15-minute call is the right first step.' },
+    ]}
+  />
+
+  <CtaBand title="Every engagement starts <em>with a conversation.</em>" />
+</Base>
+
+<style>
+  .wrap-mid { width: min(100% - 2 * var(--gutter), 1000px); margin-inline: auto; }
+  .symptoms { display: grid; gap: 14px; grid-template-columns: 1fr; list-style: none; padding: 0; margin: 0 auto; max-width: 1080px; }
+  @media (min-width: 640px) { .symptoms { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .symptoms { grid-template-columns: repeat(4, 1fr); } }
+  .symptoms li { padding: 18px 20px; border-radius: 10px; background: #eceeea; color: var(--text); font-size: 0.92rem; line-height: 1.45; }
+  .symptoms :global(strong) { color: var(--ink); font-weight: 600; }
+
+  .mat-title { font-size: clamp(1.8rem, 3vw, 2.3rem); }
+  .include { background: #f3f0eb; }
+  .include .eyebrow { color: var(--ink); font-size: 0.9rem; }
+  .include ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.1rem; font-size: 0.95rem; }
+
+  .why { display: grid; grid-template-columns: 1fr; }
+  @media (min-width: 860px) { .why { grid-template-columns: 1fr 1fr; } }
+  .why > div { padding: clamp(56px, 8vw, 100px) clamp(24px, 5vw, 64px); display: flex; flex-direction: column; justify-content: center; }
+  .why-text h2 { font-size: clamp(1.8rem, 2.8vw, 2.2rem); }
+  .why-text p { max-width: 48ch; color: var(--ink); }
+  .why-statement p { margin: 0 auto; max-width: 20ch; text-align: center; font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.25; color: var(--white); }
+
+  /* Scroll-driven reveal: words light up one by one as the statement scrolls through the screen. */
+  :global(.motion) .statement.scrub .w { opacity: 0.2; transition: opacity 0.25s linear; }
+
+  .tan-eyebrow { color: var(--tan); }
+  .stories-title { font-size: clamp(1.8rem, 3vw, 2.3rem); }
+  .client-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 820px; margin: 32px auto 36px; padding: 0; list-style: none; }
+  .client-photos img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); }
+  .corp-quote { margin: 0; }
+  .corp-quote blockquote { margin: 0 auto; max-width: 70ch; font-style: italic; font-size: 0.98rem; line-height: 1.5; color: var(--tan-dark); }
+  .corp-quote figcaption { margin-top: 0.8rem; color: var(--tan); font-size: 0.95rem; }
+</style>
+
+<script>
+  // Words brighten in step with scrolling, and dim again if you scroll back up.
+  const p = document.querySelector<HTMLElement>('.statement');
+  if (p && document.documentElement.classList.contains('motion')) {
+    const words = [...p.querySelectorAll<HTMLElement>('.w')];
+    p.classList.add('scrub');
+    let queued = false;
+    const update = () => {
+      queued = false;
+      const r = p.getBoundingClientRect();
+      // 0 when the text's top reaches 85% down the screen, 1 when its bottom reaches 60%.
+      const start = innerHeight * 0.85, end = innerHeight * 0.6;
+      const progress = Math.min(1, Math.max(0, (start - r.top) / (start - end + r.height)));
+      const lit = progress * words.length;
+      words.forEach((w, i) => { w.style.opacity = String(Math.min(1, Math.max(0.2, lit - i))); });
+    };
+    const onScroll = () => { if (!queued) { queued = true; setTimeout(update, 16); } };
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll, { passive: true });
+    update();
+  }
+</script>

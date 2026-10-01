@@ -1,5 +1,5 @@
 // Prices and programme structures, kept in one place so they stay consistent across pages.
-// Source: Shabnam Lee Price List 2026.
+// Source: Shabnam Lee Price List 2026, Indonesia fees (September 2026 update).
 
 export const CONSULT_SESSION = { length: '1.5-hour', price: 'IDR 4,000,000' };
 export const NOT_SURE_NOTE = `<strong>Prefer not to commit to a package yet?</strong> Start with a single ${CONSULT_SESSION.length} session (${CONSULT_SESSION.price}) with Shabnam instead. You can decide on a package later, if and when it feels right.`;
@@ -21,7 +21,7 @@ export const INDIVIDUAL_PROGRAMMES = [
   {
     name: 'Therapy Intensive',
     duration: '8.5 hours',
-    text: 'The same focused, deep-dive format with an additional intensive day.',
+    text: 'Designed for those wanting focused, accelerated progress through deep-dive work condensed into a short, structured timeframe.',
     steps: [
       { label: 'Pre therapy', detail: 'Client workbook assessment', time: '1 hour' },
       { label: 'Day 1', detail: 'Data gathering session', time: '1.5 hours' },
@@ -79,11 +79,11 @@ export const COUPLE_PROGRAMMES = [
     duration: '7 hours',
     text: 'Designed for those wanting a starting point to understand what is keeping them stuck in their challenges.',
     steps: [
-      { label: 'Pre therapy · 1 week before', detail: 'Couple workbook assessment', time: '2 hours' },
-      { label: 'Day 1', detail: 'Couple data gathering session', time: '2.5 hours' },
-      { label: 'Day 2', detail: 'Couple therapy intensive workshop', time: '2.5 hours' },
+      { label: 'Pre therapy · 1 week before', detail: 'Couple workbook assessment', time: '1 hour' },
+      { label: 'Day 1', detail: 'Couple data gathering session', time: '3 hours' },
+      { label: 'Day 2', detail: 'Couple therapy intensive workshop', time: '3 hours' },
     ],
-    price: 'IDR 14,500,000',
+    price: 'IDR 19,000,000',
     where: 'Jakarta or online',
   },
   {
@@ -91,14 +91,14 @@ export const COUPLE_PROGRAMMES = [
     duration: '13 hours',
     text: 'Best for clients seeking a sustained process for deeper repair and long-term transformation.',
     steps: [
-      { label: 'Pre therapy · 1 week before', detail: 'Couple workbook assessment', time: '2 hours' },
-      { label: 'Day 1', detail: 'Couple data gathering session', time: '2 hours' },
+      { label: 'Pre therapy · 1 week before', detail: 'Couple workbook assessment', time: '1 hour' },
+      { label: 'Day 1', detail: 'Couple data gathering session', time: '3 hours' },
       { label: 'Day 1', detail: 'Individual therapy for partner #1', time: '50 minutes' },
       { label: 'Day 1', detail: 'Individual therapy for partner #2', time: '50 minutes' },
       { label: 'Day 2', detail: 'Couple therapy intensive workshop', time: '5 hours' },
       { label: 'Follow up · 1 week after', detail: 'Couple therapy check-in', time: '1.5 hours' },
     ],
-    price: 'IDR 29,500,000',
+    price: 'IDR 35,000,000',
     where: 'Jakarta or online',
   },
 ];

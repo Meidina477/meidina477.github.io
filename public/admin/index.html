@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Edit the site — Shabnam Lee</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<style>
+  body { margin: 0; background: #f6f2eb; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .loading { padding: 64px 24px; text-align: center; color: #5a524b; }
+  .loading h1 { font-size: 20px; font-weight: 500; margin: 0 0 8px; }
+  .loading p { margin: 0; font-size: 15px; color: #867c73; }
+</style>
+</head>
+<body>
+<div class="loading" id="loading">
+  <h1>Loading the editor…</h1>
+  <p>If this message stays, refresh the page.</p>
+</div>
+<script src="https://unpkg.com/@sveltia/cms@0/dist/sveltia-cms.js" type="module"></script>
+<script>
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      var el = document.getElementById("loading");
+      if (el) el.remove();
+    }, 4000);
+  });
+</script>
+</body>
+</html>

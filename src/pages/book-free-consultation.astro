@@ -3,8 +3,13 @@ import Base from '../layouts/Base.astro';
 import { SEO } from '../data/seo';
 import Faq from '../components/Faq.astro';
 import { SITE } from '../data/site';
+import { CONSULT_SESSION, COUPLE_PROGRAMMES } from '../data/programmes';
 import PhotoHero from '../components/PhotoHero.astro';
 import heroPhoto from '../assets/photos/hero-booking.png';
+
+// The lowest price on the price list, for the investment note.
+const MIN_PRICE = CONSULT_SESSION.price;
+const COUPLES_FROM = COUPLE_PROGRAMMES[0]?.price;
 
 // Country calling codes for the WhatsApp field. Indonesia first (default), then by code.
 // Only the code is shown; the country name appears as a tooltip.
@@ -110,10 +115,10 @@ const sources = ['Google', 'AI search (Claude, ChatGPT, etc.)', 'Instagram', 'IF
 
           <div class="note">
             <h3>A note on investment</h3>
-            <p>Working with Shabnam is an out-of-pocket investment. You may be able to seek reimbursement through your insurance provider depending on your plan. Individual sessions begin at IDR 4,000,000 and couples at IDR 19,000,000. Please take a moment to confirm this feels financially accessible for you right now.</p>
+            <p>Working with Shabnam is an out-of-pocket investment. You may be able to seek reimbursement through your insurance provider depending on your plan. Individual sessions begin at {MIN_PRICE} and couples at {COUPLES_FROM}. Please take a moment to confirm this feels financially accessible for you right now.</p>
             <label class="choice">
               <input type="checkbox" name="investment" value="yes" required />
-              <span>I have read and understand the minimum requirement of IDR 4,000,000, and understand the financial investment involved. *</span>
+              <span>I have read and understand the minimum requirement of {MIN_PRICE}, and understand the financial investment involved. *</span>
             </label>
           </div>
 
@@ -183,7 +188,7 @@ const sources = ['Google', 'AI search (Claude, ChatGPT, etc.)', 'Instagram', 'IF
       'Therapy is for': f.get('for'),
       'Had therapy before': f.get('before'),
       'What brings them here': f.get('message'),
-      'Understands minimum investment (IDR 4,000,000)': 'Yes',
+      'Understands minimum investment': 'Yes',
       'Consent to share information': 'Yes',
       _replyto: f.get('email'),
       _subject: f.get('_subject'),

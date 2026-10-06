@@ -5,16 +5,19 @@ import { Image } from 'astro:assets';
 import CtaBand from '../components/CtaBand.astro';
 import PhotoHero from '../components/PhotoHero.astro';
 import heroPhoto from '../assets/photos/hero-work-with-me.png';
+import { CONSULT_SESSION, COUPLE_PROGRAMMES, INDIVIDUAL_PROGRAMMES } from '../data/programmes';
 import iconIndividual from '../assets/brand/path-individual.png';
 import iconCouples from '../assets/brand/path-couples.png';
 import iconMothers from '../assets/brand/path-mothers.png';
 import iconRetreats from '../assets/brand/path-retreats.png';
 
+const INTENSIVE_FROM = INDIVIDUAL_PROGRAMMES[0]?.price;
+
 const pathways = [
   {
     title: 'Individual Therapy',
     sub: 'IFS Intensive and Weekly',
-    price: 'Intensives from IDR 11,000,000',
+    price: `Intensives from ${INTENSIVE_FROM}`,
     where: 'In-person or online worldwide',
     tags: ['IFS + Brainspotting', 'In-person or online'],
     forYou: [
@@ -27,7 +30,7 @@ const pathways = [
       'Begins with Client Workbook and Data Gathering Session.',
       'Therapy Intensive: 6 hours across 2 days, or 8.5 hours across 3 days, plus aftercare.',
       'Weekly Therapy: 4 × 75-minute sessions with Workbook.',
-      'Prefer not to take a package yet? Start with a single 1.5-hour session (IDR 4,000,000).',
+      `Prefer not to take a package yet? Start with a single ${CONSULT_SESSION.length} session (${CONSULT_SESSION.price}).`,
     ],
     href: '/individual-therapy/',
     link: 'Learn more about Individual Therapy',
@@ -37,7 +40,7 @@ const pathways = [
   {
     title: 'Couple Therapy',
     sub: 'RLT and Gottman',
-    price: 'From IDR 19,000,000',
+    price: `From ${COUPLE_PROGRAMMES[0]?.price}`,
     where: 'In-person or online worldwide',
     tags: ['RLT + Gottman', 'In-person or online'],
     forYou: [
@@ -60,7 +63,7 @@ const pathways = [
   {
     title: 'High Achieving Mothers',
     sub: 'IFS, ACT and perinatal mental health',
-    price: 'Intensives from IDR 11,000,000',
+    price: `Intensives from ${INTENSIVE_FROM}`,
     where: 'In-person or online worldwide',
     tags: ['IFS + ACT', 'In-person or online'],
     forYou: [

@@ -1,0 +1,147 @@
+# Editor settings. Plain-English labels are what Shabnam sees.
+# Saving in the editor commits to GitHub; the site rebuilds and goes live in about a minute.
+backend:
+  name: github
+  repo: Meidina477/shabnamlee
+  branch: main
+  base_url: https://tti-auth.lucky-heart-a942.workers.dev
+
+publish_mode: simple
+media_folder: src/assets/img
+public_folder: ../../assets/img
+locale: en
+site_url: https://shabnamlee.com
+display_url: https://shabnamlee.com
+logo_url: /favicon-192.png
+
+collections:
+  # ------------------------------------------------------------ BLOG POSTS
+  - name: blog
+    label: Blog posts
+    label_singular: Blog post
+    folder: src/content/blog
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: [date, title]
+    media_folder: /src/assets/img
+    public_folder: ../../assets/img
+    fields:
+      - { name: title, label: Title, widget: string, hint: "The address of a new post is made from this title. Don't change it on a published post; its address stays the same." }
+      - { name: date, label: Date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { name: updated, label: "Last updated (optional)", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true, required: false }
+      - { name: description, label: "Description shown in Google", widget: text, required: false,
+          hint: "Optional. Aim for under 160 characters. Left empty, the start of the article is used." }
+      - name: categories
+        label: Topics
+        widget: select
+        multiple: true
+        options: ["Individuals", "Couples", "Mothers", "IFS", "RLT", "ACT", "Brainspotting"]
+      - { name: image, label: "Main photo", widget: image, required: false }
+      - { name: imageAlt, label: "Photo description (for screen readers)", widget: string, required: false }
+      - { name: body, label: "The article", widget: markdown }
+      - { name: mergedFrom, label: "Old addresses that forward here (leave as is)", widget: list, required: false, collapsed: true,
+          field: { name: path, label: Address, widget: string } }
+
+  # ------------------------------------------------------------- PRICES
+  - name: prices
+    label: Prices and packages
+    files:
+      - name: programmes
+        label: "Prices and packages"
+        file: src/data/programmes.json
+        format: json
+        fields:
+          - { name: consult_session, label: "Single session (the 'not ready for a package' option)", widget: object, fields: [
+              { name: length, label: "Length", widget: string, hint: "For example: 1.5-hour" },
+              { name: price, label: "Price", widget: string, hint: "For example: IDR 4,000,000. The booking page uses this as the minimum investment." } ] }
+          - name: individual
+            label: "Individual packages"
+            widget: list
+            summary: "{{fields.name}} · {{fields.duration}} · {{fields.price}}"
+            fields: &package_fields
+              - { name: name, label: "Package name", widget: string }
+              - { name: duration, label: "Total time", widget: string }
+              - { name: text, label: "Description", widget: text, required: false }
+              - name: steps
+                label: "What's included"
+                widget: list
+                required: false
+                summary: "{{fields.label}}: {{fields.detail}}"
+                fields:
+                  - { name: label, label: "When", widget: string, hint: "For example: Day 1" }
+                  - { name: detail, label: "What happens", widget: string }
+                  - { name: time, label: "How long", widget: string, required: false }
+              - { name: price, label: "Price", widget: string }
+              - { name: where, label: "Where", widget: string, required: false }
+          - name: couple
+            label: "Couple packages"
+            widget: list
+            summary: "{{fields.name}} · {{fields.duration}} · {{fields.price}}"
+            fields: *package_fields
+          - name: intensive_vs_weekly
+            label: "'Intensive vs weekly' comparison"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: left, label: "Left column", widget: object, fields: [
+                  { name: title, label: Title, widget: string },
+                  { name: points, label: Points, widget: list, field: { name: point, label: Point, widget: string } } ] }
+              - { name: right, label: "Right column", widget: object, fields: [
+                  { name: title, label: Title, widget: string },
+                  { name: points, label: Points, widget: list, field: { name: point, label: Point, widget: string } } ] }
+
+  # -------------------------------------------------------- TESTIMONIALS
+  - name: testimonials
+    label: Client testimonials
+    files:
+      - name: testimonials
+        label: "Client testimonials"
+        file: src/data/testimonials.json
+        format: json
+        fields:
+          - name: items
+            label: Testimonials
+            widget: list
+            summary: "{{fields.name}}"
+            hint: "Every testimonial appears on the Testimonials page. New ones go at the end unless you drag them."
+            fields:
+              - { name: name, label: "Client name or description", widget: string }
+              - { name: quote, label: "What they said", widget: text, hint: "Leave an empty line between paragraphs." }
+              - { name: id, label: "Short code (leave as is)", widget: string, required: false,
+                  hint: "Other pages use this to pick a quote. Leave empty on new testimonials." }
+
+  # --------------------------------------------------------- GOOGLE + CONTACT
+  - name: settings
+    label: Site settings
+    files:
+      - name: seo
+        label: "Google search listings"
+        file: src/data/seo.json
+        format: json
+        fields:
+          - name: pages
+            label: Pages
+            widget: list
+            allow_add: false
+            allow_remove: false
+            summary: "{{fields.page}}"
+            fields:
+              - { name: page, label: "Page", widget: string, readonly: true }
+              - { name: title, label: "Title shown in Google", widget: string, hint: "Aim for under 60 characters. Keep the main keywords at the start." }
+              - { name: description, label: "Description shown in Google", widget: text, hint: "Aim for under 160 characters." }
+      - name: contact
+        label: "Contact details and links"
+        file: src/data/site.json
+        format: json
+        fields:
+          - { name: email, label: "Email address", widget: string, hint: "Consultation form enquiries are sent here." }
+          - { name: whatsapp, label: "WhatsApp link", widget: string, hint: "https://wa.me/ then the number with country code, no + or spaces." }
+          - { name: instagram, label: "Instagram link", widget: string }
+          - { name: linkedin, label: "LinkedIn link", widget: string }
+          - { name: googleReviews, label: "Google reviews link", widget: string }
+          - { name: youtubeId, label: "YouTube video code", widget: string, hint: "The letters after watch?v= in the video's address." }
+          - { name: address, label: "Office address", widget: string }
+          - { name: internationalPricing, label: "International pricing link", widget: string }

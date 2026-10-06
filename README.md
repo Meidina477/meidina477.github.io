@@ -17,15 +17,30 @@ npm run build      # builds the finished site into dist/
 |---|---|
 | Pages | `src/pages/*.astro`, one file per page and named after its URL |
 | Blog posts | `src/content/blog/*.md`. To add a post, copy an existing file, change the top section, and write in Markdown |
-| Prices and programmes | `src/data/programmes.ts` |
-| Testimonials | `src/data/testimonials.ts` |
-| Menu, phone, email, social links, Google tag ID | `src/data/site.ts` |
-| Google titles and descriptions | `src/data/seo.ts` |
+| Prices and programmes | `src/data/programmes.json` (editable at /admin/) |
+| Testimonials | `src/data/testimonials.json` (editable at /admin/) |
+| Email, WhatsApp, social links, address | `src/data/site.json` (editable at /admin/) |
+| Menu, Google tag ID | `src/data/site.ts` |
+| Google titles and descriptions | `src/data/seo.json` (editable at /admin/) |
 | Colours and fonts | `src/styles/global.css` |
 | Images | `src/assets/img/`. These are automatically resized and converted to WebP at build time |
 | Consultation form | `src/pages/book-free-consultation.astro`, sent by email through [FormSubmit](https://formsubmit.co) to admin@shabnamlee.com (same as thetherapyintensive.com) |
 | Publishing | `.github/workflows/deploy.yml` (GitHub Pages) |
 | Redirects from old URLs | `src/data/redirects.ts` (`public/.htaccess` has the same rules for Hostinger) |
+
+## The editor (/admin/)
+
+https://shabnamlee.com/admin/ (or the preview address + `/admin/`) opens [Sveltia CMS](https://github.com/sveltia/sveltia-cms),
+the same editor as thetherapyintensive.com. It edits blog posts, prices and packages, testimonials,
+Google titles and descriptions, and contact details. Saving commits to this repository, and the site
+rebuilds and goes live in about a minute. Page wording outside those areas is edited in `src/pages/`.
+
+- Settings: `public/admin/config.yml`.
+- Sign-in uses the same GitHub sign-in service as thetherapyintensive.com
+  (`tti-auth` Cloudflare Worker; see `therapy-intensive/auth-worker/README.md`). Its `ALLOWED_DOMAINS`
+  variable must include `shabnamlee.com,*.shabnamlee.com,meidina477.github.io`.
+- Access: anyone with **Write** access to this repository (Settings → Collaborators).
+- If the repository is renamed, update `repo:` in `config.yml`.
 
 ## Publishing (GitHub Pages)
 

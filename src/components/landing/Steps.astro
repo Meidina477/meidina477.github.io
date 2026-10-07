@@ -1,0 +1,33 @@
+---
+// Jakarta landing pages: centred heading, then four numbered text columns.
+interface Props { eyebrow?: string; title: string; intro?: string; items: { title: string; text: string }[] }
+const { eyebrow = 'What to expect', title, intro, items } = Astro.props;
+---
+<section class="section bg-white">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2 set:html={title} />
+      {intro && <p set:html={intro} />}
+    </div>
+    <div class="lsteps">
+      {items.map((it, i) => (
+        <div>
+          <span class="n">{String(i + 1).padStart(2, '0')}</span>
+          <h3 set:html={it.title} />
+          <p set:html={it.text} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .lsteps { display: grid; gap: 36px; }
+  @media (min-width: 640px) { .lsteps { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .lsteps { grid-template-columns: repeat(4, 1fr); gap: 40px; } }
+  .n { display: block; font-family: var(--serif); font-size: 1rem; line-height: 1; color: var(--tan); margin-bottom: 12px; }
+  h3 { font-size: 1.35rem; }
+  p { font-size: 0.93rem; }
+  .lsteps :global(a) { color: var(--tan-dark); }
+</style>

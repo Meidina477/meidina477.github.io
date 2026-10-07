@@ -13,6 +13,7 @@ if (root.classList.contains('motion')) {
     '.quotes', '.posts', '.books', '.pods', '.for-you', '.os-grid', '.session-steps', '.research',
     '.client-photos', '.creds', '.services', '.reasons', '.quals', '.shifts dl', '.cs', '.pills',
     '.certs ul', '.clients', '.res-list .wrap', '.plain', '.signs', '.faq', '.self', '.include ul',
+    '.qcards', '.ocards', '.stats', '.lsteps',
   ].join(',');
 
   const targets: HTMLElement[] = [];

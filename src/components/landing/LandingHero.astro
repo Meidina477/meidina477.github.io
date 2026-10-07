@@ -1,0 +1,61 @@
+---
+// Jakarta landing pages: text left, full-height photo right (optionally with a name caption).
+import { Image } from 'astro:assets';
+import { SITE } from '../../data/site';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  text: string;
+  image: ImageMetadata;
+  imageAlt?: string;
+  /** Where the photo is anchored when cropped, e.g. "50% 20%". */
+  focus?: string;
+  caption?: { name: string; lines: string[] };
+  secondary?: { label: string; href: string };
+}
+const { eyebrow, title, text, image, imageAlt = '', focus = '50% 30%', caption, secondary = { label: 'How I work', href: '/how-i-work/' } } = Astro.props;
+---
+<section class="l-hero" data-no-reveal>
+  <div class="copy">
+    {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    <h1 set:html={title} />
+    <p class="lead" set:html={text} />
+    <div class="actions">
+      <a href={SITE.book} class="btn btn-primary">Book a free consultation →</a>
+      <a href={secondary.href} class="btn btn-outline">{secondary.label}</a>
+    </div>
+  </div>
+  <div class="photo">
+    <Image src={image} alt={imageAlt} widths={[640, 960, 1280]} sizes="(min-width: 900px) 50vw, 100vw" loading="eager" fetchpriority="high" style={`object-position: ${focus}`} />
+    {caption && <div class="caption"><b>{caption.name}</b>{caption.lines.map((l) => <span>{l}</span>)}</div>}
+  </div>
+</section>
+
+<style>
+  .l-hero { display: grid; background: var(--white); }
+  @media (min-width: 900px) { .l-hero { grid-template-columns: 1fr 1fr; min-height: min(640px, calc(100vh - 68px)); } }
+  .copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(48px, 7vw, 96px) var(--gutter);
+  }
+  @media (min-width: 900px) { .copy { padding-left: max(var(--gutter), calc((100vw - var(--wrap)) / 2)); padding-right: clamp(32px, 5vw, 72px); } }
+  .lead { max-width: 32em; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .photo { position: relative; min-height: 460px; overflow: hidden; background: var(--grey, #eceeea); }
+  .photo :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .caption { position: absolute; right: 28px; bottom: 26px; display: flex; flex-direction: column; align-items: flex-end; text-align: right; color: var(--white); font-size: 0.82rem; line-height: 1.45; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35); }
+  .caption b { font-family: var(--serif); font-weight: 400; font-size: 1.25rem; line-height: 1.2; }
+
+  /* Same entrance as the photo heroes on the other pages. */
+  :global(.motion) .copy > * { animation: l-rise 1s var(--ease-out) both; }
+  :global(.motion) .copy > :nth-child(2) { animation-delay: 0.12s; }
+  :global(.motion) .copy > :nth-child(3) { animation-delay: 0.24s; }
+  :global(.motion) .copy > :nth-child(4) { animation-delay: 0.36s; }
+  :global(.motion) .photo :global(img) { animation: l-settle 1.8s var(--ease-out) both; }
+  :global(.motion) .caption { animation: l-rise 1s var(--ease-out) 0.6s both; }
+  @keyframes l-settle { from { transform: scale(1.04); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes l-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+</style>

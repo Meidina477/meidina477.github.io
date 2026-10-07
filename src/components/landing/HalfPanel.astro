@@ -1,0 +1,43 @@
+---
+// Jakarta landing pages: photo on the left half, text on a dark green right half.
+import { Image } from 'astro:assets';
+
+interface Props {
+  image: ImageMetadata;
+  alt?: string;
+  eyebrow?: string;
+  title: string;
+  button?: { label: string; href: string };
+}
+const { image, alt = '', eyebrow, title, button } = Astro.props;
+---
+<section class="half">
+  <div class="photo">
+    <Image src={image} alt={alt} widths={[640, 960, 1280]} sizes="(min-width: 900px) 50vw, 100vw" />
+  </div>
+  <div class="copy">
+    {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    <h2 set:html={title} />
+    <slot />
+    {button && <a href={button.href} class="btn btn-outline">{button.label}</a>}
+  </div>
+</section>
+
+<style>
+  .half { display: grid; background: var(--green-dark); }
+  @media (min-width: 900px) { .half { grid-template-columns: 1fr 1fr; min-height: 560px; } }
+  .photo { position: relative; min-height: 380px; overflow: hidden; }
+  .photo :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(48px, 7vw, 96px) var(--gutter);
+    color: rgba(255, 255, 255, 0.85);
+  }
+  @media (min-width: 900px) { .copy { padding-left: clamp(32px, 6vw, 88px); padding-right: max(var(--gutter), calc((100vw - var(--wrap)) / 2)); } }
+  h2 { color: var(--white); }
+  .eyebrow { color: rgba(255, 255, 255, 0.75); }
+  .copy :global(a:not(.btn)) { color: var(--white); }
+  .btn { align-self: flex-start; margin-top: 12px; color: var(--white); }
+</style>

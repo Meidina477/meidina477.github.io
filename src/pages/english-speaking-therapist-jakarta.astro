@@ -2,65 +2,59 @@
 import Base from '../layouts/Base.astro';
 import { SEO } from '../data/seo';
 import { CORE_METHODS } from '../data/methods';
-import PageHero from '../components/PageHero.astro';
-import Split from '../components/Split.astro';
-import CardGrid from '../components/CardGrid.astro';
+import LandingHero from '../components/landing/LandingHero.astro';
+import QuestionCards from '../components/landing/QuestionCards.astro';
+import Strip from '../components/landing/Strip.astro';
+import HalfPanel from '../components/landing/HalfPanel.astro';
+import MethodPanel from '../components/landing/MethodPanel.astro';
+import Stats from '../components/landing/Stats.astro';
+import Steps from '../components/landing/Steps.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
-import headshot from '../assets/img/shabnam-headshot.jpg';
-import builtLife from '../assets/img/est-built-life.jpg';
+import { LANDING_STATS, LANDING_STEPS } from '../data/landing';
+import laptop from '../assets/photos/shabnam-laptop.png';
 import onePractitioner from '../assets/img/est-one-practitioner.jpg';
-import expect from '../assets/img/est-what-to-expect.jpg';
-
-const forYou = [
-  ['You are an international or expat in Jakarta', 'and want therapy in your own language, not a rough translation of it.'],
-  ['You are a local who thinks and processes in English', 'and wants a therapist who meets you there.'],
-  ['You are holding it together on the outside', 'and quietly running on empty on the inside.'],
-  ['You have tried therapy before', 'and it did not go deep enough.'],
-  ['You want someone who will be honest with you', 'and push when pushing is what is needed, not nod for an hour.'],
-];
 ---
 <Base {...SEO['english-speaking-therapist-jakarta']}>
-  <PageHero
-    eyebrow="In-person in Jakarta. Online worldwide."
-    title="English speaking therapist in Jakarta"
+  <LandingHero
+    eyebrow="In person in Jakarta. Online worldwide."
+    title="English speaking therapist in <em>Jakarta</em>"
     text="Shabnam Lee is an English speaking therapist in Jakarta, working with internationals and locals in fluent English, in person in Jakarta and online worldwide. She is a licensed counsellor specialising in IFS and RLT, with training in Gottman and Brainspotting."
-    image={headshot}
-    imageAlt="Shabnam Lee, licensed counsellor, photographed against a soft neutral background"
+    image={laptop}
+    imageAlt="Shabnam Lee smiling at her laptop during an online session"
+    focus="42% 50%"
   />
 
-  <Split tone="white" image={builtLife} alt="An open notebook and pen resting on a dark wooden desk" title="You built the life. <em>That is what this is for.</em>">
-    <p>You moved here, or you built it here. Either way, you are functioning at a high level and something still feels off.</p>
-    <p>Maybe you are an executive or founder far from home. Maybe you have lived in Jakarta for years and simply want a therapist who works the way you think, in the language you think in. You do not want to translate your inner life before you can begin.</p>
-    <p class="lead">Warm, direct, confidential therapy in English, for people who are done coping and ready to actually change.</p>
-  </Split>
+  <QuestionCards
+    title="This might be for you <em>if…</em>"
+    items={[
+      { title: 'An international or expat in Jakarta?', text: 'You want therapy in your own language, not a rough translation of it. Maybe you are an executive or founder far from home. You moved here, or you built it here, and something still feels off.' },
+      { title: 'A local who thinks in English?', text: 'You have lived in Jakarta for years and simply want a therapist who works the way you think, in the language you think in. You do not want to translate your inner life before you can begin.' },
+      { title: 'Holding it together on the outside?', text: 'Quietly running on empty on the inside. You have tried therapy before and it did not go deep enough, and you want someone who will be honest with you and push when pushing is what is needed, not nod for an hour.' },
+    ]}
+  />
 
-  <section class="section bg-green-dark">
-    <div class="wrap">
-      <div class="section-head center">
-        <span class="eyebrow">Who this is for</span>
-        <h2>This might be for you if…</h2>
-      </div>
-      <ul class="for-you">
-        {forYou.map(([a, b]) => <li><span class="serif">{a}</span> <span>{b}</span></li>)}
-      </ul>
-    </div>
-  </section>
+  <Strip text="Warm, direct, confidential therapy in English, <em>for people who are done coping and ready to actually change.</em>" />
 
-  <Split tone="oat" image={onePractitioner} reverse alt="A person sitting thoughtfully in a leather armchair in a sunlit room" title="Why an English speaking therapist who specialises, <em>not a general clinic</em>">
+  <HalfPanel image={onePractitioner} alt="A person sitting thoughtfully in a leather armchair in a sunlit room" eyebrow="The approach" title="An English speaking therapist who specialises, <em>not a general clinic.</em>" button={{ label: 'About Shabnam →', href: '/about/' }}>
     <p>Plenty of places in Jakarta will see you in English. Far fewer offer one senior practitioner, working in distinct evidence-based methods, with longer sessions built for real change.</p>
     <p>I do not hand you between counsellors or run you through a standard intake and a generic plan. You work with me. I bring <a href="/about/">over two decades of mental health training</a> together with a decade in corporate strategy consulting across China and Southeast Asia, so I understand the world high achievers actually live in.</p>
     <p>If you want the broader overview first, start with my main page on working with a <a href="/therapist-in-jakarta/">therapist in Jakarta</a>.</p>
-  </Split>
+  </HalfPanel>
 
-  <CardGrid tone="grey" center columns={4} title="The methods I work with" intro="An integrative approach, chosen for what each method reaches. Not one lens. The full picture." items={CORE_METHODS} />
+  <MethodPanel
+    title="The methods I work with"
+    intro="An integrative approach, chosen for what each method reaches. Not one lens. The full picture."
+    items={CORE_METHODS}
+  />
 
-  <Split tone="white" image={expect} alt="Tall glass doors opening onto greenery in a quiet, weathered room" eyebrow="What to expect" title="How working together begins">
-    <p><strong>Free 15-minute consultation.</strong> You tell me what is going on. I tell you honestly whether this is the right fit. Online, no commitment.</p>
-    <p><strong>Workbook and data gathering.</strong> Before sessions begin, you complete a workbook and we meet for a dedicated session so I can personalise your therapy.</p>
-    <p><strong>Intensive or weekly sessions.</strong> Concentrated intensives or weekly sessions, depending on your pathway. Real work from the first session.</p>
-    <p><strong>Where sessions happen.</strong> In person in Jakarta and online worldwide. If you travel often, split time between countries, or have moved away from Jakarta, we can continue online without losing momentum.</p>
-  </Split>
+  <Stats items={LANDING_STATS} />
+
+  <Steps
+    title="How working together <em>begins</em>"
+    intro="In person in Jakarta and online worldwide. If you travel often, split time between countries, or have moved away from Jakarta, we can continue online without losing momentum."
+    items={LANDING_STEPS}
+  />
 
   <Faq
     tone="tan"
@@ -75,12 +69,3 @@ const forYou = [
 
   <CtaBand layout="inline" title="A free 15-minute conversation." />
 </Base>
-
-<style>
-  .for-you { display: grid; gap: 16px; grid-template-columns: 1fr; list-style: none; padding: 0; margin: 0 auto; max-width: 1100px; }
-  @media (min-width: 640px) { .for-you { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1000px) { .for-you { grid-template-columns: repeat(3, 1fr); } }
-  .for-you li { padding: 24px 26px; border-radius: var(--radius); background: #eceeea; color: var(--text); font-size: 0.92rem; }
-  .for-you .serif { display: block; margin-bottom: 6px; font-size: 1.3rem; line-height: 1.25; color: var(--ink); }
-  .for-you :global(a) { color: var(--green) !important; }
-</style>

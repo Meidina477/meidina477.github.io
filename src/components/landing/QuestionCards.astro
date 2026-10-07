@@ -1,0 +1,30 @@
+---
+// Jakarta landing pages: "who this is for" as three white cards under a centred heading.
+interface Props { eyebrow?: string; title: string; items: { title: string; text: string }[] }
+const { eyebrow = 'Who this is for', title, items } = Astro.props;
+---
+<section class="section bg-grey">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2 set:html={title} />
+    </div>
+    <div class="qcards">
+      {items.map((it) => (
+        <div class="qcard">
+          <h3 set:html={it.title} />
+          <p set:html={it.text} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .qcards { display: grid; gap: 20px; max-width: 1100px; margin: 0 auto; }
+  @media (min-width: 860px) { .qcards { grid-template-columns: repeat(3, 1fr); } }
+  .qcard { background: var(--white); border: 1px solid rgba(42, 42, 42, 0.07); border-radius: var(--radius); box-shadow: var(--shadow); padding: clamp(26px, 3vw, 36px); }
+  .qcard h3 { font-size: clamp(1.35rem, 2vw, 1.55rem); line-height: 1.2; }
+  .qcard p { font-size: 0.92rem; }
+  .qcard :global(a) { color: var(--tan-dark); }
+</style>

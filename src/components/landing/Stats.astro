@@ -1,0 +1,22 @@
+---
+// Jakarta landing pages: a row of four number boxes.
+interface Props { items: { n: string; label: string }[] }
+const { items } = Astro.props;
+---
+<section class="stats-section bg-cream">
+  <div class="wrap">
+    <div class="stats">
+      {items.map((it) => <div class="stat"><b>{it.n}</b><span>{it.label}</span></div>)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-section { padding-bottom: var(--section); }
+  .stats { display: grid; gap: 14px; }
+  @media (min-width: 640px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+  .stat { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 24px; }
+  .stat b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(2.4rem, 4vw, 3.2rem); line-height: 1; color: var(--green); margin-bottom: 14px; }
+  .stat span { font-size: 0.9rem; }
+</style>

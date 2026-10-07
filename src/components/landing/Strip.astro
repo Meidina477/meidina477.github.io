@@ -1,0 +1,13 @@
+---
+// Jakarta landing pages: one line of text on a thin coloured band.
+interface Props { text: string }
+const { text } = Astro.props;
+---
+<section class="strip">
+  <div class="wrap"><p set:html={text} /></div>
+</section>
+
+<style>
+  .strip { background: #7f8a89; color: var(--white); padding: 26px 0; text-align: center; }
+  p { margin: 0; font-family: var(--serif); font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.3; text-wrap: balance; }
+</style>

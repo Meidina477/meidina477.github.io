@@ -2,7 +2,7 @@
 # Saving in the editor commits to GitHub; the site rebuilds and goes live in about a minute.
 backend:
   name: github
-  repo: Meidina477/shabnamlee
+  repo: Meidina477/meidina477.github.io
   branch: main
   base_url: https://tti-auth.lucky-heart-a942.workers.dev
 

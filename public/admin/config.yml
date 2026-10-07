@@ -7,8 +7,9 @@ backend:
   base_url: https://tti-auth.lucky-heart-a942.workers.dev
 
 publish_mode: simple
-media_folder: src/assets/img
-public_folder: ../../assets/img
+# Blog photos are set on the blog collection below; this default is for anything else.
+media_folder: public/uploads
+public_folder: /uploads
 locale: en
 site_url: https://shabnamlee.com
 display_url: https://shabnamlee.com

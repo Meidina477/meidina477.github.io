@@ -2,12 +2,13 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { REDIRECTS } from './src/data/redirects.ts';
+import headingBreaks from './src/integrations/heading-breaks.mjs';
 
 export default defineConfig({
   site: 'https://shabnamlee.com',
   trailingSlash: 'always',
   build: { format: 'directory', inlineStylesheets: 'always' },
-  integrations: [sitemap({ filter: (page) => !['/thank-you/', '/terms/', '/disclaimer/'].some((p) => page.includes(p)) })],
+  integrations: [sitemap({ filter: (page) => !['/thank-you/', '/terms/', '/disclaimer/'].some((p) => page.includes(p)) }), headingBreaks()],
   image: { responsiveStyles: true },
   // Old WordPress URLs → new pages (see src/data/redirects.ts).
   redirects: REDIRECTS,

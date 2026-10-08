@@ -1,11 +1,15 @@
 ---
 // Lightweight YouTube embed: shows a thumbnail and only loads the player (about 1 MB) when clicked.
+import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
-interface Props { id: string; title: string }
-const { id, title } = Astro.props;
+/** poster: our own thumbnail photo; otherwise YouTube's. */
+interface Props { id: string; title: string; poster?: ImageMetadata }
+const { id, title, poster } = Astro.props;
 ---
 <div class="yt" data-id={id} data-title={title}>
-  <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" width="480" height="360" />
+  {poster
+    ? <Image src={poster} alt="" widths={[560, 840, 1120]} sizes="(min-width: 760px) 560px, 92vw" />
+    : <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" width="480" height="360" />}
   <button type="button" class="yt-play" aria-label={`Play video: ${title}`}>
     <Icon name="play" size={30} />
   </button>

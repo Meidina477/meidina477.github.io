@@ -2,8 +2,9 @@
 import YouTube from './YouTube.astro';
 import { SITE } from '../data/site';
 
-interface Props { id?: string; videoTitle?: string; eyebrow?: string; title?: string; text?: string; tone?: 'paper' | 'cream' | 'green' | 'mist' | 'grey'; cta?: boolean }
+interface Props { poster?: ImageMetadata; id?: string; videoTitle?: string; eyebrow?: string; title?: string; text?: string; tone?: 'paper' | 'cream' | 'green' | 'mist' | 'grey' | 'tan'; cta?: boolean }
 const {
+  poster,
   id = SITE.youtubeId,
   videoTitle = 'Shabnam Lee in conversation with Mikael Jasin',
   eyebrow = 'Watch • IFS and the high achiever',
@@ -15,13 +16,13 @@ const {
 ---
 <section class={`section bg-${tone}`}>
   <div class="wrap grid-2">
-    <YouTube id={id} title={videoTitle} />
+    <YouTube id={id} title={videoTitle} poster={poster} />
     <div>
       <span class="eyebrow">{eyebrow}</span>
       <h2 set:html={title} />
       <p>{text}</p>
       <slot />
-      {cta && <div class="actions"><a href={SITE.book} class={tone === 'green' ? 'btn btn-light' : 'btn btn-primary'}>Book a consult</a></div>}
+      {cta && <div class="actions"><a href={SITE.book} class={tone === 'green' || tone === 'tan' ? 'btn btn-light' : 'btn btn-primary'}>Book a consult</a></div>}
     </div>
   </div>
 </section>

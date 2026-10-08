@@ -5,9 +5,11 @@ import PageHero from '../components/PageHero.astro';
 import CardGrid from '../components/CardGrid.astro';
 import Programmes from '../components/Programmes.astro';
 import Testimonials from '../components/Testimonials.astro';
+import VideoFeature from '../components/VideoFeature.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
 import hero from '../assets/photos/hero-couples.png';
+import andreaJoe from '../assets/photos/andrea-joe-intensive.jpg';
 import { COUPLE_PROGRAMMES } from '../data/programmes';
 import { pick } from '../data/testimonials';
 ---
@@ -78,6 +80,16 @@ import { pick } from '../data/testimonials';
       <a href="/retreats/" class="bali-link">Explore the Bali retreat <span aria-hidden="true">→</span></a>
     </aside>
   </Programmes>
+
+  <VideoFeature
+    tone="tan"
+    id="IDvVTBJ4saM"
+    poster={andreaJoe}
+    videoTitle="Andrea and Joe on their couples intensive with Shabnam Lee"
+    eyebrow="Watch • A couples intensive"
+    title="What can shift in a few days?"
+    text="Hear from Andrea and Joe on their couples intensive with Shabnam. A candid conversation on what shifted in a few days that months of weekly sessions hadn’t, and what it looks like to reach new depths in a relationship."
+  />
 
   <Testimonials tone="oat" more items={pick('client-focused-on-overcoming-relationship-trauma', 'joe-halim', 'client-facing-relationship-healing-and-trauma-recovery')} />
 

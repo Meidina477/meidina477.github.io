@@ -2,8 +2,6 @@
 import Base from '../layouts/Base.astro';
 import { SITE } from '../data/site';
 
-// DRAFT for Shabnam to review (see PAGES.md, C19). Highlighted <mark> text needs her decision
-// before launch; remove `noindex` once approved.
 const updated = '28 September 2026';
 ---
 <Base
@@ -38,14 +36,15 @@ const updated = '28 September 2026';
       <ul>
         <li>Current programmes and fees are shown on each service page and in our price list. International clients can see our <a href={SITE.internationalPricing} target="_blank" rel="noopener">international pricing</a>.</li>
         <li>Fees are in Indonesian Rupiah (IDR) unless we agree otherwise in writing.</li>
-        <li>A booking is confirmed once <mark>[payment in full / a deposit of __%]</mark> has been received <mark>[__ days]</mark> before your first session.</li>
-        <li>Programme fees cover the sessions and materials described for that programme. Unused sessions are refunded.</li>
+        <li>A booking is confirmed once payment in full has been received.</li>
+        <li>Couples intensives require a minimum of two (2) weeks’ notice when booking. This allows sufficient time for preparation and scheduling. Requests made with less than two weeks’ notice may not be accommodated.</li>
+        <li>Programme fees cover the sessions and materials described for that programme. Unused sessions are not refunded.</li>
+        <li>All sessions must be utilised within six months from the date of purchase. Any remaining sessions after this period will be considered expired and void.</li>
       </ul>
 
       <h2>Cancelling or rescheduling</h2>
       <ul>
-        <li><strong>Sessions:</strong> you can reschedule free of charge with at least <mark>[48 hours]</mark> notice. Sessions cancelled with less notice, or missed, <mark>[are charged in full]</mark>.</li>
-        <li><strong>Intensives and retreats:</strong> because these days are reserved for you alone, rescheduling requires a minimum of two (2) weeks’ notice.</li>
+        <li>To ensure the best possible experience for all our clients, we allow one reschedule within 24 hours of your original appointment. Please understand that any further changes may unfortunately result in the forfeiture of your session.</li>
         <li>If we need to cancel or reschedule, we will give you as much notice as possible and offer a new time or a full refund for that session.</li>
       </ul>
 
@@ -72,5 +71,4 @@ const updated = '28 September 2026';
 
 <style>
   h1 { color: var(--green-dark); }
-  mark { background: #f3e6c8; padding: 0 3px; border-radius: 3px; }
 </style>

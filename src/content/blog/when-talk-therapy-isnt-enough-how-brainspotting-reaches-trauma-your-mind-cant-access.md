@@ -4,6 +4,7 @@ description: "You’ve been in therapy for months, maybe even years. You’ve ta
 date: "2026-05-20"
 categories: ["Brainspotting", "Individuals"]
 image: "../../assets/img/blog-8.avif"
+imageAlt: "A man sitting on a sofa with his hands clasped"
 updated: "2026-09-28"
 mergedFrom: ["/why-talk-therapy-alone-isnt-always-enough-how-brainspotting-reaches-what-words-cant/"]
 ---

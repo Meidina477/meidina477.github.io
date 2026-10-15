@@ -4,6 +4,7 @@ description: "You’ve talked about the difficult memories in therapy. You’ve 
 date: "2026-05-20"
 categories: ["IFS", "Individuals"]
 image: "../../assets/img/blog-6.avif"
+imageAlt: "A person walking a stone labyrinth on a beach"
 ---
 You've talked about the difficult memories in therapy. You've gained insight into your patterns. You understand why you react the way you do. And yet, your body still tenses when you hear a certain tone of voice. Your heart still races in situations that shouldn't feel threatening. You still shut down or snap at people you love, even when your rational mind knows better.
 

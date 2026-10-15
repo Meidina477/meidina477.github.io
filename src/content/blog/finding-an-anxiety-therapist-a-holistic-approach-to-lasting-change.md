@@ -4,6 +4,7 @@ description: "If you’re dealing with anxiety that shows up as constant worry, 
 date: "2026-05-20"
 categories: ["ACT", "Brainspotting", "IFS", "Individuals"]
 image: "../../assets/img/blog-10.avif"
+imageAlt: "Dark storm clouds over the sea, with sunlight breaking through"
 ---
 If you're dealing with anxiety that shows up as constant worry, panic attacks, or that exhausting feeling of never quite being able to settle, you already know how much it can take over your daily life. Whether you're navigating high-pressure work environments, managing the demands of relationships and family, or dealing with the unique stressors of life in Jakarta, anxiety has a way of making everything feel harder than it needs to be.
 

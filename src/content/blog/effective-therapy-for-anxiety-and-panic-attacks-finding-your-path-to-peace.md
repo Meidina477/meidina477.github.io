@@ -4,6 +4,7 @@ description: "Anxiety and panic attacks can feel overwhelming, especially when y
 date: "2026-05-20"
 categories: ["ACT", "Brainspotting", "IFS", "Individuals"]
 image: "../../assets/img/blog-15.avif"
+imageAlt: "A woman sitting alone on a rock, looking out at a mountain peak at dusk"
 ---
 Anxiety and panic attacks can feel overwhelming, especially when you're juggling the demands of work, relationships, and personal growth. If you're reading this while managing a busy career, navigating marriage, or facing life transitions, know that you're not alone. Many successful professionals struggle with these internal challenges while maintaining an outward appearance of having it all together. The good news? There's a path forward that honors both your drive for achievement and your need for inner peace.
 

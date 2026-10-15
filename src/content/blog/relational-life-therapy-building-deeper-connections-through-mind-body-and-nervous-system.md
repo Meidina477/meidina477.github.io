@@ -4,6 +4,7 @@ description: "Life has a way of testing us. Maybe you’re navigating the pressu
 date: "2026-05-20"
 categories: ["Couples", "RLT"]
 image: "../../assets/img/blog-12.avif"
+imageAlt: "Silhouette of a couple touching foreheads at sunset"
 updated: "2026-09-28"
 mergedFrom: ["/relational-life-therapy-transforming-connections-through-direct-experiential-change/"]
 ---

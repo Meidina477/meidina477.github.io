@@ -3,6 +3,7 @@ title: "The Beautiful Chaos of a Mother’s Heart: What Hamnet Gets Right About 
 date: "2026-05-20"
 categories: ["Mothers", "IFS"]
 image: "../../assets/img/e0228a5405702559728758b3d05e05a9.webp"
+imageAlt: "An actress smiling on stage as she holds an Oscar"
 ---
 Last night Jessie Buckley won the Oscar for Best Actress. She was crying before she even reached the microphone. She has an eight-month-old at home. And she dedicated the award to "the beautiful chaos of a mother's heart."
 

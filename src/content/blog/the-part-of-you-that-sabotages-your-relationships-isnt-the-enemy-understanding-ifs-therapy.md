@@ -4,6 +4,7 @@ description: "You know that moment when everything’s going well in your relati
 date: "2026-05-20"
 categories: ["IFS", "Individuals"]
 image: "../../assets/img/blog-9.avif"
+imageAlt: "A woman sitting alone on a rock, looking out at a mountain peak at dusk"
 ---
 You know that moment when everything's going well in your relationship, and then suddenly you find yourself picking a fight over something small? Or when your partner reaches out for connection and you shut down, even though closeness is exactly what you've been craving? Maybe you recognize the pattern of pushing away the people you love most, just when things start to feel too good or too vulnerable.
 

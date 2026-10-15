@@ -4,6 +4,7 @@ description: "Have you ever noticed different voices pulling you in opposite dir
 date: "2026-05-20"
 categories: ["IFS", "Individuals"]
 image: "../../assets/img/blog-11.avif"
+imageAlt: "Waves breaking around rocks in the sea, seen from above"
 updated: "2026-09-28"
 mergedFrom: ["/understanding-your-inner-world-how-internal-family-systems-ifs-therapy-creates-lasting-change/", "/understanding-internal-family-systems-therapy-a-path-to-inner-harmony/"]
 ---

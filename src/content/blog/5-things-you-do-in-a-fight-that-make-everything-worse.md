@@ -3,6 +3,7 @@ title: "The 5 Things You Do in a Fight That Make Everything Worse"
 date: "2026-06-03"
 categories: ["Couples", "RLT"]
 image: "../../assets/img/andrea-caviglia-ct-onctbggi-unsplash.jpg"
+imageAlt: "Silhouette of a couple talking on a hillside at dusk"
 ---
 Most couples come to therapy saying the same thing: *"We need to communicate better."* And then they tell me what they fight about. One partner is always on their phone while the other is trying to talk to them. They cannot agree on how to parent the kids. One person always pulls away and the other always pushes.
 
@@ -38,7 +39,7 @@ Empower each other. Instead of tearing your partner down when they get it wrong,
 
 Cherish what you have. Step back and remember why you chose this person. Gratitude is not just a nice idea. It is a practice that changes the way you show up in conflict
 
-![](../../assets/img/how-you-fight-matters.png)
+![Chart: how you fight matters more than what you fight about. Terry Real’s five losing strategies, each paired with a winning strategy](../../assets/img/how-you-fight-matters.png)
 
 *Curiosity Antidote*
 

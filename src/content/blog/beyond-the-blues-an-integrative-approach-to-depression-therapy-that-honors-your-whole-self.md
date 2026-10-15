@@ -3,6 +3,7 @@ title: "Beyond the Blues: An Integrative Approach to Depression Therapy That Hon
 date: "2026-05-20"
 categories: ["ACT", "Brainspotting", "IFS", "Individuals"]
 image: "../../assets/img/nik-shuliahin-bunwp1bl0nc-unsplash-scaled.jpg"
+imageAlt: "A man sitting in a leather armchair in a dim room, his hand over his face"
 ---
 Depression therapy works best when it addresses more than just your thoughts. If you've been struggling with persistent sadness, low energy, or a sense of disconnection from life, you already know that depression affects every part of you. It shows up in how you sleep, how you relate to others, how your body feels, and how you move through your days. True healing requires an approach that honors this complexity.
 

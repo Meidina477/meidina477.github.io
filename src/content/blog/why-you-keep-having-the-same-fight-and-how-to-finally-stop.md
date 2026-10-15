@@ -3,6 +3,7 @@ title: "Why You Keep Having the Same Fight (and How to Finally Stop)"
 date: "2026-06-11"
 categories: ["Couples", "IFS", "RLT"]
 image: "../../assets/img/pexels-rdne-5616205.jpg"
+imageAlt: "A woman leaning against a wall and a man holding his head, in the middle of an argument"
 ---
 You have had this fight before. You know exactly how it goes. One of you brings something up, the other gets defensive, and within minutes you are both saying the same things you said last month. Last year. Maybe for as long as you can remember.
 
@@ -56,7 +57,7 @@ The more one partner brings intensity, tears, and urgency, the more the other go
 
 In every case the structure is the same. Each person’s protective move is the very thing that provokes the other person’s protective move. The corrective is never “stop doing what you are doing.” It is “do the braver thing instead.”
 
-![](../../assets/img/the-more-the-more-1.png)
+![Chart: The More The More, the relationship loops that keep couples stuck and the move that breaks each one](../../assets/img/the-more-the-more-1.png)
 
 *Losing and winning strategies in a relationship*
 

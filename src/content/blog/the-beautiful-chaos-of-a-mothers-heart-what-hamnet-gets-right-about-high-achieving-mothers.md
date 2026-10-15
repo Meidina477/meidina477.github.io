@@ -46,4 +46,4 @@ For a lot of mothers I work with, the odds are not just out there. Yes, the exte
 
 Hamnet is set in the 1590s. But what I see with my clients every week tells me Agnes never left.
 
-*If any of this landed somewhere in you, I work with high-achieving mothers who are ready to stop holding it all together alone and start being truly seen. Reach out a*t[ shabnamlee.com](http://shabnamlee.com)
+*If any of this landed somewhere in you, I work with [high-achieving mothers](/high-achieving-mothers/) who are ready to stop holding it all together alone and start being truly seen. Reach out a*t[ shabnamlee.com](http://shabnamlee.com)

@@ -9,7 +9,7 @@ You know that moment when everything's going well in your relationship, and then
 
 If you've ever wondered why you keep repeating the same relationship patterns despite your best intentions, you're not alone. And here's what might surprise you. That part of you that seems to sabotage your connections isn't trying to ruin your life. It's actually trying to protect you.
 
-This is the foundation of Internal Family Systems therapy, and it's changed how I understand and work with the complex ways we show up in relationships. Whether you're in Singapore, Dubai, San Francisco, or Jakarta navigating the challenges of connection across cultures and time zones, understanding your internal system can be the key to transforming your most important relationships.
+This is the foundation of [Internal Family Systems therapy](/ifs/), and it's changed how I understand and work with the complex ways we show up in relationships. Whether you're in Singapore, Dubai, San Francisco, or Jakarta navigating the challenges of connection across cultures and time zones, understanding your internal system can be the key to transforming your most important relationships.
 
 ## What Is Internal Family Systems Therapy?
 

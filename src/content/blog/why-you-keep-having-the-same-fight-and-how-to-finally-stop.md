@@ -14,7 +14,7 @@ That means the goal was never to solve the problem. The goal is to stop getting 
 
 ### The pattern underneath the fight
 
-Terry Real, founder of Relational Life Therapy (RLT), calls this “the more the more.” It is the recursive loop that keeps couples trapped.
+Terry Real, founder of [Relational Life Therapy (RLT)](/rlt/), calls this “the more the more.” It is the recursive loop that keeps couples trapped.
 
 The more one partner pushes, the more the other pulls away. The more one criticises, the more the other shuts down. The more one tries to control the situation, the more the other resists. There are millions of combinations, but the structure is always the same. Two people doing the exact thing that makes the other person do the exact thing they cannot stand.
 

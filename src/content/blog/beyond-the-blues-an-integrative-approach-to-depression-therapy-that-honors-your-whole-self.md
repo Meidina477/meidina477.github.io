@@ -96,7 +96,7 @@ Therapy that honors your whole self includes helping your nervous system find it
 
 ## What to Expect When Working With Me
 
-I offer two pathways for individual therapy:
+I offer two pathways for [individual therapy](/individual-therapy/):
 
 **Intensive Sessions** are designed for those seeking focused, accelerated progress. These deep-dive sessions condense significant therapeutic work into a short, structured timeframe. Intensives can be particularly powerful for depression because they allow sustained attention to patterns that might take much longer to shift in weekly sessions.
 

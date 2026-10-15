@@ -121,7 +121,7 @@ At the same time, I believe in the power of focused, intensive work for those wh
 
 ## Options for Trauma Therapy
 
-I offer two primary ways to engage in individual therapy, each suited to different needs and circumstances.
+I offer two primary ways to engage in [individual therapy](/individual-therapy/), each suited to different needs and circumstances.
 
 ### Intensive Sessions
 

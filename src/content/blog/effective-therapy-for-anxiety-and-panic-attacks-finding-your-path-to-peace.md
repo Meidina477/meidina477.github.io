@@ -99,7 +99,7 @@ Our first full session is comprehensive. We'll set clear goals together, not jus
 
 ### Choosing Your Path: Intensive vs. Weekly Sessions
 
-I offer two approaches for individual counseling:
+I offer two approaches for [individual counseling](/individual-therapy/):
 
 **Intensive Sessions** are designed for those wanting focused, accelerated progress through deep-dive work condensed into a structured timeframe. These are ideal when you need significant movement quickly or have a specific challenge to address.
 

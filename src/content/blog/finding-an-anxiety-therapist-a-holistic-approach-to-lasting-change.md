@@ -103,7 +103,7 @@ What connects everyone I work with is a readiness to go beyond surface-level sol
 
 ## Two Pathways for Individual Work
 
-I offer individual counseling through two distinct structures, depending on your needs and timeline:
+I offer [individual counseling](/individual-therapy/) through two distinct structures, depending on your needs and timeline:
 
 **Weekly Sessions** provide consistent, ongoing support for gradual, sustainable change over time. This format works well if you're looking for regular check-ins, accountability, and the space to process things as they come up in your life. Sessions build on each other, allowing us to go deep while maintaining the continuity that supports long-term transformation.
 

@@ -37,7 +37,7 @@ In my work, somatic approaches might include:
 
 **Tracking body sensations during difficult conversations.** Instead of just talking about what happened, we pay attention to what's happening in your body right now as you remember. Where do you feel tension? What's your breathing doing? What impulses arise: to move, to pull away, to collapse?
 
-**Brainspotting to access trauma held in the nervous system.** This approach uses eye position to tap into the brain-body connection, allowing trauma memories to process at a deeper level than words alone can reach. It's particularly powerful for experiences that feel stuck or overwhelming when approached through traditional talk therapy.
+**[Brainspotting](/brainspotting/) to access trauma held in the nervous system.** This approach uses eye position to tap into the brain-body connection, allowing trauma memories to process at a deeper level than words alone can reach. It's particularly powerful for experiences that feel stuck or overwhelming when approached through traditional talk therapy.
 
 **Nervous system regulation practices.** These might include breathwork, grounding techniques, or simple movements that help your body shift from a state of activation to a state of safety. Over time, these practices help rewire your nervous system's default settings.
 

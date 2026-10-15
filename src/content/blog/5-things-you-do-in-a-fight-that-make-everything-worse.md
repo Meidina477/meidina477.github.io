@@ -10,7 +10,7 @@ They want me to help them sort out who is right.
 
 Most therapists will get stuck right there, in the content. They will help you talk about the phone, the parenting, the decisions. They might even help you figure out who has the moral high ground. But that is not why you keep having the same fight. You keep having the same fight because it was never about the phone. It was about how you fight.
 
-Terry Real, founder of Relational Life Therapy (RLT), identified five default moves that couples use in conflict. He calls them the Losing Strategies. They feel protective in the moment, but they guarantee you will end up right back where you started. In RLT, we do not get stuck on the content. We look for these strategies, and then we find counterpoints.
+Terry Real, founder of [Relational Life Therapy (RLT)](/rlt/), identified five default moves that couples use in conflict. He calls them the Losing Strategies. They feel protective in the moment, but they guarantee you will end up right back where you started. In RLT, we do not get stuck on the content. We look for these strategies, and then we find counterpoints.
 
 ## The five losing strategies
 

@@ -49,4 +49,4 @@ You do not need to learn how to fight less. You need to learn how to fight bette
 
 That is the work.
 
-*Shabnam Lee is a licensed counsellor and IFS and RLT specialist based in Jakarta. She works with high-achieving individuals, couples, and mothers across Southeast Asia and online worldwide. Book a free 15-minute consultation at* [*shabnamlee.com*](https://shabnamlee.com)*.*
+*Shabnam Lee is a registered counsellor and IFS and RLT specialist based in Jakarta. She works with high-achieving individuals, couples, and mothers across Southeast Asia and online worldwide. Book a free 15-minute consultation at* [*shabnamlee.com*](https://shabnamlee.com)*.*

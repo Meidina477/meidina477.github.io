@@ -75,4 +75,4 @@ Happy couples still fight about the same things. They just fight differently. Th
 
 You do not need a new partner. You need a new pattern.
 
-*Shabnam Lee is a licensed counsellor and IFS and RLT specialist based in Jakarta. She works with high-achieving individuals, couples, and mothers across Southeast Asia and online worldwide. Book a free 15-minute consultation at [shabnamlee.com.](/)*
+*Shabnam Lee is a registered counsellor and IFS and RLT specialist based in Jakarta. She works with high-achieving individuals, couples, and mothers across Southeast Asia and online worldwide. Book a free 15-minute consultation at [shabnamlee.com.](/)*

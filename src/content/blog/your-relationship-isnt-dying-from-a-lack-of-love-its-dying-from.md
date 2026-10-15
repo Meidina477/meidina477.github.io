@@ -57,6 +57,6 @@ None of these are complicated. All of them require you to override your first in
 
 That's it. That's the whole entry point. Let go of certainty. Choose curiosity instead. Curiosity is what makes vulnerability feel safe. Vulnerability is what makes intimacy possible.
 
-*Shabnam Lee is a Licensed Counsellor (ACA) based in Jakarta, trained in RLT (Levels 1, 2 & 3), IFS, Brainspotting, ACT, and Gottman. She works with couples and high-achieving individuals.*
+*Shabnam Lee is a Registered Counsellor (ACA) based in Jakarta, trained in RLT (Levels 1, 2 & 3), IFS, Brainspotting, ACT, and Gottman. She works with couples and high-achieving individuals.*
 
 *Sessions available in Jakarta, online worldwide, and through intensive retreats in Bali. Learn more at [shabnamlee.com.](https://shabnamlee.com)*

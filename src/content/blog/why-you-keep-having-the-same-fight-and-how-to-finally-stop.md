@@ -13,7 +13,7 @@ Here is the part most people do not know. Research by John Gottman found that 69
 
 That means the goal was never to solve the problem. The goal is to stop getting stuck in it.
 
-### The pattern underneath the fight
+## The pattern underneath the fight
 
 Terry Real, founder of [Relational Life Therapy (RLT)](/rlt/), calls this “the more the more.” It is the recursive loop that keeps couples trapped.
 

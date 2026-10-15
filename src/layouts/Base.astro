@@ -29,9 +29,13 @@ const ogUrl = new URL(og.src, SITE.url).href;
 const business = {
   '@context': 'https://schema.org',
   '@type': 'MedicalBusiness',
+  // One @id on every page, so Google reads all pages as the same practice.
+  '@id': `${SITE.url}/#business`,
   name: SITE.title,
   url: SITE.url,
   image: ogUrl,
+  telephone: '+62 877 7231 0257',
+  email: SITE.email,
   founder: { '@type': 'Person', name: 'Shabnam Lee', jobTitle: 'Licensed Counsellor' },
   address: {
     '@type': 'PostalAddress',

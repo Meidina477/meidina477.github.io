@@ -3,6 +3,7 @@ title: "The Beautiful Chaos of a Mother’s Heart: What Hamnet Gets Right About 
 date: "2026-05-20"
 categories: ["Mothers", "IFS"]
 image: "../../assets/img/e0228a5405702559728758b3d05e05a9.webp"
+imageAlt: "An actress smiling on stage as she holds an Oscar"
 ---
 Last night Jessie Buckley won the Oscar for Best Actress. She was crying before she even reached the microphone. She has an eight-month-old at home. And she dedicated the award to "the beautiful chaos of a mother's heart."
 
@@ -46,4 +47,4 @@ For a lot of mothers I work with, the odds are not just out there. Yes, the exte
 
 Hamnet is set in the 1590s. But what I see with my clients every week tells me Agnes never left.
 
-*If any of this landed somewhere in you, I work with high-achieving mothers who are ready to stop holding it all together alone and start being truly seen. Reach out a*t[ shabnamlee.com](http://shabnamlee.com)
+*If any of this landed somewhere in you, I work with [high-achieving mothers](/high-achieving-mothers/) who are ready to stop holding it all together alone and start being truly seen. Reach out a*t[ shabnamlee.com](http://shabnamlee.com)

@@ -4,6 +4,7 @@ description: "Have you ever noticed different voices pulling you in opposite dir
 date: "2026-05-20"
 categories: ["IFS", "Individuals"]
 image: "../../assets/img/blog-11.avif"
+imageAlt: "Waves breaking around rocks in the sea, seen from above"
 updated: "2026-09-28"
 mergedFrom: ["/understanding-your-inner-world-how-internal-family-systems-ifs-therapy-creates-lasting-change/", "/understanding-internal-family-systems-therapy-a-path-to-inner-harmony/"]
 ---
@@ -13,7 +14,7 @@ This is exactly what [Internal Family Systems Therapy](/ifs/) (IFS) helps us und
 
 Let me walk you through what IFS is, how it works, and why it might be the missing piece in your journey toward feeling more grounded, connected, and truly yourself.
 
-### Key Takeaways
+## Key Takeaways
 
 - Internal Family Systems views your mind as made up of different 'parts,' each with a unique role and history that developed to help you navigate life
 

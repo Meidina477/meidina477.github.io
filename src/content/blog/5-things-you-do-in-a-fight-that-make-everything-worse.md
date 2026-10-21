@@ -3,6 +3,7 @@ title: "The 5 Things You Do in a Fight That Make Everything Worse"
 date: "2026-06-03"
 categories: ["Couples", "RLT"]
 image: "../../assets/img/andrea-caviglia-ct-onctbggi-unsplash.jpg"
+imageAlt: "Silhouette of a couple talking on a hillside at dusk"
 ---
 Most couples come to therapy saying the same thing: *"We need to communicate better."* And then they tell me what they fight about. One partner is always on their phone while the other is trying to talk to them. They cannot agree on how to parent the kids. One person always pulls away and the other always pushes.
 
@@ -10,7 +11,7 @@ They want me to help them sort out who is right.
 
 Most therapists will get stuck right there, in the content. They will help you talk about the phone, the parenting, the decisions. They might even help you figure out who has the moral high ground. But that is not why you keep having the same fight. You keep having the same fight because it was never about the phone. It was about how you fight.
 
-Terry Real, founder of Relational Life Therapy (RLT), identified five default moves that couples use in conflict. He calls them the Losing Strategies. They feel protective in the moment, but they guarantee you will end up right back where you started. In RLT, we do not get stuck on the content. We look for these strategies, and then we find counterpoints.
+Terry Real, founder of [Relational Life Therapy (RLT)](/rlt/), identified five default moves that couples use in conflict. He calls them the Losing Strategies. They feel protective in the moment, but they guarantee you will end up right back where you started. In RLT, we do not get stuck on the content. We look for these strategies, and then we find counterpoints.
 
 ## The five losing strategies
 
@@ -38,7 +39,7 @@ Empower each other. Instead of tearing your partner down when they get it wrong,
 
 Cherish what you have. Step back and remember why you chose this person. Gratitude is not just a nice idea. It is a practice that changes the way you show up in conflict
 
-![](../../assets/img/how-you-fight-matters.png)
+![Chart: how you fight matters more than what you fight about. Terry Real’s five losing strategies, each paired with a winning strategy](../../assets/img/how-you-fight-matters.png)
 
 *Curiosity Antidote*
 
@@ -48,4 +49,4 @@ You do not need to learn how to fight less. You need to learn how to fight bette
 
 That is the work.
 
-*Shabnam Lee is a licensed counsellor and IFS and RLT specialist based in Jakarta. She works with high-achieving individuals, couples, and mothers across Southeast Asia and online worldwide. Book a free 15-minute consultation at* [*shabnamlee.com*](https://shabnamlee.com)*.*
+*Shabnam Lee is a registered counsellor and IFS and RLT specialist based in Jakarta. She works with high-achieving individuals, couples, and mothers across Southeast Asia and online worldwide. Book a free 15-minute consultation at* [*shabnamlee.com*](https://shabnamlee.com)*.*

@@ -4,6 +4,7 @@ description: "Trauma lives in the body long after the mind has moved on. If you 
 date: "2026-05-20"
 categories: ["ACT", "Brainspotting", "IFS", "Individuals"]
 image: "../../assets/img/blog-3.avif"
+imageAlt: "A woman in a hoodie sitting on a bench with her hand on her head"
 ---
 Trauma lives in the body long after the mind has moved on. If you have ever felt your heart race at a sound that reminds you of something painful, noticed your shoulders tense in certain situations, or experienced unexplained fatigue that seems tied to nothing specific, your body may be holding onto experiences your conscious mind has tried to forget. I see this every day in my practice. The body remembers what the mind tries to leave behind.
 
@@ -121,7 +122,7 @@ At the same time, I believe in the power of focused, intensive work for those wh
 
 ## Options for Trauma Therapy
 
-I offer two primary ways to engage in individual therapy, each suited to different needs and circumstances.
+I offer two primary ways to engage in [individual therapy](/individual-therapy/), each suited to different needs and circumstances.
 
 ### Intensive Sessions
 

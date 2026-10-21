@@ -4,6 +4,7 @@ description: "When couples reach out for therapy, they’re often expecting to b
 date: "2026-05-20"
 categories: ["RLT"]
 image: "../../assets/img/blog-7.avif"
+imageAlt: "Silhouette of a couple about to kiss, at sunset by the sea"
 ---
 When couples reach out for therapy, they're often expecting to book a weekly session. Maybe Thursdays at 6 PM, fitting therapy into the margins of an already packed life. They imagine slow, incremental progress, talking through issues one hour at a time while juggling work deadlines, travel schedules, and the daily grind of keeping a relationship afloat.
 

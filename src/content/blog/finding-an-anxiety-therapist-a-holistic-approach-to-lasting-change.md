@@ -4,6 +4,7 @@ description: "If you’re dealing with anxiety that shows up as constant worry, 
 date: "2026-05-20"
 categories: ["ACT", "Brainspotting", "IFS", "Individuals"]
 image: "../../assets/img/blog-10.avif"
+imageAlt: "Dark storm clouds over the sea, with sunlight breaking through"
 ---
 If you're dealing with anxiety that shows up as constant worry, panic attacks, or that exhausting feeling of never quite being able to settle, you already know how much it can take over your daily life. Whether you're navigating high-pressure work environments, managing the demands of relationships and family, or dealing with the unique stressors of life in Jakarta, anxiety has a way of making everything feel harder than it needs to be.
 
@@ -103,7 +104,7 @@ What connects everyone I work with is a readiness to go beyond surface-level sol
 
 ## Two Pathways for Individual Work
 
-I offer individual counseling through two distinct structures, depending on your needs and timeline:
+I offer [individual counseling](/individual-therapy/) through two distinct structures, depending on your needs and timeline:
 
 **Weekly Sessions** provide consistent, ongoing support for gradual, sustainable change over time. This format works well if you're looking for regular check-ins, accountability, and the space to process things as they come up in your life. Sessions build on each other, allowing us to go deep while maintaining the continuity that supports long-term transformation.
 

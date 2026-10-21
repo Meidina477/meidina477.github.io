@@ -4,6 +4,7 @@ description: "You’ve probably heard about Acceptance and Commitment Therapy—
 date: "2026-05-20"
 categories: ["ACT", "Individuals"]
 image: "../../assets/img/blog-13.avif"
+imageAlt: "Silhouette of a man walking by the water at sunset"
 ---
 You've probably heard about [Acceptance and Commitment Therapy](/act-therapy/)—or ACT—and wondered what makes it different. Here's what I want you to know: ACT isn't about eliminating difficult emotions or "fixing" what feels broken. It's about learning to move through life with your feelings, not against them, while building a life that actually reflects what matters to you.
 

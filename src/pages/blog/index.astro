@@ -21,6 +21,7 @@ const categories = [...new Set(posts.flatMap((p) => p.data.categories))].sort();
 
   <section class="section-sm bg-paper list">
     <div class="wrap">
+      <h2 class="visually-hidden">All articles</h2>
       <div class="filters" role="group" aria-label="Filter posts by topic">
         <button type="button" class="chip" aria-pressed="true" data-cat="">View all</button>
         {categories.map((c) => <button type="button" class="chip" aria-pressed="false" data-cat={c}>{c}</button>)}

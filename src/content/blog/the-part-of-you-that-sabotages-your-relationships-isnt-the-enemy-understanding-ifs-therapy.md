@@ -4,12 +4,13 @@ description: "You know that moment when everything’s going well in your relati
 date: "2026-05-20"
 categories: ["IFS", "Individuals"]
 image: "../../assets/img/blog-9.avif"
+imageAlt: "A woman sitting alone on a rock, looking out at a mountain peak at dusk"
 ---
 You know that moment when everything's going well in your relationship, and then suddenly you find yourself picking a fight over something small? Or when your partner reaches out for connection and you shut down, even though closeness is exactly what you've been craving? Maybe you recognize the pattern of pushing away the people you love most, just when things start to feel too good or too vulnerable.
 
 If you've ever wondered why you keep repeating the same relationship patterns despite your best intentions, you're not alone. And here's what might surprise you. That part of you that seems to sabotage your connections isn't trying to ruin your life. It's actually trying to protect you.
 
-This is the foundation of Internal Family Systems therapy, and it's changed how I understand and work with the complex ways we show up in relationships. Whether you're in Singapore, Dubai, San Francisco, or Jakarta navigating the challenges of connection across cultures and time zones, understanding your internal system can be the key to transforming your most important relationships.
+This is the foundation of [Internal Family Systems therapy](/ifs/), and it's changed how I understand and work with the complex ways we show up in relationships. Whether you're in Singapore, Dubai, San Francisco, or Jakarta navigating the challenges of connection across cultures and time zones, understanding your internal system can be the key to transforming your most important relationships.
 
 ## What Is Internal Family Systems Therapy?
 

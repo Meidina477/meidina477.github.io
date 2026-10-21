@@ -3,6 +3,7 @@ title: "Why You Keep Having the Same Fight (and How to Finally Stop)"
 date: "2026-06-11"
 categories: ["Couples", "IFS", "RLT"]
 image: "../../assets/img/pexels-rdne-5616205.jpg"
+imageAlt: "A woman leaning against a wall and a man holding his head, in the middle of an argument"
 ---
 You have had this fight before. You know exactly how it goes. One of you brings something up, the other gets defensive, and within minutes you are both saying the same things you said last month. Last year. Maybe for as long as you can remember.
 
@@ -12,9 +13,9 @@ Here is the part most people do not know. Research by John Gottman found that 69
 
 That means the goal was never to solve the problem. The goal is to stop getting stuck in it.
 
-### The pattern underneath the fight
+## The pattern underneath the fight
 
-Terry Real, founder of Relational Life Therapy (RLT), calls this “the more the more.” It is the recursive loop that keeps couples trapped.
+Terry Real, founder of [Relational Life Therapy (RLT)](/rlt/), calls this “the more the more.” It is the recursive loop that keeps couples trapped.
 
 The more one partner pushes, the more the other pulls away. The more one criticises, the more the other shuts down. The more one tries to control the situation, the more the other resists. There are millions of combinations, but the structure is always the same. Two people doing the exact thing that makes the other person do the exact thing they cannot stand.
 
@@ -56,7 +57,7 @@ The more one partner brings intensity, tears, and urgency, the more the other go
 
 In every case the structure is the same. Each person’s protective move is the very thing that provokes the other person’s protective move. The corrective is never “stop doing what you are doing.” It is “do the braver thing instead.”
 
-![](../../assets/img/the-more-the-more-1.png)
+![Chart: The More The More, the relationship loops that keep couples stuck and the move that breaks each one](../../assets/img/the-more-the-more-1.png)
 
 *Losing and winning strategies in a relationship*
 
@@ -74,4 +75,4 @@ Happy couples still fight about the same things. They just fight differently. Th
 
 You do not need a new partner. You need a new pattern.
 
-*Shabnam Lee is a licensed counsellor and IFS and RLT specialist based in Jakarta. She works with high-achieving individuals, couples, and mothers across Southeast Asia and online worldwide. Book a free 15-minute consultation at [shabnamlee.com.](/)*
+*Shabnam Lee is a registered counsellor and IFS and RLT specialist based in Jakarta. She works with high-achieving individuals, couples, and mothers across Southeast Asia and online worldwide. Book a free 15-minute consultation at [shabnamlee.com.](/)*

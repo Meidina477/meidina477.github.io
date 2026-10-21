@@ -3,6 +3,7 @@ title: "Your Relationship Isn’t Dying From a Lack of Love. It’s Dying From T
 date: "2026-05-29"
 categories: ["Couples", "RLT"]
 image: "../../assets/img/etienne-boulanger-ercpgyxnlto-unsplash-1.jpg"
+imageAlt: "Silhouette of a couple on a bench facing each other, in front of a window onto the sea"
 ---
 Most couples I work with don't walk into my therapy space because they stopped loving each other. They walk in because they can't seem to get through to each other. The love is still there, but something keeps getting in the way. More often than not, a big piece of what's missing is curiosity.
 
@@ -52,10 +53,10 @@ None of these are complicated. All of them require you to override your first in
 
 **Hold understanding and accountability at the same time.* *Curiosity is not a free pass. You can try to understand where someone was coming from while also being honest about how their behaviour affected you. "I can see you were overwhelmed, and I also need you to know that what you said really hurt." Both realities get to exist in the same sentence.
 
-![](../../assets/img/the-misstep-antidote-chart-v2-1.png)
+![Chart: use this to stop having the same fight on repeat. Four missteps in an argument, each paired with its antidote](../../assets/img/the-misstep-antidote-chart-v2-1.png)
 
 That's it. That's the whole entry point. Let go of certainty. Choose curiosity instead. Curiosity is what makes vulnerability feel safe. Vulnerability is what makes intimacy possible.
 
-*Shabnam Lee is a Licensed Counsellor (ACA) based in Jakarta, trained in RLT (Levels 1, 2 & 3), IFS, Brainspotting, ACT, and Gottman. She works with couples and high-achieving individuals.*
+*Shabnam Lee is a Registered Counsellor (ACA) based in Jakarta, trained in RLT (Levels 1, 2 & 3), IFS, Brainspotting, ACT, and Gottman. She works with couples and high-achieving individuals.*
 
 *Sessions available in Jakarta, online worldwide, and through intensive retreats in Bali. Learn more at [shabnamlee.com.](https://shabnamlee.com)*

@@ -4,6 +4,7 @@ description: "You’ve talked about the difficult memories in therapy. You’ve 
 date: "2026-05-20"
 categories: ["IFS", "Individuals"]
 image: "../../assets/img/blog-6.avif"
+imageAlt: "A person walking a stone labyrinth on a beach"
 ---
 You've talked about the difficult memories in therapy. You've gained insight into your patterns. You understand why you react the way you do. And yet, your body still tenses when you hear a certain tone of voice. Your heart still races in situations that shouldn't feel threatening. You still shut down or snap at people you love, even when your rational mind knows better.
 
@@ -37,7 +38,7 @@ In my work, somatic approaches might include:
 
 **Tracking body sensations during difficult conversations.** Instead of just talking about what happened, we pay attention to what's happening in your body right now as you remember. Where do you feel tension? What's your breathing doing? What impulses arise: to move, to pull away, to collapse?
 
-**Brainspotting to access trauma held in the nervous system.** This approach uses eye position to tap into the brain-body connection, allowing trauma memories to process at a deeper level than words alone can reach. It's particularly powerful for experiences that feel stuck or overwhelming when approached through traditional talk therapy.
+**[Brainspotting](/brainspotting/) to access trauma held in the nervous system.** This approach uses eye position to tap into the brain-body connection, allowing trauma memories to process at a deeper level than words alone can reach. It's particularly powerful for experiences that feel stuck or overwhelming when approached through traditional talk therapy.
 
 **Nervous system regulation practices.** These might include breathwork, grounding techniques, or simple movements that help your body shift from a state of activation to a state of safety. Over time, these practices help rewire your nervous system's default settings.
 

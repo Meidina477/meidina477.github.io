@@ -4,6 +4,8 @@ seoTitle: "My partner wants a divorce and I don't"
 description: "Your husband or wife wants a divorce and you're not ready? Discernment counselling helps you reach a decision about your marriage with clarity and confidence."
 date: "2026-10-21"
 categories: ["Couples"]
+image: "../../assets/img/discernment-counselling.jpg"
+imageAlt: "A couple standing back to back on a sandbar at the water's edge, each looking out in a different direction"
 faq:
   - q: "What is discernment counselling?"
     a: "A short process of up to five sessions for couples where one partner is considering separation and the other wants to repair the relationship. Its goal is for both partners to reach a decision with clarity and confidence: stay as they are, separate, or commit to six months of couples therapy."

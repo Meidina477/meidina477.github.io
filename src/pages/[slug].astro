@@ -9,6 +9,7 @@ import { SITE } from '../data/site';
 import { getPosts, excerpt, formatDate, readingTime, type Post } from '../data/blog';
 import avatar from '../assets/img/shabnam-headshot.jpg';
 import Icon from '../components/Icon.astro';
+import Faq from '../components/Faq.astro';
 
 export async function getStaticPaths() {
   const posts = await getPosts();
@@ -40,7 +41,7 @@ const jsonLd = {
   mainEntityOfPage: url,
 };
 ---
-<Base title={`${d.title} | Shabnam Lee`} description={description} image={d.image} type="article" jsonLd={jsonLd}>
+<Base title={`${d.seoTitle ?? d.title} | Shabnam Lee`} description={description} image={d.image} type="article" jsonLd={jsonLd}>
   <article>
     <header class="post-head bg-paper">
       <div class="wrap-narrow">
@@ -94,6 +95,8 @@ const jsonLd = {
       </aside>
     </div>
   </article>
+
+  {d.faq.length > 0 && <Faq tone="cream" title="Common <em>questions</em>" items={d.faq} />}
 
   {related.length > 0 && (
     <section class="section bg-cream">

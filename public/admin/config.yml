@@ -31,6 +31,8 @@ collections:
     public_folder: ../../assets/img
     fields:
       - { name: title, label: Title, widget: string, hint: "The address of a new post is made from this title. Don't change it on a published post; its address stays the same." }
+      - { name: seoTitle, label: "Title shown in Google (optional)", widget: string, required: false,
+          hint: "Leave empty to use the title above. Google cuts off after about 60 characters." }
       - { name: date, label: Date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
       - { name: updated, label: "Last updated (optional)", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true, required: false }
       - { name: description, label: "Description shown in Google", widget: text, required: false,
@@ -43,6 +45,15 @@ collections:
       - { name: image, label: "Main photo", widget: image, required: false }
       - { name: imageAlt, label: "Photo description (for screen readers)", widget: string, required: false }
       - { name: body, label: "The article", widget: markdown }
+      - name: faq
+        label: "Questions at the end (optional)"
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{fields.q}}"
+        fields:
+          - { name: q, label: Question, widget: string }
+          - { name: a, label: Answer, widget: text }
       - { name: mergedFrom, label: "Old addresses that forward here (leave as is)", widget: list, required: false, collapsed: true,
           field: { name: path, label: Address, widget: string } }
 

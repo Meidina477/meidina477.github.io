@@ -14,7 +14,7 @@ faq:
   - q: "How many sessions is discernment counselling?"
     a: "Between one and five. The first session is about two hours, and each partner decides after every session whether to continue."
   - q: "Can we do discernment counselling online?"
-    a: "Yes. Shabnam offers a discernment process informed by Bill Doherty's model, online and in person in Jakarta, with a retreat format in Bali. Every option starts with a Zoom consultation."
+    a: "Yes. Shabnam offers a discernment process informed by Bill Doherty's model, online and in person in Jakarta, <a href='https://thetherapyintensive.com/discernment-retreat-bali/'>with a retreat format in Bali</a>. Every option starts with a Zoom consultation."
 ---
 Your husband or wife has told you they want a divorce, and you are not ready. Or you are the one who wants a divorce, and your partner is pleading for another chance. Either way, one of you is leaning out, one is leaning in, and every conversation goes nowhere.
 

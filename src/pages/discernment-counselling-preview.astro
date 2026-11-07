@@ -1,0 +1,415 @@
+---
+// HIDDEN PREVIEW for Shabnam's approval: not in the menu, noindex, not in the sitemap.
+// Final address once approved: /discernment-counselling/ (currently the blog post).
+// Built to Mei's design in "discernment page/" (desktop), adapted for phones.
+import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import Programmes from '../components/Programmes.astro';
+import YouTube from '../components/YouTube.astro';
+import Faq from '../components/Faq.astro';
+import { SITE } from '../data/site';
+import hero from '../assets/photos/hero-discernment.jpg';
+import shabnam from '../assets/photos/shabnam-standing.png';
+import featured from '../assets/brand/featured-in-discernment.png';
+
+const title = 'Discernment Counselling in Jakarta & Online | Shabnam Lee';
+const description = 'One of you wants to leave, the other wants to stay. Discernment counselling in Jakarta Selatan or online: up to five sessions to decide with clarity.';
+
+const programme = [{
+  name: 'Discernment counselling',
+  duration: 'Up to five sessions',
+  text: 'One session at a time. You commit to the first session only, and each of you decides after every session whether to continue.',
+  steps: [
+    { label: 'Free Consultation', detail: 'A 15-minute conversation on Zoom, together or on your own', time: 'Free' },
+    { label: 'Phone screening', detail: 'A 30-minute call with each partner. The fee applies whatever the outcome', time: 'IDR 3,000,000 for both calls' },
+    { label: 'First session', detail: 'Discernment counselling', time: '2.5 hours' },
+    { label: 'Each session after', detail: 'Discernment counselling, up to five in total', time: '2 hours' },
+  ],
+  price: 'IDR 6,000,000 per session',
+  where: 'Green Simprug, Jakarta Selatan, or online',
+}];
+
+const sessionSteps = [
+  'You start together, and Shabnam sets the focus.',
+  'She meets with one partner on their own.',
+  'That partner shares a short summary of what they’ve understood.',
+  'She meets with the other partner on their own.',
+  'The second partner shares their summary, and you finish together.',
+];
+
+const notFit = [
+  'One of you has already made a final decision to separate.',
+  'One of you is being pressured or coerced into taking part.',
+  'There is domestic violence, intimidation, or either of you feels unsafe at home.',
+  'One of you is in an active affair.',
+  'Either of you is in a mental health crisis and needs care first.',
+  'Alcohol or drug use is making clear decisions difficult.',
+];
+
+const faq = [
+  { q: 'What is the goal of discernment counselling?', a: 'To help you gain clarity and confidence about the direction of your relationship, based on a deeper understanding of what has happened to it and each person’s contributions to the problems. Repairing the relationship is not the goal of these sessions.' },
+  { q: 'How much does discernment counselling cost in Jakarta?', a: 'The 15-minute Free Consultation costs nothing. The phone screening is IDR 3,000,000 for both partners. Sessions are IDR 6,000,000 each, up to five.' },
+  { q: 'How many sessions will we need?', a: 'Up to five. Some couples reach clarity in one or two.' },
+  { q: 'Is this the same as marriage counselling?', a: 'No. Marriage counselling helps you repair the relationship. Discernment counselling helps you decide whether to try.' },
+  { q: 'Is the screening fee refundable?', a: 'No. It covers two 30-minute calls and applies whatever the outcome.' },
+  { q: 'What if we want to stop early?', a: 'Either of you can stop after any session. You only pay for the sessions you attend.' },
+  { q: 'Can we do this online?', a: 'Yes, from the same place or different ones, as long as each of you has privacy for your one-to-one time. Sessions are not recorded.' },
+  { q: 'Are our one-to-one conversations private?', a: '<mark>[Your secrets policy in one or two sentences.]</mark> Confidentiality has limits where there is a risk of serious harm.' },
+  { q: 'How do payment and booking work?', a: 'Bank transfer or credit card, due within one week of the invoice date. Sessions are booked at least two days ahead and used within six months of the invoice date.' },
+  { q: 'What if we need to reschedule?', a: '<mark>[Your rescheduling notice for sessions.]</mark> A missed session without notice is forfeited and the full fee applies.' },
+  { q: 'Is discernment counselling evidence-based?', a: 'It is a clearly defined protocol with a small research base. Doherty’s published outcome data follows 100 couples; around half chose to try couples therapy.' },
+  { q: 'Can we do this in Bali instead?', a: 'Yes, through the Couple Discernment Intensive, three to five days. <a href="https://thetherapyintensive.com/" target="_blank" rel="noopener">See the Couple Discernment Intensive</a>.' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Discernment counselling',
+  serviceType: 'Discernment counselling',
+  provider: { '@type': 'Person', name: 'Shabnam Lee', url: `${SITE.url}/about/` },
+  areaServed: [{ '@type': 'City', name: 'Jakarta' }, 'Online'],
+  url: `${SITE.url}/discernment-counselling/`,
+  offers: [
+    { '@type': 'Offer', name: 'Phone screening (both partners)', price: '3000000', priceCurrency: 'IDR' },
+    { '@type': 'Offer', name: 'Discernment counselling session', price: '6000000', priceCurrency: 'IDR' },
+  ],
+};
+---
+<Base title={title} description={description} jsonLd={jsonLd} noindex>
+  <!-- 1. Hero -->
+  <section class="d-hero" data-no-reveal>
+    <Image src={hero} alt="Two people in silhouette standing apart by a window" class="d-hero-bg" widths={[960, 1600, 2600]} sizes="100vw" loading="eager" fetchpriority="high" />
+    <div class="wrap d-hero-inner">
+      <p class="d-hero-kicker">Discernment Counselling in Jakarta and online</p>
+      <h1>When one of you is ready to leave and the other still wants to try.</h1>
+      <p class="d-hero-text">A short, structured process for couples who can’t agree on whether to keep trying. In one to five sessions, you’ll know which way you’re going and why.</p>
+      <a href={SITE.book} class="btn btn-tan">Book Free Consultation</a>
+    </div>
+  </section>
+
+  <!-- 2. Leaning out / leaning in -->
+  <section class="section bg-cream">
+    <div class="wrap">
+      <div class="section-head center">
+        <h2 class="green-h">When one partner wants to leave and the other wants to stay</h2>
+        <p>You don’t have to agree before you begin. Each of you only has to be willing to look honestly at what brought you here.</p>
+      </div>
+      <div class="lean">
+        <div class="lean-card">
+          <h3>If you’re the one leaning out…</h3>
+          <p>you may feel worn down, guilty, or simply done. This process won’t try to talk you into staying. It gives you a private space to understand your doubts before you make a decision that is hard to undo.</p>
+        </div>
+        <div class="lean-card">
+          <h3>If you’re the one leaning in…</h3>
+          <p>you may feel frightened and desperate to fix things. It helps you steady yourself, see the pattern more clearly, and stop the efforts that are pushing your partner further away.</p>
+        </div>
+      </div>
+      <p class="married">Married or not, this is for any couple whose commitment to each other is now in question.</p>
+    </div>
+  </section>
+
+  <!-- 3. What is discernment counselling? -->
+  <section class="section bg-grey">
+    <div class="wrap what-wrap">
+      <h2 class="center">What is discernment counselling?</h2>
+      <div class="what">
+        <div class="what-text">
+          <p class="what-lead">Discernment counselling (also spelled discernment counseling) is a brief, structured approach for couples where one partner is considering ending the relationship and the other wants to repair it.</p>
+          <p>It was developed by William Doherty and Steven Harris at the University of Minnesota. It is not marriage counselling: the work is deciding whether to repair the relationship, not repairing it yet.</p>
+        </div>
+        <blockquote class="goal">
+          <p><span class="goal-label">The goal of Discernment Counselling is:</span> To help couples gain clarity and confidence about the direction of their marriage, based on a deeper understanding of what’s happened to their marriage and each person’s contributions to the problems.</p>
+          <cite>(Doherty Relationship Institute)</cite>
+        </blockquote>
+      </div>
+      <p class="structure">Shabnam is trained in Discernment Counselling and follows its structure: up to five sessions, with most of the time spent one-to-one and each of you deciding after every session whether to come back.</p>
+      <figure class="video">
+        <YouTube id="egLNQ0o_DsQ" title="Bill Doherty explains discernment counselling" />
+        <figcaption>Bill Doherty, who developed discernment counselling, on what the process is for.</figcaption>
+      </figure>
+      <div class="featured">
+        <p class="eyebrow">Discernment counselling has been featured in</p>
+        <Image src={featured} alt="ELLE, The Huffington Post, Psychotherapy Networker, TODAY and The Wall Street Journal" widths={[860]} />
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Which one fits -->
+  <section class="section bg-white">
+    <div class="wrap">
+      <div class="section-head center fits-head">
+        <span class="eyebrow">Which one fits</span>
+        <h2>Discernment counselling or marriage counselling?</h2>
+        <p>Marriage counselling works when both of you want to rebuild. When one of you is halfway out of the door, it often stalls: one partner pushes, the other withdraws, and both decide therapy doesn’t work. Discernment counselling is built for that exact moment. It asks each of you to look at your own part, rather than asking you to repair the relationship together before you know you want to.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr><td></td><th scope="col">Marriage/ Couple counselling</th><th scope="col">Discernment counselling</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Best for</th><td data-label="Marriage/ Couple counselling">Both want to work on it</td><td data-label="Discernment counselling" class="hl">One leaning out, one leaning in</td></tr>
+            <tr><th scope="row">The goal</th><td data-label="Marriage/ Couple counselling">Repair and change</td><td data-label="Discernment counselling" class="hl">A clear, confident direction</td></tr>
+            <tr><th scope="row">Length</th><td data-label="Marriage/ Couple counselling">Usually months</td><td data-label="Discernment counselling" class="hl">Up to five sessions</td></tr>
+            <tr><th scope="row">Format</th><td data-label="Marriage/ Couple counselling">Mostly together</td><td data-label="Discernment counselling" class="hl">Mostly one-to-one, with brief shared time</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. The three paths + what you'll leave with: split panels, heading stays while the items scroll in -->
+  <div class="ds-stack">
+  <section class="ds-split">
+    <div class="ds-left">
+      <div class="ds-left-inner">
+        <h2>The three paths</h2>
+        <p>Every couple leaves on one of three paths, and each is a legitimate outcome:</p>
+      </div>
+    </div>
+    <ol class="ds-right ds-steps">
+      <li><div class="ds-head"><span class="ds-n">01</span><h3>Keep things as they are, for now,</h3></div><p>with a time agreed to revisit the decision</p></li>
+      <li><div class="ds-head"><span class="ds-n">02</span><h3>Move toward separation,</h3></div><p>with a clearer understanding of what happened and less damage along the way.</p></li>
+      <li><div class="ds-head"><span class="ds-n">03</span><h3>Commit to six months of couples therapy,</h3></div><p>with separation off the table and each of you clear about what you need to change.</p></li>
+    </ol>
+  </section>
+  <section class="ds-split">
+    <div class="ds-left">
+      <div class="ds-left-inner">
+        <h2>What you’ll leave with</h2>
+      </div>
+    </div>
+    <ul class="ds-right ds-steps">
+      <li><div class="ds-head"><h3>A clear, confident decision about your path,</h3></div><p>grounded in a deeper understanding of yourselves and your marriage or relationship.</p></li>
+      <li><div class="ds-head"><h3>Your own agenda for change, if you choose couples therapy</h3></div><p>(path three): the specific patterns each of you commits to working on, so the six months start with focus instead of blame.</p></li>
+    </ul>
+  </section>
+  </div>
+
+  <!-- 7. What happens in a session -->
+  <section class="section bg-white">
+    <div class="wrap session">
+      <div>
+        <h2>What happens in a session</h2>
+        <p class="session-lead">Each session follows the same five steps:</p>
+        <p>This structure exists because you are starting from different places. Most of the work happens one-to-one, and the sharing is short and guided, so no one has to argue their case or relive old fights. Each session moves you toward clarity and confidence about the direction of your relationship.</p>
+      </div>
+      <ol class="session-steps">
+        {sessionSteps.map((s) => <li>{s}</li>)}
+      </ol>
+    </div>
+  </section>
+
+  <!-- 8. Not the right fit + partner not ready -->
+  <section class="section bg-stone">
+    <div class="wrap">
+      <div class="fit">
+        <h2 class="green-h">When discernment counselling isn’t the right fit</h2>
+        <div>
+          <ul class="nofit">{notFit.map((t) => <li set:html={t} />)}</ul>
+          <p class="fit-note">The phone screening is where these are checked. This is not a crisis service; if anyone is in immediate danger, contact local emergency services.</p>
+        </div>
+      </div>
+      <div class="ready">
+        <h3>If your partner isn’t ready…</h3>
+        <div>
+          <p>This process needs both of you. If your partner won’t come, the work can shift to you on your own, through an IFS Individual Intensive.</p>
+          <a href="/ifs-therapy-intensive/" class="btn btn-light">Check out IFS Therapy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. How to begin, sessions and fees -->
+  <Programmes
+    eyebrow="How to begin, sessions and fees"
+    title="Three steps. <em>One session at a time.</em>"
+    intro="Start with a Free Consultation, then a short phone screening with each of you. The screening decides whether we go forward, and whether this process is a good fit."
+    programmes={programme}
+    accent="green"
+  >
+    <aside class="bali">
+      <div>
+        <span class="eyebrow">Prefer to step away from daily life?</span>
+        <h3>Take the work to Bali.</h3>
+        <p>Some couples would rather do this work away from home, over a few concentrated days. Shabnam offers a three to five day Couple Discernment Intensive in Bali.</p>
+      </div>
+      <a href="https://thetherapyintensive.com/" class="bali-link" target="_blank" rel="noopener">See the Couple Discernment Intensive <span aria-hidden="true">→</span></a>
+    </aside>
+  </Programmes>
+
+  <!-- 9. Working with Shabnam -->
+  <section class="section glow">
+    <div class="wrap work">
+      <Image src={shabnam} alt="Shabnam Lee, licensed counsellor" class="work-img" widths={[400, 600]} sizes="(min-width: 860px) 400px, 92vw" />
+      <div>
+        <h2>Working with Shabnam</h2>
+        <p>Shabnam spent close to two decades in corporate life before training as a therapist, and works with couples and high-achieving individuals in Jakarta and online. In discernment counselling, her role is to help each of you understand what has happened to your relationship and your own part in it, so the partner leaning out can reach a decision they can stand behind, and the partner leaning in can meet this moment as their best self.</p>
+        <p>If you choose path three, you can continue with Shabnam in <a href="/couple-therapy/">couple therapy</a>, using Relational Life Therapy (RLT), Internal Family Systems (IFS) and Gottman, or be referred to another couples therapist.</p>
+        <p class="creds">Trained in Discernment Counselling · IFS Level 3 · RLT · Gottman Levels 1 and 2 · Brainspotting · ACA</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FAQ -->
+  <Faq tone="cream" items={faq} />
+
+  <!-- 11. Start with a conversation -->
+  <section class="section-sm bg-cream end-cta">
+    <div class="wrap">
+      <div class="end-inner">
+        <h2>Book a Free Consultation with Shabnam</h2>
+        <p>She’ll explain how discernment counselling works and whether it fits where the two of you are.</p>
+        <a href={SITE.book} class="btn btn-primary">Book Free Consultation</a>
+        <p class="small">A free 15-minute conversation. No commitment, no pressure.</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // The panel underneath gently dims as the next one glides over it (no scaling, so no edges show).
+  const stack = document.querySelector<HTMLElement>('.ds-stack');
+  const panels = stack ? [...stack.querySelectorAll<HTMLElement>('.ds-split')] : [];
+  const mq = matchMedia('(min-width: 900px) and (min-height: 720px)');
+  const calm = matchMedia('(prefers-reduced-motion: reduce)');
+  const update = () => {
+    if (panels.length < 2) return;
+    const [under, over] = panels;
+    if (!mq.matches || calm.matches) { under.style.filter = ''; return; }
+    const stop = parseFloat(getComputedStyle(over).top) || 58;
+    const p = Math.min(1, Math.max(0, 1 - (over.getBoundingClientRect().top - stop) / under.offsetHeight));
+    under.style.filter = `brightness(${1 - 0.3 * p})`;
+  };
+  addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
+</script>
+
+<style>
+  :global(mark) { background: #f3e6c8; color: inherit; padding: 0 4px; border-radius: 3px; }
+  .green-h { color: var(--green); }
+  .center { text-align: center; }
+
+  /* 1. Hero */
+  .d-hero { position: relative; isolation: isolate; display: flex; align-items: center; min-height: clamp(560px, 92svh, 860px); background: #11140f; color: var(--white); overflow: hidden; }
+  .d-hero :global(.d-hero-bg) { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+  .d-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: rgba(0, 0, 0, 0.32); }
+  .d-hero-inner { max-width: 760px; margin-inline: auto; text-align: center; padding-block: clamp(80px, 10vw, 120px); }
+  .d-hero-kicker { font-size: 1.05rem; margin: 0 0 0.6em; color: rgba(255, 255, 255, 0.92); }
+  .d-hero h1 { color: var(--white); font-size: clamp(2.4rem, 4.6vw, 3.9rem); line-height: 1.12; margin: 0 auto 0.9em; max-width: 11em; }
+  .d-hero-text { font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.45; max-width: 600px; margin: 0 auto 2.4em; color: var(--white); text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3); }
+  .btn-tan { background: var(--tan); color: var(--white); }
+  .btn-tan:hover { background: var(--tan-dark); }
+
+  /* 2. Leaning out / in */
+  .lean { display: grid; gap: 30px; max-width: 900px; margin: 0 auto; }
+  @media (min-width: 760px) { .lean { grid-template-columns: 1fr 1fr; } }
+  .lean-card { background: var(--green); color: rgba(255, 255, 255, 0.92); border-radius: 12px; padding: clamp(28px, 3vw, 40px) clamp(24px, 3vw, 30px); box-shadow: var(--shadow); }
+  .lean-card h3 { color: var(--white); text-align: center; font-size: clamp(1.5rem, 2.2vw, 1.85rem); margin-bottom: 0.7em; }
+  .lean-card p { font-size: 0.95rem; margin: 0; }
+  @media (min-width: 760px) { .lean-card p { text-align: justify; } }
+  .married { text-align: center; margin: 36px auto 0; color: var(--ink); }
+
+  /* 3. What is it */
+  .what-wrap { max-width: 1040px; }
+  .what { display: grid; gap: 32px; align-items: center; margin-top: clamp(28px, 4vw, 48px); }
+  @media (min-width: 860px) { .what { grid-template-columns: 1fr 1fr; gap: 56px; } }
+  .what-lead { font-family: var(--serif); font-size: clamp(1.35rem, 2vw, 1.6rem); line-height: 1.35; color: var(--ink); margin-bottom: 0.8em; }
+  .what-text p:last-child { color: var(--text); }
+  .goal { position: relative; margin: 0; padding: clamp(30px, 3.5vw, 40px) clamp(26px, 3vw, 40px); background: var(--white); border-radius: 14px; box-shadow: var(--shadow); }
+  .goal p { position: relative; font-family: var(--serif); font-style: italic; font-size: clamp(1.1rem, 1.5vw, 1.25rem); line-height: 1.5; color: var(--ink); margin: 0 0 1.2em; }
+  .goal-label { color: var(--green); }
+  .goal cite { display: block; font-style: normal; font-size: 0.92rem; color: var(--muted); }
+  .structure { margin: clamp(40px, 5vw, 56px) 0 0; padding: clamp(28px, 3.5vw, 40px) clamp(26px, 4vw, 56px); border-radius: 14px; background: var(--green); color: var(--white); font-family: var(--serif); font-size: clamp(1.2rem, 1.8vw, 1.45rem); line-height: 1.45; text-align: center; }
+  .video { max-width: 540px; margin: 56px auto 0; }
+  .video figcaption { text-align: center; margin-top: 22px; color: var(--ink); }
+  .featured { margin-top: 64px; text-align: center; }
+  .featured :global(img) { width: 100%; max-width: 760px; height: auto; margin: 4px auto 0; }
+
+  /* 4. Table (same style as /how-i-work/) */
+  .fits-head { max-width: 1000px; }
+  @media (min-width: 1000px) { .fits-head h2 { white-space: nowrap; } }
+  .fits-head p { max-width: 760px; margin-inline: auto; }
+  .table-wrap { max-width: 900px; margin-inline: auto; }
+  .compare { width: 100%; border-collapse: collapse; font-size: 0.85rem; color: var(--text); }
+  .compare th, .compare td { padding: 20px 20px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  .compare thead th { font-weight: 600; font-size: 1rem; color: var(--ink); }
+  .compare tbody th { font-weight: 600; font-size: 1rem; color: var(--ink); width: 24%; }
+  .compare tbody .hl { background: #efebe6; }
+  @media (max-width: 720px) {
+    .compare thead { display: none; }
+    .compare, .compare tbody, .compare tr, .compare th, .compare td { display: block; width: 100%; }
+    .compare tr { border-bottom: 1px solid var(--line); }
+    .compare tbody th { padding-bottom: 8px; border: 0; width: auto; }
+    .compare td { border: 0; padding-top: 10px; }
+    .compare td::before { content: attr(data-label); display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  }
+
+  /* 5. Paths and leave-with as two rounded split cards that stack as you scroll */
+  .ds-stack { background: #f3f0eb; padding: clamp(56px, 7vw, 88px) var(--gutter); display: grid; gap: 24px; }
+  .ds-split { display: grid; width: 100%; max-width: 1180px; margin-inline: auto; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); }
+  @media (min-width: 900px) { .ds-split { grid-template-columns: 0.9fr 1.1fr; } }
+  .ds-left { display: flex; background: var(--green); color: rgba(255, 255, 255, 0.88); }
+  .ds-left-inner { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: clamp(44px, 6vw, 64px) clamp(24px, 4vw, 56px); }
+  .ds-left h2 { color: var(--white); font-size: clamp(2.1rem, 3.6vw, 3rem); line-height: 1.08; margin: 0; }
+  .ds-left p { max-width: 380px; margin: 1em 0 0; font-size: 1rem; }
+  .ds-right { list-style: none; margin: 0; padding: clamp(40px, 5vw, 60px) clamp(24px, 5vw, 64px); background: var(--white); display: flex; flex-direction: column; justify-content: center; gap: clamp(26px, 3vw, 36px); }
+  /* Scroll stack (desktop): the first card pins below the menu and the second slides up over it. */
+  @media (min-width: 900px) and (min-height: 720px) {
+    .ds-stack { gap: min(28vh, 260px); }
+    /* Same height for both cards, so the top card fully covers the one underneath (only its top edge peeks out). */
+    .ds-stack .ds-split { position: sticky; top: calc(58px + min(7vh, 64px)); min-height: 470px; will-change: filter; }
+    .ds-stack .ds-split + .ds-split { box-shadow: 0 -16px 50px rgba(30, 34, 30, 0.2); }
+  }
+  /* Numbers sit in their own column, so every title and its description share one left edge. */
+  .ds-steps li { display: grid; grid-template-columns: auto 1fr; column-gap: 18px; align-items: baseline; }
+  .ds-steps li:not(:has(.ds-n)) { grid-template-columns: 1fr; }
+  .ds-head { display: contents; }
+  .ds-steps li > p { grid-column: -2 / -1; margin-top: 10px; }
+  .ds-n { font-size: 0.85rem; letter-spacing: 0.08em; color: var(--tan-dark); flex: none; }
+  .ds-right h3 { margin: 0; font-size: clamp(1.45rem, 2.1vw, 1.85rem); line-height: 1.15; color: var(--ink); }
+  .ds-right p { margin: 0; max-width: 520px; font-size: 1rem; line-height: 1.6; color: var(--text); }
+  /* 6. Bali box under the programme card */
+  .bali { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px; margin-top: 30px; padding: clamp(26px, 3vw, 38px) clamp(24px, 3vw, 34px); border-radius: 12px; background: #c8cdc7; }
+  .bali h3 { margin-bottom: 0.5em; }
+  .bali p { max-width: 400px; margin: 0; }
+  /* Same size and style as the card's "Book a consult →" link, at every screen width. */
+  .bali-link { font-size: 0.82rem; color: var(--ink); text-underline-offset: 4px; white-space: nowrap; }
+  .bali-link span { display: inline-block; margin-left: 4px; }
+
+  /* 7. Session */
+  .session { display: grid; gap: 40px; align-items: start; color: var(--text); }
+  @media (min-width: 860px) { .session { grid-template-columns: 1fr 1fr; gap: 80px; } }
+  .session h2 { color: var(--ink); margin-bottom: 0.3em; }
+  .session-lead { color: var(--ink); }
+  .session-steps li::marker { color: var(--tan-dark); font-family: var(--serif); }
+  .session-lead { margin-bottom: 1.6em; }
+  .session-steps { margin: 0; padding-left: 1.3em; display: grid; gap: 22px; }
+  .session-steps li { padding-left: 4px; }
+
+  /* 8. Not the right fit */
+  .fit { display: grid; gap: 32px; align-items: start; max-width: 1000px; margin: 0 auto; }
+  @media (min-width: 860px) { .fit { grid-template-columns: 1fr 1fr; gap: 80px; } .fit h2 { position: sticky; top: 120px; padding-top: 30px; } }
+  .nofit { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; }
+  .nofit li { background: var(--paper); border-radius: 12px; padding: 30px 30px; box-shadow: var(--shadow); color: var(--text); font-size: 0.95rem; }
+  .fit-note { margin: 34px 0 0; font-size: 0.95rem; color: var(--text); }
+  .ready { display: grid; gap: 20px 60px; align-items: center; max-width: 1000px; margin: clamp(40px, 5vw, 56px) auto 0; padding: clamp(32px, 4vw, 44px) clamp(28px, 5vw, 56px); border-radius: 12px; background: var(--green); color: rgba(255, 255, 255, 0.9); }
+  /* Same two equal columns and 80px gap as .fit above, so the text lines up with the cards. */
+  @media (min-width: 860px) { .ready { grid-template-columns: 1fr 1fr; column-gap: 80px; } }
+  .ready h3 { color: var(--white); font-size: clamp(1.6rem, 2.6vw, 2.1rem); margin: 0; }
+  .ready p { margin: 0 0 18px; }
+
+  /* 9. Working with Shabnam */
+  .work { display: grid; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto; }
+  @media (min-width: 860px) { .work { grid-template-columns: 400px 1fr; gap: 76px; } }
+  .work :global(.work-img) { width: 100%; max-width: 400px; aspect-ratio: 3 / 4.25; object-fit: cover; border-radius: 14px; }
+  .work h2 { margin-bottom: 0.6em; }
+  .work p { color: var(--ink); }
+  .creds { font-size: 0.9rem; color: var(--muted) !important; margin-top: 1.6em; }
+
+  /* 11. Final call to action */
+  .end-cta { padding-top: 0; }
+  .end-inner { border-top: 1px solid var(--line); padding-top: clamp(48px, 6vw, 64px); text-align: center; }
+  .end-inner h2 { color: var(--ink); }
+  .end-inner p { max-width: 440px; margin: 0 auto 1.6em; font-size: 1.05rem; }
+  .end-inner .small { margin: 1.6em auto 0; font-size: 0.9rem; }
+</style>

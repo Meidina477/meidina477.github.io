@@ -13,7 +13,7 @@ if (root.classList.contains('motion')) {
     '.quotes', '.posts', '.books', '.pods', '.for-you', '.os-grid', '.session-steps', '.research',
     '.client-photos', '.creds', '.services', '.reasons', '.quals', '.shifts dl', '.cs', '.pills',
     '.certs ul', '.clients', '.res-list .wrap', '.plain', '.signs', '.faq', '.self', '.include ul',
-    '.qcards', '.ocards', '.stats', '.lsteps',
+    '.qcards', '.ocards', '.stats', '.lsteps', '.ds-steps',
   ].join(',');
 
   const targets: HTMLElement[] = [];
@@ -70,7 +70,7 @@ if (root.classList.contains('motion')) {
   check();
 
   // Parallax on the full-bleed photo heroes.
-  const heroImg = document.querySelector<HTMLElement>('.photo-hero .bg');
+  const heroImg = document.querySelector<HTMLElement>('.photo-hero .bg, .d-hero-bg');
   if (heroImg) {
     let ticking = false;
     const update = () => {

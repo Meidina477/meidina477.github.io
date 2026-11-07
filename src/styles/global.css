@@ -298,7 +298,7 @@ main .card :is(p, li, dd) a:not(.btn):not(.link-underline) { color: var(--green)
 .motion [data-rv].rv-in { opacity: 1; transform: none; }
 
 /* Photo heroes: the photo settles in and the text rises after it. */
-.motion .photo-hero .bg { transform: scale(1.06); animation: hero-settle 1.8s var(--ease-out) backwards; will-change: transform; }
+.motion :is(.photo-hero .bg, .d-hero-bg) { transform: scale(1.06); animation: hero-settle 1.8s var(--ease-out) backwards; will-change: transform; }
 .motion .photo-hero :is(.lower, .side) { animation: rise-in 1s var(--ease-out) 0.45s both; }
 .motion .photo-hero .top > * { animation: rise-in 1s var(--ease-out) both; }
 .motion .photo-hero .top > *:nth-child(2) { animation-delay: 0.12s; }

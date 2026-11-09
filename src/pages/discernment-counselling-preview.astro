@@ -117,16 +117,18 @@ const jsonLd = {
           <p class="what-lead">Discernment counselling helps couples where one partner wants to leave and the other wants to stay.</p>
           <p>Developed by William Doherty and Steven Harris at the University of Minnesota. Also spelled discernment counseling.</p>
         </div>
+        <figure class="video">
+          <YouTube id="egLNQ0o_DsQ" title="Bill Doherty explains discernment counselling" />
+          <figcaption>Bill Doherty, who developed discernment counselling, on what the process is for.</figcaption>
+        </figure>
+      </div>
+      <div class="bento">
         <blockquote class="goal">
           <p><span class="goal-label">The goal of Discernment Counselling is:</span> To help couples gain clarity and confidence about the direction of their marriage, based on a deeper understanding of what’s happened to their marriage and each person’s contributions to the problems.</p>
           <cite>(Doherty Relationship Institute)</cite>
         </blockquote>
+        <p class="structure">Shabnam is trained in Discernment Counselling. Up to five sessions, mostly one-to-one, and each of you decides after every session whether to continue.</p>
       </div>
-      <p class="structure">Shabnam is trained in Discernment Counselling. Up to five sessions, mostly one-to-one, and each of you decides after every session whether to continue.</p>
-      <figure class="video">
-        <YouTube id="egLNQ0o_DsQ" title="Bill Doherty explains discernment counselling" />
-        <figcaption>Bill Doherty, who developed discernment counselling, on what the process is for.</figcaption>
-      </figure>
       <div class="featured">
         <p class="eyebrow">Discernment counselling has been featured in</p>
         <Image src={featured} alt="ELLE, The Huffington Post, Psychotherapy Networker, TODAY and The Wall Street Journal" widths={[860]} />
@@ -311,18 +313,25 @@ const jsonLd = {
 
   /* 3. What is it */
   .what-wrap { max-width: 1040px; }
-  .what { display: grid; gap: 32px; align-items: center; margin-top: clamp(28px, 4vw, 48px); }
-  @media (min-width: 860px) { .what { grid-template-columns: 1fr 1fr; gap: 56px; } }
-  .what-lead { font-family: var(--serif); font-size: clamp(1.35rem, 2vw, 1.6rem); line-height: 1.35; color: var(--ink); margin-bottom: 0.8em; }
-  .what-text p:last-child { color: var(--text); }
-  .goal { position: relative; margin: 0; padding: clamp(30px, 3.5vw, 40px) clamp(26px, 3vw, 40px); background: var(--white); border-radius: 14px; box-shadow: var(--shadow); }
-  .goal p { position: relative; font-family: var(--serif); font-style: italic; font-size: clamp(1.1rem, 1.5vw, 1.25rem); line-height: 1.5; color: var(--ink); margin: 0 0 1.2em; }
+  .what { display: grid; gap: 36px; align-items: center; margin-top: clamp(32px, 4.5vw, 56px); }
+  @media (min-width: 860px) { .what { grid-template-columns: 1.05fr 1fr; gap: clamp(48px, 6vw, 80px); } }
+  .what-text { position: relative; padding-top: 26px; }
+  .what-text::before { content: ""; position: absolute; top: 0; left: 0; width: 48px; height: 2px; background: var(--green); }
+  .what-lead { font-family: var(--serif); font-size: clamp(1.6rem, 2.6vw, 2.15rem); line-height: 1.22; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 0.9em; }
+  .what-text p:last-child { color: var(--text); max-width: 44ch; }
+  .video { margin: 0; }
+  .video > :global(*:first-child) { border-radius: 16px; overflow: hidden; box-shadow: 0 18px 40px -18px rgba(40, 46, 40, 0.45); }
+  .video figcaption { margin-top: 14px; font-size: 0.92rem; color: var(--muted); }
+  .bento { display: grid; gap: 20px; margin-top: clamp(40px, 5vw, 64px); }
+  @media (min-width: 860px) { .bento { grid-template-columns: 1.45fr 1fr; } .structure { min-height: 240px; } }
+  .goal { position: relative; margin: 0; padding: clamp(30px, 3.5vw, 44px); background: var(--white); border-radius: 20px; box-shadow: var(--shadow); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+  .goal::before { content: ""; position: absolute; left: 0; top: clamp(30px, 3.5vw, 44px); bottom: clamp(30px, 3.5vw, 44px); width: 3px; border-radius: 0 3px 3px 0; background: var(--green); }
+  .goal p { font-family: var(--serif); font-style: italic; font-size: clamp(1.15rem, 1.6vw, 1.32rem); line-height: 1.5; color: var(--ink); margin: 0 0 1.4em; }
   .goal-label { color: var(--green); }
-  .goal cite { display: block; font-style: normal; font-size: 0.92rem; color: var(--muted); }
-  .structure { margin: clamp(40px, 5vw, 56px) 0 0; padding: clamp(28px, 3.5vw, 40px) clamp(26px, 4vw, 56px); border-radius: 14px; background: var(--green); color: var(--white); font-family: var(--serif); font-size: clamp(1.2rem, 1.8vw, 1.45rem); line-height: 1.45; text-align: center; }
-  .video { max-width: 540px; margin: 56px auto 0; }
-  .video figcaption { text-align: center; margin-top: 22px; color: var(--ink); }
-  .featured { margin-top: 64px; text-align: center; }
+  .goal cite { display: block; font-style: normal; font-size: 0.9rem; color: var(--muted); }
+  .structure { position: relative; margin: 0; padding: clamp(30px, 3.5vw, 44px); border-radius: 20px; overflow: hidden; color: var(--white); font-family: var(--serif); font-size: clamp(1.25rem, 1.9vw, 1.55rem); line-height: 1.38; display: flex; align-items: flex-end;
+    background: radial-gradient(120% 90% at 100% 0%, rgba(255, 255, 255, 0.14), transparent 55%), var(--green); }
+  .featured { margin-top: clamp(48px, 6vw, 72px); padding-top: clamp(28px, 3.5vw, 40px); border-top: 1px solid rgba(40, 46, 40, 0.12); text-align: center; }
   .featured :global(img) { width: 100%; max-width: 760px; height: auto; margin: 4px auto 0; }
 
   /* 4. Table (same style as /how-i-work/) */

@@ -8,7 +8,7 @@ export default defineConfig({
   site: 'https://shabnamlee.com',
   trailingSlash: 'always',
   build: { format: 'directory', inlineStylesheets: 'always' },
-  integrations: [sitemap({ filter: (page) => !['/thank-you/', '/terms/', '/disclaimer/', '/discernment-counselling-preview/'].some((p) => page.includes(p)) }), headingBreaks()],
+  integrations: [sitemap({ filter: (page) => !['/thank-you/', '/terms/', '/disclaimer/'].some((p) => page.includes(p)) }), headingBreaks()],
   image: { responsiveStyles: true },
   // Old WordPress URLs → new pages (see src/data/redirects.ts).
   redirects: REDIRECTS,

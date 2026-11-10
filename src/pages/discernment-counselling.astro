@@ -1,6 +1,5 @@
 ---
-// HIDDEN PREVIEW for Shabnam's approval: not in the menu, noindex, not in the sitemap.
-// Final address once approved: /discernment-counselling/ (currently the blog post).
+// Discernment Counselling service page (approved by Shabnam 2026-11-10). The related blog post lives at /my-partner-wants-a-divorce/.
 // Built to Mei's design in "discernment page/" (desktop), adapted for phones.
 import Base from '../layouts/Base.astro';
 import { Image } from 'astro:assets';
@@ -54,11 +53,10 @@ const faq = [
   { q: 'Is the screening fee refundable?', a: 'No. It covers two 30-minute calls and applies whatever the outcome.' },
   { q: 'What if we want to stop early?', a: 'Either of you can stop after any session. You only pay for the sessions you attend.' },
   { q: 'Can we do this online?', a: 'Yes, from the same place or different ones, as long as each of you has privacy for your one-to-one time. Sessions are not recorded.' },
-  { q: 'Are our one-to-one conversations private?', a: '<mark>[Your secrets policy in one or two sentences.]</mark> Confidentiality has limits where there is a risk of serious harm.' },
+  // Held back until Shabnam supplies the wording: 'Are our one-to-one conversations private?' (secrets policy) and 'What if we need to reschedule?' (notice period).
   { q: 'How do payment and booking work?', a: 'Bank transfer or credit card, due within one week of the invoice date. Sessions are booked at least two days ahead and used within six months of the invoice date.' },
-  { q: 'What if we need to reschedule?', a: '<mark>[Your rescheduling notice for sessions.]</mark> A missed session without notice is forfeited and the full fee applies.' },
   { q: 'Is discernment counselling evidence-based?', a: 'It is a clearly defined protocol with a small research base. Doherty’s published outcome data follows 100 couples; around half chose to try couples therapy.' },
-  { q: 'Can we do this in Bali instead?', a: 'Yes, through the Couple Discernment Intensive, three to five days. <a href="https://thetherapyintensive.com/" target="_blank" rel="noopener">See the Couple Discernment Intensive</a>.' },
+  { q: 'Can we do this in Bali instead?', a: 'Yes, through the Couple Discernment Intensive, three to five days. <a href="https://thetherapyintensive.com/discernment-retreat-bali/" target="_blank" rel="noopener">See the Couple Discernment Intensive</a>.' },
 ];
 
 const jsonLd = {
@@ -75,7 +73,7 @@ const jsonLd = {
   ],
 };
 ---
-<Base title={title} description={description} jsonLd={jsonLd} noindex>
+<Base title={title} description={description} jsonLd={jsonLd}>
   <!-- 1. Hero -->
   <section class="d-hero" data-no-reveal>
     <Image src={hero} alt="Two people in silhouette standing apart by a window" class="d-hero-bg" widths={[960, 1600, 2600]} sizes="100vw" loading="eager" fetchpriority="high" />
@@ -234,7 +232,7 @@ const jsonLd = {
         <h3>Take the work to Bali.</h3>
         <p>Some couples would rather do this work away from home, over a few concentrated days. Shabnam offers a three to five day Couple Discernment Intensive in Bali.</p>
       </div>
-      <a href="https://thetherapyintensive.com/" class="bali-link" target="_blank" rel="noopener">See the Couple Discernment Intensive <span aria-hidden="true">→</span></a>
+      <a href="https://thetherapyintensive.com/discernment-retreat-bali/" class="bali-link" target="_blank" rel="noopener">See the Couple Discernment Intensive <span aria-hidden="true">→</span></a>
     </aside>
   </Programmes>
 

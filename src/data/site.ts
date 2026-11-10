@@ -27,6 +27,7 @@ export const NAV: NavItem[] = [
     children: [
       { label: 'Individual Therapy', href: '/individual-therapy/' },
       { label: 'Couple Therapy', href: '/couple-therapy/' },
+      { label: 'Discernment Counselling', href: '/discernment-counselling/' },
       { label: 'High Achieving Mothers', href: '/high-achieving-mothers/' },
       { label: 'Retreats', href: '/retreats/' },
       { label: 'Corporate Wellness', href: '/corporate-wellness/' },

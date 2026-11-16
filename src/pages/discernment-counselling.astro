@@ -320,6 +320,8 @@ const jsonLd = {
   .lean-card { background: var(--green); color: rgba(255, 255, 255, 0.92); border-radius: 12px; padding: clamp(28px, 3vw, 40px) clamp(24px, 3vw, 30px); box-shadow: var(--shadow); }
   .lean-card h3 { color: var(--white); text-align: center; font-size: clamp(1.5rem, 2.2vw, 1.85rem); margin-bottom: 0.7em; }
   .lean-card p { font-size: 0.95rem; margin: 0; }
+  /* In-text links are green site-wide, which disappears on this green card, so they take the card's white text. */
+  .lean-card p a { color: inherit; text-underline-offset: 3px; }
   @media (min-width: 760px) { .lean-card p { text-align: justify; } }
   .married { text-align: center; margin: 36px auto 0; color: var(--ink); }
 

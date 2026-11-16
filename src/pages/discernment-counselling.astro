@@ -55,7 +55,7 @@ const faq = [
   // Held back until Shabnam supplies the wording: 'Are our one-to-one conversations private?' (secrets policy) and 'What if we need to reschedule?' (notice period).
   { q: 'How do payment and booking work?', a: 'Bank transfer or credit card, due within one week of the invoice date. Sessions are booked at least two days ahead and used within six months of the invoice date.' },
   { q: 'Is discernment counselling evidence-based?', a: 'It is a clearly defined protocol with a small research base. Doherty’s published outcome data follows 100 couples; around half chose to try couples therapy.' },
-  { q: 'Can we do this in Bali instead?', a: 'Yes, through the Couple Discernment Intensive, three to five days. <a href="https://thetherapyintensive.com/discernment-retreat-bali/" target="_blank" rel="noopener">See the Couple Discernment Intensive</a>.' },
+  { q: 'Can we do this in Bali instead?', a: 'Yes, through the Couple Discernment Intensive, three to five days. <a href="https://thetherapyintensive.com/discernment-intensive/" target="_blank" rel="noopener">See the Couple Discernment Intensive</a>.' },
 ];
 
 const jsonLd = {
@@ -63,7 +63,22 @@ const jsonLd = {
   '@type': 'Service',
   name: 'Discernment counselling',
   serviceType: 'Discernment counselling',
-  provider: { '@type': 'Person', name: 'Shabnam Lee', url: `${SITE.url}/about/` },
+  // This page passes its own schema, which replaces the site-wide business record, so the business is named here with the same @id.
+  provider: {
+    '@type': 'MedicalBusiness',
+    '@id': `${SITE.url}/#business`,
+    name: SITE.title,
+    url: SITE.url,
+    telephone: '+62 877 7231 0257',
+    email: SITE.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Green Simprug Coworking Space',
+      addressLocality: 'Kebayoran Lama, Jakarta Selatan',
+      addressCountry: 'ID',
+    },
+    founder: { '@type': 'Person', name: 'Shabnam Lee', jobTitle: 'Registered Counsellor', url: `${SITE.url}/about/` },
+  },
   areaServed: [{ '@type': 'City', name: 'Jakarta' }, 'Online'],
   url: `${SITE.url}/discernment-counselling/`,
   offers: [
@@ -77,8 +92,8 @@ const jsonLd = {
   <section class="d-hero" data-no-reveal>
     <Image src={hero} alt="Two people in silhouette standing apart by a window" class="d-hero-bg" widths={[960, 1600, 2600]} sizes="100vw" loading="eager" fetchpriority="high" />
     <div class="wrap d-hero-inner">
-      <p class="d-hero-kicker">Discernment Counselling in Jakarta and online</p>
-      <h1>When one of you is ready to leave and the other still wants to try.</h1>
+      <h1 class="d-hero-kicker">Discernment Counselling in Jakarta and online</h1>
+      <p class="d-hero-title serif">When one of you is ready to leave and the other still wants to try.</p>
       <p class="d-hero-text">A short, structured process for couples who can’t agree on whether to keep trying. In one to five sessions, you’ll know which way you’re going and why.</p>
       <a href={SITE.book} class="btn btn-tan">Book Free Consultation</a>
     </div>
@@ -98,7 +113,7 @@ const jsonLd = {
         </div>
         <div class="lean-card">
           <h3>If you’re the one leaning in…</h3>
-          <p>you may feel frightened and desperate to fix things. It helps you steady yourself, see the pattern more clearly, and stop the efforts that are pushing your partner further away.</p>
+          <p>you may feel <a href="/my-partner-wants-a-divorce/">frightened and desperate to fix things</a>. It helps you steady yourself, see the pattern more clearly, and stop the efforts that are pushing your partner further away.</p>
         </div>
       </div>
       <p class="married">Married or not, this is for any couple whose commitment to each other is now in question.</p>
@@ -139,7 +154,7 @@ const jsonLd = {
       <div class="section-head center fits-head">
         <span class="eyebrow">Which one fits</span>
         <h2>Discernment counselling or marriage counselling?</h2>
-        <p>Marriage counselling works when both of you want to rebuild. When one of you is halfway out of the door, it often stalls: one partner pushes, the other withdraws, and both decide therapy doesn’t work. Discernment counselling is built for that exact moment. It asks each of you to look at your own part, rather than asking you to repair the relationship together before you know you want to.</p>
+        <p><a href="/marriage-counseling-jakarta/">Marriage counselling</a> works when both of you want to rebuild. When one of you is halfway out of the door, it often stalls: one partner pushes, the other withdraws, and both decide therapy doesn’t work. Discernment counselling is built for that exact moment. It asks each of you to look at your own part, rather than asking you to repair the relationship together before you know you want to.</p>
       </div>
       <div class="table-wrap">
         <table class="compare">
@@ -231,14 +246,14 @@ const jsonLd = {
         <h3>Take the work to Bali.</h3>
         <p>Some couples would rather do this work away from home, over a few concentrated days. Shabnam offers a three to five day Couple Discernment Intensive in Bali.</p>
       </div>
-      <a href="https://thetherapyintensive.com/discernment-retreat-bali/" class="bali-link" target="_blank" rel="noopener">See the Couple Discernment Intensive <span aria-hidden="true">→</span></a>
+      <a href="https://thetherapyintensive.com/discernment-intensive/" class="bali-link" target="_blank" rel="noopener">See the Couple Discernment Intensive <span aria-hidden="true">→</span></a>
     </aside>
   </Programmes>
 
   <!-- 9. Working with Shabnam -->
   <section class="section glow">
     <div class="wrap work">
-      <Image src={shabnam} alt="Shabnam Lee, licensed counsellor" class="work-img" widths={[400, 600]} sizes="(min-width: 860px) 400px, 92vw" />
+      <Image src={shabnam} alt="Shabnam Lee, registered counsellor" class="work-img" widths={[400, 600]} sizes="(min-width: 860px) 400px, 92vw" />
       <div>
         <h2>Working with Shabnam</h2>
         <p>Shabnam spent close to two decades in corporate life before training as a therapist, and works with couples and high-achieving individuals in Jakarta and online. In discernment counselling, her role is to help each of you understand what has happened to your relationship and your own part in it, so the partner leaning out can reach a decision they can stand behind, and the partner leaning in can meet this moment as their best self.</p>
@@ -293,8 +308,8 @@ const jsonLd = {
   .d-hero :global(.d-hero-bg) { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
   .d-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: rgba(0, 0, 0, 0.32); }
   .d-hero-inner { max-width: 760px; margin-inline: auto; text-align: center; padding-block: clamp(80px, 10vw, 120px); }
-  .d-hero-kicker { font-size: 1.05rem; margin: 0 0 0.6em; color: rgba(255, 255, 255, 0.92); }
-  .d-hero h1 { color: var(--white); font-size: clamp(2.4rem, 4.6vw, 3.9rem); line-height: 1.12; margin: 0 auto 0.9em; max-width: 11em; }
+  .d-hero-kicker { font-family: var(--sans); font-size: 1.05rem; line-height: 1.6; letter-spacing: normal; text-wrap: wrap; margin: 0 0 0.6em; color: rgba(255, 255, 255, 0.92); }
+  .d-hero-title { color: var(--white); font-size: clamp(2.4rem, 4.6vw, 3.9rem); line-height: 1.12; margin: 0 auto 0.9em; max-width: 11em; }
   .d-hero-text { font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.45; max-width: 600px; margin: 0 auto 2.4em; color: var(--white); text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3); }
   .btn-tan { background: var(--tan); color: var(--white); }
   .btn-tan:hover { background: var(--tan-dark); }
